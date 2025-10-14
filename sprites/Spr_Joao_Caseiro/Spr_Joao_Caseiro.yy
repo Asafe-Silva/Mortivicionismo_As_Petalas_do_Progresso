@@ -35,8 +35,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"easter_eggs",
+    "path":"folders/Sprites/easter_eggs.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

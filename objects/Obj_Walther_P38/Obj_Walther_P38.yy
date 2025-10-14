@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_Walther_P38",
-    "path":"sprites/Spr_Walther_P38/Spr_Walther_P38.yy",
+    "name":"Spr_walther_p38",
+    "path":"sprites/Spr_walther_p38/Spr_walther_p38.yy",
   },
   "spriteMaskId":null,
   "visible":true,

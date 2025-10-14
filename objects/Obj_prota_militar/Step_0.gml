@@ -45,10 +45,10 @@ else if (move_y != 0) {
 
 // ====== Colisão horizontal (com proteção) ======
 if (hsp != 0) {
-    if (place_meeting(x + hsp, y, Obj_parede)) {
+    if (place_meeting(x + hsp, y, Obj_colisor)) {
         // Move "pixel a pixel" até encostar (cuidado com loops infinitos -> limite)
         var safety = 0;
-        while (!place_meeting(x + sign(hsp), y, Obj_parede) && safety < 100) {
+        while (!place_meeting(x + sign(hsp), y, Obj_colisor) && safety < 100) {
             x += sign(hsp);
             safety += 1;
         }
@@ -59,9 +59,9 @@ x += hsp;
 
 // ====== Colisão vertical (com proteção) ======
 if (vsp != 0) {
-    if (place_meeting(x, y + vsp, Obj_parede)) {
+    if (place_meeting(x, y + vsp,Obj_colisor)) {
         var safety2 = 0;
-        while (!place_meeting(x, y + sign(vsp), Obj_parede) && safety2 < 100) {
+        while (!place_meeting(x, y + sign(vsp), Obj_colisor) && safety2 < 100) {
             y += sign(vsp);
             safety2 += 1;
         }

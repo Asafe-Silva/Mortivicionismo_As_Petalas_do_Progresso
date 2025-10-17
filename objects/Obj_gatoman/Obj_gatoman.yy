@@ -1,15 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_parede",
-  "eventList":[],
+  "%Name":"Obj_gatoman",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"Obj_parede",
+  "name":"Obj_gatoman",
   "overriddenProperties":[],
   "parent":{
-    "name":"level",
-    "path":"folders/Sprites/level.yy",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_par_npcs",
+    "path":"objects/Obj_par_npcs/Obj_par_npcs.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_parede",
-    "path":"sprites/Spr_parede/Spr_parede.yy",
+    "name":"Spr_gatoman",
+    "path":"sprites/Spr_gatoman/Spr_gatoman.yy",
   },
   "spriteMaskId":null,
   "visible":true,

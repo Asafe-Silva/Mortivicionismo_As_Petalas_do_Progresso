@@ -1,3 +1,12 @@
+#region Diálogo
+if distance_to_object(Obj_par_npcs) <= 10{
+	if keyboard_check_pressed(ord("E")){
+		var _npc = instance_nearest(x,y,Obj_par_npcs);
+		var _dialogo =	instance_create_layer(x,y,"dialogo", Obj_dialogo);
+		_dialogo.npc_nome = _npc.nome;
+	}
+}
+
 // Reset flag de movimento
 movimento = 0;
 

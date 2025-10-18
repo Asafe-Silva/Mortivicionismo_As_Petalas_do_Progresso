@@ -1,13 +1,19 @@
-function scr_textos(){
-	switch npc_nome{
-		case "Gatogirl":
-			texto[0] = "Eu amo meu namorado"
-			texto[1] = "De hoje para sempre"
-			texto[2] = "Amen!";
-		break;
-		case "":
-			texto[0] = "…"
+/// scr_textos(npc_name)
+function scr_textos(npc_name) {
+    var t = []; // array local de falas
 
-		break;
-	}
+    switch (npc_name) {
+        case "Gatogirl":
+            array_push(t, "Eu amo meu namorado");
+            array_push(t, "De hoje para sempre");
+            array_push(t, "Amen!");
+            break;
+
+        default:
+            array_push(t, "…");
+            break;
+    }
+
+    return t;
 }
+

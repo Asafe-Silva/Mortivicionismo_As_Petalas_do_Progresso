@@ -52,6 +52,7 @@
     {"id":{"name":"Fnt_dialogo","path":"fonts/Fnt_dialogo/Fnt_dialogo.yy",},},
     {"id":{"name":"Nota","path":"notes/Nota/Nota.yy",},},
     {"id":{"name":"Obj_colisor","path":"objects/Obj_colisor/Obj_colisor.yy",},},
+    {"id":{"name":"Obj_controle","path":"objects/Obj_controle/Obj_controle.yy",},},
     {"id":{"name":"Obj_dialogo","path":"objects/Obj_dialogo/Obj_dialogo.yy",},},
     {"id":{"name":"Obj_gatoman","path":"objects/Obj_gatoman/Obj_gatoman.yy",},},
     {"id":{"name":"Obj_par_npcs","path":"objects/Obj_par_npcs/Obj_par_npcs.yy",},},

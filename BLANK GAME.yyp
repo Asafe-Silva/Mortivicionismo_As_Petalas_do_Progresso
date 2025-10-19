@@ -60,6 +60,7 @@
     {"id":{"name":"Obj_prota_catsene","path":"objects/Obj_prota_catsene/Obj_prota_catsene.yy",},},
     {"id":{"name":"Obj_prota_militar","path":"objects/Obj_prota_militar/Obj_prota_militar.yy",},},
     {"id":{"name":"Obj_Walther_P38","path":"objects/Obj_Walther_P38/Obj_Walther_P38.yy",},},
+    {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
     {"id":{"name":"Spr_bala_walther_p38","path":"sprites/Spr_bala_walther_p38/Spr_bala_walther_p38.yy",},},

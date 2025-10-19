@@ -1,17 +1,20 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_Walther_P38",
+  "%Name":"Object10",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_Walther_P38",
+  "name":"Object10",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
     "path":"folders/Objetos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_par_npcs",
+    "path":"objects/Obj_par_npcs/Obj_par_npcs.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_walther_p38",
-    "path":"sprites/Spr_walther_p38/Spr_walther_p38.yy",
+    "name":"Spr_Joao_Caseiro",
+    "path":"sprites/Spr_Joao_Caseiro/Spr_Joao_Caseiro.yy",
   },
   "spriteMaskId":null,
   "visible":true,

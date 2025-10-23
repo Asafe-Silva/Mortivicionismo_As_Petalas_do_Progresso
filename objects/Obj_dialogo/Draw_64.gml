@@ -7,10 +7,14 @@ if inicializar = true{
 	var _c = c_black;
 	
 	var _sprite = texto_grid[# 1, pagina];
-	if (is_undefined(_sprite)) {
-	    _sprite = spr_missing; // pode ser um sprite vazio ou padrão
+	
+	if (is_undefined(_sprite) || !sprite_exists(_sprite)) {
+	    _sprite = global.spr_missing_fallback;
 	}
-	draw_sprite_ext(_sprite, 0, _guil - 100, _guia, -3, 3, 0, c_white, 1);
+	
+	if (_sprite != -1) {
+	   draw_sprite_ext(_sprite, 0, _guil - 100, _guia, -3, 3, 0, c_white, 1);
+	}
 
 	draw_set_font(Fnt_dialogo);
 

@@ -4,26 +4,15 @@ if (!variable_global_exists("dialogo")) {
     global.dialogo = false;
 }
 
-// Cria o cooldown uma única vez (variável local do objeto)
-if (!variable_instance_exists(id, "dialogo_cooldown")) {
-    dialogo_cooldown = 0;
-}
-
-// Diminui cooldown a cada frame
-if (dialogo_cooldown > 0) {
-    dialogo_cooldown -= 1;
-}
-
 // Se estiver próximo de um NPC e o diálogo estiver livre
 if (distance_to_object(Obj_par_npcs) <= 10) {
-    if (keyboard_check_pressed(ord("E")) && !global.dialogo && dialogo_cooldown <= 0) {
+    if (keyboard_check_pressed(ord("E"))) {
         var _npc = instance_nearest(x, y, Obj_par_npcs);
         if (instance_exists(_npc)) {
             var _dialogo = instance_create_layer(x, y, "dialogo", Obj_dialogo);
             _dialogo.npc_nome = _npc.nome;
 
             global.dialogo = true;           // marca que há diálogo ativo
-            dialogo_cooldown = room_speed / 4; // evita recriar imediatamente
         }
     }
 }

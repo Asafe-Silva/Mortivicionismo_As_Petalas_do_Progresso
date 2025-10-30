@@ -6,7 +6,7 @@ function scr_textos(npc_name) {
 			ds_grid_add_text("Eu amo meu namorado", Spr_gatoman_falando, 1, "Gatogril");
 			ds_grid_add_text("De hoje para sempre", Spr_gatoman_falando, 1, "Gatogril");
 			ds_grid_add_text("Amen!", Spr_gatoman_falando, 1, "Gatogril");
-			ds_grid_add_text("'Eu acho que esta gata esta orando para o Dev'", Spr_prota_falando, 0, "Livia Mordvik");	
+			ds_grid_add_text("'Eu acho que esta gata esta orando para o Dev'", Spr_prota_falando_boca_fechada, 0, "Livia Mordvik");	
 		break;
 
 		case "joao":

@@ -1,28 +1,39 @@
 /// scr_textos(npc_name)
 function scr_textos(npc_name) {
 
+	 // LIMPA O GRID CORRETAMENTE
+    ds_grid_destroy(texto_grid);
+	texto_grid = ds_grid_create(4, 0);
+
+	
+    tem_escolha = false;
+
     switch (npc_name) {
+
         case "Gatogirl":
-			ds_grid_add_text("Eu amo meu namorado", Spr_gatoman_falando, 1, "Gatogril");
-			ds_grid_add_text("De hoje para sempre", Spr_gatoman_falando, 1, "Gatogril");
-			ds_grid_add_text("Amen!", Spr_gatoman_falando, 1, "Gatogril");
-			ds_grid_add_text("'Eu acho que esta gata esta orando para o Dev'", Spr_prota_falando_boca_fechada, 0, "Livia Mordvik");	
+		    ds_grid_add_text("Eu amo meu namorado.", Spr_gatoman_falando, 1, "Gatogirl");
+		    ds_grid_add_text("De hoje para sempre.", Spr_gatoman_falando, 1, "Gatogirl");
+		    ds_grid_add_text("Amém!", Spr_gatoman_falando, 1, "Gatogirl");
+
+		    // pensamento
+		    ds_grid_add_text("Ela está rezando...?", -1, 0, "");
+
+		    tem_escolha = false;
 		break;
-
+		
 		case "joao":
-            ds_grid_add_text("Eu Odeio Ateus", Spr_gatoman_falando, 1, "João");
-            array_push(t, "Que deus destrua, todos os hereges, mundanos");
-            array_push(t, "Amen!");
-            break;
-			
-			
-        default:
-            array_push(t, "…");
-            break;
-    }
+		    ds_grid_add_text("Eu odeio ateus.", Spr_Joao_Caseiro, 1, "João");
 
-    
+		    tem_escolha = true;
+		    opcoes = [
+		        "Ignorar",
+		        "Responder com calma",
+		        "Ofender de volta"
+		    ];
+		break;
+    }
 }
+
 
 function ds_grid_add_row(){
 	///@arg ds_grid

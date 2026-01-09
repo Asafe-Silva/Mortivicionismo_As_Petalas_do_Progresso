@@ -1,37 +1,41 @@
-if inicializar = true{	
-	var _guil = display_get_gui_width();
-	var _guia = display_get_gui_height();
+if (!inicializar) exit;
 
-	var _xx = 0;
-	var _yy = _guia - 200;
-	var _c = c_black;
-	
-	var _sprite = texto_grid[# 1, pagina];
-	
-	if (is_undefined(_sprite) || !sprite_exists(_sprite)) {
-	    _sprite = global.spr_missing_fallback;
-	}
-	
-	if (_sprite != -1) {
-	   draw_sprite_ext(_sprite, 0, _guil - 100, _guia, -3, 3, 0, c_white, 1);
-	}
+var gw = display_get_gui_width();
+var gh = display_get_gui_height();
 
-	draw_set_font(Fnt_dialogo);
+var caixa_y = gh - 200;
+draw_rectangle_color(0, caixa_y, gw, gh, c_black, c_black, c_black, c_black, false);
 
-	//Lado Esquerdo
-	if texto_grid[# infos.Lado, pagina] == 0{
-		draw_rectangle_color(_xx + 200, _yy, _guil, _guia, _c, _c, _c, _c, false);
-		draw_text(_xx + 216, _yy - 32, texto_grid[# infos.Nome, pagina]);
-		draw_text_ext(_xx + 232, _yy + 32, texto_grid[# infos.Texto, pagina], 32, _guil - 264);
+draw_set_font(Fnt_dialogo);
+
+// Texto
+draw_text_ext(32, caixa_y + 32, texto_grid[# infos.Texto, pagina], 32, gw - 64);
+
+// Nome
+if (texto_grid[# infos.Nome, pagina] != "") {
+    draw_text(32, caixa_y - 24, texto_grid[# infos.Nome, pagina]);
+}
+
+// Retrato
+var spr = texto_grid[# infos.Retrato, pagina];
+if (sprite_exists(spr)) {
+    draw_sprite_ext(spr, 0, gw - 96, gh - 96, 2, 2, 0, c_white, 1);
+}
+
+// Desenho das escolhas
+if (tem_escolha) {
+    for (var i = 0; i < array_length(opcoes); i++) {
+        var cor = (i == opcao_index) ? c_yellow : c_white;
+        draw_set_color(cor);
+        draw_text(64, caixa_y - 64 - i * 24, opcoes[i].texto);
+    }
+    draw_set_color(c_white);
 	
-		draw_sprite_ext(_sprite, 0, 100, _guia, 3, 3, 0, c_white, 1);
-	}//Lado Direito
-	else{
-		draw_rectangle_color(_xx, _yy, _guil - 200, _guia, _c, _c, _c, _c, false);
-		var _stgw = string_width(texto_grid[# infos.Nome, pagina]);
-		draw_text(_guil - 216 - _stgw, _yy - 32, texto_grid[# infos.Nome, pagina]);
-		draw_text_ext(_xx + 32, _yy + 32, texto_grid[# infos.Texto, pagina], 32, _guil - 264);
-	
-		draw_sprite_ext(_sprite, 0, _guil - 100, _guia, -3, 3, 0, c_white, 1);
+	if (tem_escolha && pagina == ds_grid_height(texto_grid) - 1) {
+	    for (var i = 0; i < array_length(opcoes); i++) {
+	        var cor = (i == indice_escolha) ? c_yellow : c_white;
+	        draw_set_color(cor);
+	        draw_text(_xx + 232, _yy + 96 + i * 24, opcoes[i]);
+	    }
 	}
 }

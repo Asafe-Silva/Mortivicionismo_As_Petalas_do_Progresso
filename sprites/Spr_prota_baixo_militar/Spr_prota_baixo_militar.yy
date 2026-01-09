@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"Spr_prota_baixo_militar",
   "bboxMode":2,
   "bbox_bottom":31,
@@ -12,10 +12,10 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":11,
   "gridY":11,
@@ -73,18 +73,10 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"9318ed82-34a7-40f0-a90c-dd3e22a036cf","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"64fee4ac-4cc7-4cf5-ad9f-294a6e55c6b0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"31f88024-8643-48cc-b07a-efff19cb0919","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"25bfe7c8-eceb-4a5c-bbdd-2f4064fe9019","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"c169d6eb-b624-4a33-8fb4-27ec6fb53945","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"9318ed82-34a7-40f0-a90c-dd3e22a036cf","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"01024f2b-e8ab-43cc-8984-eb23ac28751c","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"64fee4ac-4cc7-4cf5-ad9f-294a6e55c6b0","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"93b1cd8f-e1e4-4528-8b04-7216c37c469f","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"31f88024-8643-48cc-b07a-efff19cb0919","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"c08afdc8-e3d5-4370-b1e0-ec6e48532ad4","path":"sprites/Spr_prota_baixo_militar/Spr_prota_baixo_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"25bfe7c8-eceb-4a5c-bbdd-2f4064fe9019","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

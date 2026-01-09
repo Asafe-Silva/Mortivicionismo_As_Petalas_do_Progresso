@@ -1,5 +1,5 @@
 {
-  "$GMSprite":"",
+  "$GMSprite":"v2",
   "%Name":"Spr_prota_cima_militar",
   "bboxMode":2,
   "bbox_bottom":31,
@@ -12,10 +12,10 @@
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"","%Name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":11,
   "gridY":11,
@@ -73,18 +73,10 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"081a9dec-53d4-466e-9937-1369cce01324","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"12228b81-32b5-4494-b5ee-f2fa23bfce3f","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"f26fa212-d0d8-4367-a5e9-498589dfb092","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"5ea0bae4-5a7a-4eef-80e1-d48863f1b7e4","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"f3cea01f-b98b-42b5-ad38-19618684a8ca","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"081a9dec-53d4-466e-9937-1369cce01324","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c908a09-cabd-4e0e-9c08-1c430c5661bf","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"12228b81-32b5-4494-b5ee-f2fa23bfce3f","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"e8d34ed4-62d2-42ec-be31-495682d2cb19","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"f26fa212-d0d8-4367-a5e9-498589dfb092","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"c0ac471d-f795-45b8-90db-6179c03b4d3a","path":"sprites/Spr_prota_cima_militar/Spr_prota_cima_militar.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"5ea0bae4-5a7a-4eef-80e1-d48863f1b7e4","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,

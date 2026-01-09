@@ -4,6 +4,14 @@ if (!variable_global_exists("dialogo")) {
     global.dialogo = false;
 }
 
+if (global.dialogo) {
+    hsp = 0;
+    vsp = 0;
+    movimento = 0;
+    exit;
+}
+
+
 // Se estiver próximo de um NPC e o diálogo estiver livre
 if (distance_to_object(Obj_par_npcs) <= 10) {
     if (keyboard_check_pressed(ord("E"))) {

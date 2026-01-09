@@ -2,7 +2,7 @@
   "$GMProject":"v1",
   "%Name":"BLANK GAME",
   "AudioGroups":[
-    {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -46,7 +46,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.1.193",
+    "IDEVersion":"2024.14.2.213",
   },
   "name":"BLANK GAME",
   "resources":[
@@ -57,13 +57,14 @@
     {"id":{"name":"Obj_dialogo","path":"objects/Obj_dialogo/Obj_dialogo.yy",},},
     {"id":{"name":"Obj_gatoman","path":"objects/Obj_gatoman/Obj_gatoman.yy",},},
     {"id":{"name":"Obj_par_npcs","path":"objects/Obj_par_npcs/Obj_par_npcs.yy",},},
-    {"id":{"name":"Obj_parede","path":"objects/Obj_parede/Obj_parede.yy",},},
     {"id":{"name":"Obj_prota_catsene","path":"objects/Obj_prota_catsene/Obj_prota_catsene.yy",},},
     {"id":{"name":"Obj_prota_militar","path":"objects/Obj_prota_militar/Obj_prota_militar.yy",},},
     {"id":{"name":"Obj_Walther_P38","path":"objects/Obj_Walther_P38/Obj_Walther_P38.yy",},},
     {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
+    {"id":{"name":"scr_escolha_resultado","path":"scripts/scr_escolha_resultado/scr_escolha_resultado.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
+    {"id":{"name":"Sound1","path":"sounds/Sound1/Sound1.yy",},},
     {"id":{"name":"Spr_bala_walther_p38","path":"sprites/Spr_bala_walther_p38/Spr_bala_walther_p38.yy",},},
     {"id":{"name":"Spr_bandeira_parada_mortivicionismo","path":"sprites/Spr_bandeira_parada_mortivicionismo/Spr_bandeira_parada_mortivicionismo.yy",},},
     {"id":{"name":"Spr_cartucho_walther_p38","path":"sprites/Spr_cartucho_walther_p38/Spr_cartucho_walther_p38.yy",},},

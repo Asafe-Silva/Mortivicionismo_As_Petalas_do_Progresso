@@ -11,19 +11,28 @@ if (global.dialogo) {
     exit;
 }
 
+// só libera quando soltar o E
+if (!keyboard_check(ord("E"))) {
+    global.dialogo_lock = false;
+}
 
 // Se estiver próximo de um NPC e o diálogo estiver livre
-if (distance_to_object(Obj_par_npcs) <= 10) {
-    if (keyboard_check_pressed(ord("E"))) {
-        var _npc = instance_nearest(x, y, Obj_par_npcs);
-        if (instance_exists(_npc)) {
-            var _dialogo = instance_create_layer(x, y, "dialogo", Obj_dialogo);
-            _dialogo.npc_nome = _npc.nome;
+if (!global.dialogo && !global.dialogo_lock) {
+    if (distance_to_object(Obj_par_npcs) <= 10) {
+        if (keyboard_check_pressed(ord("E"))) {
 
-            global.dialogo = true;           // marca que há diálogo ativo
+            var npc = instance_nearest(x, y, Obj_par_npcs);
+            if (instance_exists(npc)) {
+                var d = instance_create_layer(x, y, "dialogo", Obj_dialogo);
+                d.npc_nome = npc.nome;
+
+                global.dialogo = true;
+                global.dialogo_lock = true; // 🔒 trava
+            }
         }
     }
 }
+
 #endregion
 
 // Reset flag de movimento

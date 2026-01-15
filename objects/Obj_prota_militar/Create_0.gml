@@ -6,6 +6,7 @@ vsp     = 0;
 
 // Inicializa variáveis globais
 global.dialogo = false; 
+global.dialogo_lock = false;
 
 
 // Velocidade do zoom

@@ -23,7 +23,7 @@
   ],
   "name":"Spr_cartucho_walther_p38",
   "nineSlice":null,
-  "origin":0,
+  "origin":9,
   "parent":{
     "name":"catucho ou munisao",
     "path":"folders/Sprites/armas/armas de fogo/catucho ou munisao.yy",
@@ -70,13 +70,15 @@
     "timeUnits":1,
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{"0":{"$SpriteFrameKeyframe":"","Id":{"name":"8a59394f-03c7-48f5-b5b2-5b2993e60210","path":"sprites/Spr_cartucho_walther_p38/Spr_cartucho_walther_p38.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},},"Disabled":false,"id":"6718853c-0cac-4759-9a84-5bb801624d04","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"8a59394f-03c7-48f5-b5b2-5b2993e60210","path":"sprites/Spr_cartucho_walther_p38/Spr_cartucho_walther_p38.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"6718853c-0cac-4759-9a84-5bb801624d04","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":0,
-    "yorigin":0,
+    "xorigin":3,
+    "yorigin":2,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

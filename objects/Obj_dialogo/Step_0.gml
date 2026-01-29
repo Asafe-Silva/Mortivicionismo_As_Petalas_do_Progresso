@@ -3,6 +3,62 @@ var avancar =
     keyboard_check_pressed(vk_space) ||
     mouse_check_button_pressed(mb_left);
 
+if (avancar && !tem_escolha) {
+
+    if (!texto_terminou) {
+        // PULA A DIGITAÇÃO
+        texto_visivel = texto_completo;
+        texto_terminou = true;
+    }
+    else {
+        pagina++;
+        iniciar_digitacao();
+    }
+}
+
+if (!texto_terminou) {
+
+    tempo_letra++;
+
+    var delay = velocidade_base;
+
+    var letra = string_char_at(texto_completo, char_index + 1);
+
+    // ───── VARIAÇÕES DE RITMO ─────
+
+    if (letra == "." || letra == "?" || letra == "!") {
+        delay = 12; // pausa forte
+    }
+    else if (letra == ",") {
+        delay = 6;
+    }
+    else if (letra == " ") {
+        delay = 2;
+    }
+
+    // Palavras que "pesam"
+    var trecho = string_copy(texto_completo, char_index - 5, 10);
+    if (string_pos("respeito", trecho) > 0) {
+        delay = 5;
+    }
+
+    // ───── DIGITAÇÃO ─────
+
+    if (tempo_letra >= delay) {
+
+        texto_visivel += letra;
+        char_index++;
+        tempo_letra = 0;
+
+        // 🎵 GANCHO DE SOM (VOCÊ IMPLEMENTA)
+        // audio_play_sound(snd_dialogo, 0, false);
+    }
+
+    if (char_index >= string_length(texto_completo)) {
+        texto_terminou = true;
+    }
+}
+
 
 /// Inicialização
 if (!inicializar) {

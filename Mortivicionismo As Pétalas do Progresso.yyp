@@ -65,6 +65,7 @@
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"id":{"name":"Roo_","path":"rooms/Roo_/Roo_.yy",},},
     {"id":{"name":"Roo_area_de_treinamento","path":"rooms/Roo_area_de_treinamento/Roo_area_de_treinamento.yy",},},
+    {"id":{"name":"iniciar_digitacao","path":"scripts/iniciar_digitacao/iniciar_digitacao.yy",},},
     {"id":{"name":"scr_escolha_resultado","path":"scripts/scr_escolha_resultado/scr_escolha_resultado.yy",},},
     {"id":{"name":"scr_get_npc_estado","path":"scripts/scr_get_npc_estado/scr_get_npc_estado.yy",},},
     {"id":{"name":"scr_inc_npc_estado","path":"scripts/scr_inc_npc_estado/scr_inc_npc_estado.yy",},},

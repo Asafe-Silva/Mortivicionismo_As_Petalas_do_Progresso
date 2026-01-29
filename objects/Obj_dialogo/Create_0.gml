@@ -4,6 +4,16 @@ npc_nome = "";
 pagina = 0;
 inicializar = false;
 
+// Máquina de digitação
+texto_completo = "";
+texto_visivel = "";
+char_index = 0;
+
+tempo_letra = 0;
+velocidade_base = 3; // quanto menor, mais rápido
+
+texto_terminou = false;
+
 /// Memória de diálogo por NPC
 if (!variable_global_exists("npc_dialogo_estado")) {
     global.npc_dialogo_estado = ds_map_create();

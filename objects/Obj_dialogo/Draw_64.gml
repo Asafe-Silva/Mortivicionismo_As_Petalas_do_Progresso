@@ -10,7 +10,8 @@ draw_rectangle_color(0, caixa_y, gw, gh, c_black, c_black, c_black, c_black, fal
 draw_set_font(Fnt_dialogo);
 
 // Texto
-draw_text_ext(32, caixa_y + 32, texto_grid[# infos.Texto, pagina], 32, gw - 64);
+draw_text_ext(32, caixa_y + 32, texto_visivel, 32, gw - 64);
+
 
 // Nome com fundo
 if (texto_grid[# infos.Nome, pagina] != "") {

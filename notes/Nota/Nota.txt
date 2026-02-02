@@ -1,0 +1,173 @@
+Resumo do projeto — Mortivicionismo As Pétalas do Progresso
+
+Cena: local_de_teste
+Fontes: Fnt_dialogo
+Objetos: Obj_colisor; Obj_controle; Obj_dialogo; Obj_gatoman; Obj_par_npcs; Obj_prota_catsene; Obj_prota_militar; Obj_Walther_P38; Object10; Obj_Bolliver
+
+--- Objetos (trechos relevantes) ---
+
+Obj_controle:
+	criar:
+		global.dialogo = false;
+		global.dialogo_lock = false;
+	etapa:
+		if instance_exists(Obj_dialogo){
+				global.dialogo = true;
+		}
+
+Obj_dialogo:
+	criar:
+		npc_atual = "";
+		npc_nome = "";
+		pagina = 0;
+		inicializar = false;
+		// Máquina de digitação
+		texto_completo = "";
+		texto_visivel = "";
+		char_index = 0;
+		tempo_letra = 0;
+		velocidade_base = 3;
+		texto_terminou = false;
+		if (!variable_global_exists("npc_dialogo_estado")) global.npc_dialogo_estado = ds_map_create();
+		texto_grid = ds_grid_create(4, 0); // Texto | Retrato | Lado | Nome
+		opcoes = [];
+		tem_escolha = false;
+		escolha_ativa = false;
+		opcao_index = 0;
+		dialog_state = 0;
+		enum infos { Texto, Retrato, Lado, Nome }
+		if (!variable_global_exists("dialogo")) global.dialogo = true;
+
+	etapa (Step):
+		// entrada para avançar (E / espaço / clique)
+		var avancar = keyboard_check_pressed(ord("E")) || keyboard_check_pressed(vk_space) || mouse_check_button_pressed(mb_left);
+		if (avancar && !tem_escolha) {
+			if (!texto_terminou) { texto_visivel = texto_completo; texto_terminou = true; }
+			else { pagina++; iniciar_digitacao(); }
+		}
+		// digitação progressiva
+		if (!texto_terminou) { /* lógica de pausa por pontuação e incrementos */ }
+		if (!inicializar) { scr_textos(npc_nome); inicializar = true; }
+		if (!escolha_ativa) { if (avancar) { if (pagina < ds_grid_height(texto_grid) - 1) pagina++; else { if (tem_escolha) { escolha_ativa = true; opcao_index = 0; } else { global.dialogo = false; global.dialogo_lock = true; instance_destroy(); exit; } } } }
+		if (escolha_ativa) { /* navegação por opções e confirmação -> scr_escolha_resultado(opcao_index) */ }
+
+	desenhar (Draw_64):
+		if (!inicializar) exit;
+		var gw = display_get_gui_width(); var gh = display_get_gui_height(); var caixa_y = gh - 200;
+		draw_rectangle_color(0, caixa_y, gw, gh, c_black, c_black, c_black, c_black, false);
+		draw_set_font(Fnt_dialogo);
+		draw_text_ext(32, caixa_y + 32, texto_visivel, 32, gw - 64);
+		// nome com fundo e retrato à direita (se existir sprite)
+		var spr = texto_grid[# infos.Retrato, pagina]; if (sprite_exists(spr)) draw_sprite_ext(spr, 0, gw - 96, gh - 96, 2, 2, 0, c_white, 1);
+		// opções desenhadas quando for o último quadro e tem_escolha
+
+
+Obj_prota_militar:
+	criar:
+		spd = 2; hsp = 0; vsp = 0;
+		global.dialogo = false; global.dialogo_lock = false;
+		cam_zoom = 1; cam_target_zoom = 1; cam_speed = 0.05;
+		cam = view_camera[0]; cam_width = camera_get_view_width(cam); cam_height = camera_get_view_height(cam);
+		move_x = 0; move_y = 0; movimento = 0; image_index = 0; olhar = 1; last_axis = "y";
+
+	etapa (Step):
+		// diálogo: se global.dialogo trava movimento e zera velocidades
+		if (!variable_global_exists("dialogo")) global.dialogo = false;
+		if (global.dialogo) { hsp = 0; vsp = 0; movimento = 0; exit; }
+		if (!keyboard_check(ord("E"))) global.dialogo_lock = false;
+		if (!global.dialogo && !global.dialogo_lock) {
+			if (distance_to_object(Obj_par_npcs) <= 10) {
+				if (keyboard_check_pressed(ord("E"))) {
+					var npc = instance_nearest(x, y, Obj_par_npcs);
+					if (instance_exists(npc)) { var d = instance_create_layer(x, y, "dialogo", Obj_dialogo); d.npc_nome = npc.nome; global.dialogo = true; global.dialogo_lock = true; }
+				}
+			}
+		}
+		// movimento, câmera suave, zoom e colisões com Obj_colisor (pixel-by-pixel)
+		move_x = -(keyboard_check(vk_left)||keyboard_check(ord("A"))) + (keyboard_check(vk_right)||keyboard_check(ord("D")));
+		move_y = -(keyboard_check(vk_up)||keyboard_check(ord("W"))) + (keyboard_check(vk_down)||keyboard_check(ord("S")));
+		hsp = move_x * spd; vsp = move_y * spd;
+		// câmera: lerp para posição do player e ajuste de tamanho
+		// colisões horizontais/verticais tratadas com loops de segurança
+		// atualização de sprite_index conforme movimento e last_axis
+
+
+Obj_gatoman:
+	criar:
+		nome = "Gatogirl"
+
+Object10:
+	criar:
+		nome = "joao"
+
+Obj_Bolliver:
+	criar:
+		(consulte scripts → falas em `Script1`)
+
+
+--- Scripts ---
+
+Script1 (scr_textos, ds_grid helpers):
+	scr_textos(npc_name): popula `texto_grid` com linhas dependentes do NPC e do estado (scr_get_npc_estado / scr_inc_npc_estado). Exemplo para `Gatogirl` e `joao` com opções e incremento de estado.
+
+	ds_grid_add_row(): aumenta o grid em 1 linha e retorna o índice da nova linha.
+	ds_grid_add_text(texto, retrato, lado, nome): adiciona uma linha ao `texto_grid` com as 4 colunas.
+
+Trecho (resumo):
+	- Para `Gatogirl`: adiciona várias linhas com `Spr_gatoman_falando` e, ao esgotar estados, ativa `tem_escolha` com opções.
+	- Para `joao`: adiciona falas e define `tem_escolha` com opções.
+
+
+--- Sprites (lista) ---
+Spr_bala_walther_p38
+Spr_bandeira_parada_mortivicionismo
+Spr_Bolliver
+Spr_camilly
+Spr_cartucho_walther_p38
+Spr_colisor
+Spr_gatoman
+Spr_gatoman_falando
+Spr_granada_modelo_24
+Spr_Joao_Caseiro
+Spr_madeira
+spr_missing
+Spr_parede
+Spr_piso
+Spr_prota_Ate
+Spr_prota_Ate_bom_mal
+Spr_prota_baixo_militar
+Spr_prota_cima_militar
+Spr_prota_corendo_militar
+Spr_prota_falando
+Spr_prota_falando_boca_fechada
+Spr_prota_parado_militar
+Spr_walther_p38
+
+Categoria (conforme suas notas iniciais):
+	- armas: Spr_walther_p38, Spr_bala_walther_p38, Spr_cartucho_walther_p38
+	- explosivo: Spr_granada_modelo_24
+	- bandeiras: Spr_bandeira_parada_mortivicionismo
+	- easter_eggs / NPCs: Spr_gatoman, Spr_gatoman_falando, Spr_Bolliver, Spr_Joao_Caseiro
+	- level / tiles: Spr_colisor, Spr_madeira, Spr_parede, Spr_piso
+	- protagonista: Spr_prota_* (vários)
+	- fallback: spr_missing
+
+
+--- Fontes ---
+Fnt_dialogo (arquivo em fonts/Fnt_dialogo)
+
+
+--- Salas (rooms) ---
+local_de_teste/
+Roo_area_de_treinamento/
+Roo_cidade_destruida_pt/
+
+
+--- Observações e próximos passos ---
+- O diálogo usa `texto_grid` (4 colunas) e funções em `Script1` para preencher o conteúdo.
+- Os objetos `Obj_prota_militar` e `Obj_controle` controlam flags globais `global.dialogo` e `global.dialogo_lock` para travar movimento.
+- Para revisar/ajustar falas, edite scripts/Script1/Script1.gml (função scr_textos).
+
+Se quiser, eu:
+- Posso incluir o conteúdo completo de cada `Create/Step/Draw` inline (mais verboso).
+- Posso gerar uma versão do Nota.txt com separação por cena real (consigo ler os .yy das rooms para listar objetos colocados nelas).

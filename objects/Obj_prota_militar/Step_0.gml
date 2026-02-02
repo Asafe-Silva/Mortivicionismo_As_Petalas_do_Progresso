@@ -35,6 +35,20 @@ if (!global.dialogo && !global.dialogo_lock) {
 
 #endregion
 
+var ratio = global.inv_peso_atual / global.inv_peso_max;
+
+if (ratio < 0.5) {
+    spd = 2;
+}
+else if (ratio < 0.8) {
+    spd = 1.5;
+}
+else {
+    spd = 1;
+    // defesa maior
+}
+
+
 // Reset flag de movimento
 movimento = 0;
 
@@ -138,4 +152,12 @@ if (movimento == 0) {
     }
 }
 
+if (global.sanidade_atual <= 40) {
+    // mira pior
+    // tremor de câmera
+}
+
+if (global.sanidade_atual <= 20) {
+    // visão reduzida
+}
 

@@ -1,0 +1,96 @@
+Visão Geral (resumida)
+
+O projeto já segue uma separação prática por responsabilidades: controle global, entidades (player/NPCs/itens), UI/narrativa e salas/tiles. No entanto, esses limites existem mais por prática do que por design formal — isto gera acoplamento invisível e fragilidade ao crescer.
+
+Problemas Estruturais (principais)
+
+1) Uso indiscriminado de `global.*`
+- Sintoma: múltiplos objetos leem e escrevem as mesmas flags (`global.dialogo`, `global.dialogo_lock`, `global.inv_*`).
+- Risco: condições de corrida, efeitos colaterais e soft-locks.
+- Correção mínima: criar um objeto-dono `Obj_GameState` que exponha um conjunto de propriedades e métodos (leitura pública, escrita somente pelo dono).
+
+2) Ausência de máquina de modos (Game Mode)
+- Sintoma: flags soltas controlam o fluxo (diálogo, exploração, combate, cutscene).
+- Risco: lógica duplicada e comportamentos fora de contexto.
+- Solução: definir `enum GAME_MODE { EXPLORACAO, DIALOGO, CUTSCENE, COMBATE, MENU }` e centralizar transições em `Obj_GameState`.
+
+3) Objeto `player` inchado
+- Sintoma: `Obj_prota_militar` controla input, física, câmera, animação, interação e diálogo.
+- Risco: difícil reaproveitamento, testes e variação de controle.
+- Refatoração: separar responsabilidades em pequenos objetos/sistemas (ex.: `Obj_PlayerBody`, `Obj_PlayerInput`, `Obj_PlayerCamera`, `Obj_PlayerInteraction`).
+
+4) Colisão "pixel-a-pixel" com loops
+- Sintoma: loops para ajustar posição quando há colisão.
+- Risco: degradação em mapas grandes e casos de baixo FPS.
+- Alternativas: usar colisão baseada em tile/bounding-box ou grid de colisão lógica.
+
+5) Stringly-typed (IDs por nome)
+- Sintoma: `npc.nome = "Gatogirl"` usado como chave.
+- Risco: erros por digitação, internacionalização, conflitos de nome.
+- Correção: usar enums/constantes (`NPC_ID_GATOGIRL`) ou IDs numéricos imutáveis.
+
+6) Scripts misturam dados e lógica
+- Sintoma: scripts de diálogo (e.g. `scr_textos`) contêm conteúdo, lógica e efeitos.
+- Risco: difícil manutenção e testes.
+- Melhoria: separar roteadores/dispatchers (decidem qual script rodar) de dados (arquivos de diálogo ou estruturas) e de handlers (aplicam efeitos no GameState).
+
+Problemas de Performance e Manutenção (práticos)
+
+- Evitar `instance_nearest`/`distance_to_object` todo frame; prefira triggers ou caches de proximidade.
+- Isolar Draw (UI) do estado interno: tornar o renderer imune a grids inválidos e logar erros.
+- Adicionar logs/overlay de debug para fluxo do GameState (modo atual, diálogo ativo, locks).
+
+Erros Conceituais (design)
+
+- Falta de sistema de flags estruturado, save/load e versionamento do estado do jogo.
+- Recomendo projetar desde já um esquema de persistência (serialização das ds_* structures e versão de schema).
+
+O que ajustar agora (prioridades)
+
+Prioridade Alta (faça já):
+- Garantir destruição de `ds_grid` e `ds_map` quando não usados (ex.: `Obj_dialogo` CleanUp e pontos de limpeza para `global.npc_dialogo_estado`).
+- Centralizar mudanças de `global.dialogo` em único dono (`Obj_GameState`).
+- Remover `exit` que interrompe Step do player — use condicionais para pausar behavior sem cortar atualização de câmeras/timers.
+- Proteger leituras de `global.*` com checks/defaults (fix rápido para crash mostrado).
+
+Prioridade Média:
+- Criar `Obj_dialogo_controller` que gerencia display, input e efeitos (e.g. aplicar escolhas).
+- Transformar `scr_textos` em roteador e mover conteúdo para funções/arquivos por NPC.
+
+Prioridade Baixa (futuro):
+- Migrar diálogos para arquivos externos (JSON/CSV) e construir um pipeline de edição.
+- Desenvolver sistema de flags ideológicas e salvar consequências de decisões.
+
+Correção do erro reportado (ação aplicada)
+
+Erro:
+
+ERROR in action number 1 of Step Event0 for object Obj_prota_militar:
+global variable name 'inv_peso_atual' index (100020) not set before reading it.
+
+Causa provável: `Obj_prota_militar` executou seu Step antes do `Obj_controle` inicializar `global.inv_*` no Create.
+
+Correção aplicada (rápida e segura):
+- No Step do jogador, antes de ler `global.inv_peso_atual / global.inv_peso_max` foi adicionada verificação e valores default:
+
+if (!variable_global_exists("inv_peso_atual")) global.inv_peso_atual = 0;
+if (!variable_global_exists("inv_peso_max")) global.inv_peso_max = 40;
+var ratio = (global.inv_peso_max != 0) ? (global.inv_peso_atual / global.inv_peso_max) : 0;
+
+Isto evita crashes se a ordem de criação dos objetos for diferente.
+
+Recomendação definitiva:
+- Inicialize todas as variáveis globais essenciais no `Obj_GameState` (ou em `Obj_controle`) e garanta que este objeto seja criado primeiro na room persistente inicial (ou marque-o `persistent` e adicione como primeiro recurso da room).
+
+Próximos passos sugeridos (práticos)
+
+1) Criar `Obj_GameState` e mover inicializações globais para ele; marcar como persistente.
+2) Refatorar `global.dialogo` para `GameState.mode` com enum `GAME_MODE`.
+3) Substituir `exit` no Step do player por flags que apenas pauseriam certa lógica.
+4) Implementar logs mínimos (`show_debug_message` + overlay) para acompanhar transições de `GameState`.
+
+Se quiser, eu:
+- Posso aplicar as mudanças no código (criar `Obj_GameState`, mover inicializações e refatorar `global.dialogo` para `GameState.mode`).
+- Posso rodar uma varredura para identificar leituras inseguras de `global.*` e proteger automaticamente.
+
+Fim do documento.

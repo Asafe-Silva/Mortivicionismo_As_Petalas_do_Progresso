@@ -1,6 +1,6 @@
 {
   "$GMProject":"v1",
-  "%Name":"BLANK GAME",
+  "%Name":"Mortivicionismo As Pétalas do Progresso",
   "AudioGroups":[
     {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
@@ -48,7 +48,7 @@
   "MetaData":{
     "IDEVersion":"2024.14.2.213",
   },
-  "name":"BLANK GAME",
+  "name":"Mortivicionismo As Pétalas do Progresso",
   "resources":[
     {"id":{"name":"Fnt_dialogo","path":"fonts/Fnt_dialogo/Fnt_dialogo.yy",},},
     {"id":{"name":"Nota","path":"notes/Nota/Nota.yy",},},

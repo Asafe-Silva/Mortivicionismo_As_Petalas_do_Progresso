@@ -7,9 +7,9 @@ function scr_trauma_update() {
 
         if (!t.ativo) continue;
 
-        // perda passiva
-        if (t.sanidade_passiva != 0) {
-            scr_sanidade_change(t.sanidade_passiva * delta_time / 1000000);
-        }
+            // perda passiva (aplicada por passo)
+            if (t.sanidade_passiva != 0) {
+                scr_sanidade_change(t.sanidade_passiva);
+            }
     }
 }

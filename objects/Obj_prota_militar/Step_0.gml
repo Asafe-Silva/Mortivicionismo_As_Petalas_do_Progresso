@@ -35,7 +35,11 @@ if (!global.dialogo && !global.dialogo_lock) {
 
 #endregion
 
-var ratio = global.inv_peso_atual / global.inv_peso_max;
+// Protege acesso às globals do inventário e evita divisão por zero
+if (!variable_global_exists("inv_peso_atual")) global.inv_peso_atual = 0;
+if (!variable_global_exists("inv_peso_max")) global.inv_peso_max = 40;
+
+var ratio = (global.inv_peso_max != 0) ? (global.inv_peso_atual / global.inv_peso_max) : 0;
 
 if (ratio < 0.5) {
     spd = 2;
@@ -159,5 +163,52 @@ if (global.sanidade_atual <= 40) {
 
 if (global.sanidade_atual <= 20) {
     // visão reduzida
+}
+
+// --- Sistema de arma: Walther P38 ---
+if (variable_global_exists("have_walther") && global.have_walther) {
+    if (!variable_global_exists("walther_ammo")) global.walther_ammo = 6;
+    if (!variable_global_exists("walther_max_ammo")) global.walther_max_ammo = 6;
+    if (!variable_global_exists("walther_cooldown")) global.walther_cooldown = 0;
+
+    if (global.walther_cooldown > 0) global.walther_cooldown -= 1;
+
+    // Atirar
+    if (mouse_check_button_pressed(mb_left) && global.walther_cooldown <= 0) {
+        if (global.walther_ammo > 0) {
+            var _dir = point_direction(x, y, mouse_x, mouse_y);
+            var _b = instance_create(x, y, Obj_bala_walther_p38);
+            if (instance_exists(_b)) {
+                _b.dir = _dir;
+                _b.speed = 12;
+                _b.life = 60;
+            }
+            global.walther_ammo -= 1;
+            global.walther_cooldown = 12;
+        }
+        else {
+            // recarga automática: solta 6 cartuchos
+            for (var _i = 0; _i < 6; _i++) {
+                var _cx = instance_create(x + random_range(-8, 8), y + random_range(-8, 8), Obj_cartucho_walther_p38);
+                if (instance_exists(_cx)) {
+                    _cx.hspeed = random_range(-2, 2);
+                    _cx.vspeed = random_range(-2, 2);
+                }
+            }
+            global.walther_ammo = global.walther_max_ammo;
+        }
+    }
+
+    // Recarregar manual (R)
+    if (keyboard_check_pressed(ord("R"))) {
+        for (var _i2 = 0; _i2 < 6; _i2++) {
+            var _c2 = instance_create(x + random_range(-8, 8), y + random_range(-8, 8), Obj_cartucho_walther_p38);
+            if (instance_exists(_c2)) {
+                _c2.hspeed = random_range(-2, 2);
+                _c2.vspeed = random_range(-2, 2);
+            }
+        }
+        global.walther_ammo = global.walther_max_ammo;
+    }
 }
 

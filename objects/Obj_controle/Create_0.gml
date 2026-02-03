@@ -1,16 +1,6 @@
-global.dialogo = false;
-global.dialogo_lock = false;
-
-// INVENTÁRIO
-global.inv = ds_list_create();
-
-// peso
-global.inv_peso_atual = 0;
-global.inv_peso_max = 40;
-
-// SANIDADE
-global.sanidade_atual = 100;
-global.sanidade_max = 100;
-
-// TRAUMAS
-global.traumas = ds_map_create();
+// Obj_controle agora delega inicialização global para Obj_GameState
+// Certifica-se de que Obj_GameState exista (será criado no mesmo room se necessário)
+if (!instance_exists(Obj_GameState)) {
+	// cria no mesmo layer/posição do controle
+	instance_create(x, y, Obj_GameState);
+}

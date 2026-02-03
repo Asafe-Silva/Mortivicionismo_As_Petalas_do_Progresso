@@ -62,6 +62,7 @@
     {"id":{"name":"Obj_prota_catsene","path":"objects/Obj_prota_catsene/Obj_prota_catsene.yy",},},
     {"id":{"name":"Obj_prota_militar","path":"objects/Obj_prota_militar/Obj_prota_militar.yy",},},
     {"id":{"name":"Obj_Walther_P38","path":"objects/Obj_Walther_P38/Obj_Walther_P38.yy",},},
+    {"id":{"name":"Obj_GameState","path":"objects/Obj_GameState/Obj_GameState.yy",},},
     {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"id":{"name":"Roo_area_de_treinamento","path":"rooms/Roo_area_de_treinamento/Roo_area_de_treinamento.yy",},},

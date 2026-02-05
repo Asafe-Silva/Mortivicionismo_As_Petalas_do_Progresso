@@ -156,6 +156,12 @@ if (movimento == 0) {
     }
 }
 
+// Proteção: garante que sanidade exista antes de checar valores
+if (!variable_global_exists("sanidade_atual")) {
+    global.sanidade_max = 100;
+    global.sanidade_atual = 100;
+}
+
 if (global.sanidade_atual <= 40) {
     // mira pior
     // tremor de câmera

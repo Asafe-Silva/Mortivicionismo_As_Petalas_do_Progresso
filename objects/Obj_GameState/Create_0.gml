@@ -1,5 +1,7 @@
 // Obj_GameState - Create
 // Centraliza inicialização de globals do jogo
+// garante que esta instância persista entre rooms
+persistent = true;
 if (!variable_global_exists("game_initialized") || !global.game_initialized) {
     // Diálogo
     global.dialogo = false;

@@ -1,5 +1,11 @@
 function scr_sanidade_change(valor) {
 
+    // Proteção: inicializa globals caso Obj_GameState não tenha sido criado ainda
+    if (!variable_global_exists("sanidade_atual")) {
+        global.sanidade_max = 100;
+        global.sanidade_atual = 100;
+    }
+
     global.sanidade_atual += valor;
 
     if (global.sanidade_atual > global.sanidade_max)

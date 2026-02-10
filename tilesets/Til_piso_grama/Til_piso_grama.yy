@@ -1,0 +1,43 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_piso_grama",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"grama e nada","closed_edge":false,"name":"grama e nada","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+        73,48,49,31,70,52,54,89,69,72,74,92,95,29,26,45,51,47,68,44,32,28,27,24,75,71,50,46,94,90,91,66,43,87,
+        30,23,33,25,96,67,93,65,22,86,64,88,85,
+      ],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"Til_piso_grama",
+  "out_columns":15,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_piso_grama",
+    "path":"sprites/Spr_piso_grama/Spr_piso_grama.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":16,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":16,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":231,
+}

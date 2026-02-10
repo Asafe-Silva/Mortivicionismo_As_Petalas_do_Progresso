@@ -46,11 +46,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.2.213",
+    "IDEVersion":"2024.14.3.217",
   },
   "name":"BLANK GAME",
   "resources":[
     {"id":{"name":"Fnt_dialogo","path":"fonts/Fnt_dialogo/Fnt_dialogo.yy",},},
+    {"id":{"name":"creditos","path":"notes/creditos/creditos.yy",},},
     {"id":{"name":"Nota","path":"notes/Nota/Nota.yy",},},
     {"id":{"name":"Obj_Bolliver","path":"objects/Obj_Bolliver/Obj_Bolliver.yy",},},
     {"id":{"name":"Obj_colisor","path":"objects/Obj_colisor/Obj_colisor.yy",},},
@@ -86,6 +87,7 @@
     {"id":{"name":"Spr_colisor","path":"sprites/Spr_colisor/Spr_colisor.yy",},},
     {"id":{"name":"Spr_gatoman_falando","path":"sprites/Spr_gatoman_falando/Spr_gatoman_falando.yy",},},
     {"id":{"name":"Spr_gatoman","path":"sprites/Spr_gatoman/Spr_gatoman.yy",},},
+    {"id":{"name":"Spr_Gewehr_98","path":"sprites/Spr_Gewehr_98/Spr_Gewehr_98.yy",},},
     {"id":{"name":"Spr_granada_modelo_24","path":"sprites/Spr_granada_modelo_24/Spr_granada_modelo_24.yy",},},
     {"id":{"name":"Spr_Joao_Caseiro","path":"sprites/Spr_Joao_Caseiro/Spr_Joao_Caseiro.yy",},},
     {"id":{"name":"Spr_madeira","path":"sprites/Spr_madeira/Spr_madeira.yy",},},

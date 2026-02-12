@@ -1,0 +1,45 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_cerca_de_madeira",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,7,0,0,0,3,0,0,0,9,0,0,0,13,6,18,0,2,0,4,0,14,0,12,1,17,11,19,16,
+      ],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":12,
+    "SerialiseWidth":10,
+    "TileCompressedData":[
+      -53,0,7,1,0,2,0,3,0,4,-13,0,7,6,0,7,0,8,0,9,-13,0,7,11,0,12,0,13,0,14,-13,0,7,16,0,17,0,18,0,19,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"Til_cerca_de_madeira",
+  "out_columns":5,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_cerca_de_madeira",
+    "path":"sprites/Spr_cerca_de_madeira/Spr_cerca_de_madeira.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":16,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":16,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":25,
+}

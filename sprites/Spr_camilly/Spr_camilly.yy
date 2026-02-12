@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"camilly",
+    "path":"folders/Sprites/NPCs/camilly.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

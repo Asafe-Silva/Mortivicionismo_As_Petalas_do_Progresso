@@ -1,27 +1,27 @@
 {
   "$GMSprite":"v2",
-  "%Name":"Spr_arvores_e_plantas_tipo_1",
+  "%Name":"Spr_flores_e_mix",
   "bboxMode":0,
-  "bbox_bottom":501,
-  "bbox_left":8,
-  "bbox_right":388,
-  "bbox_top":14,
+  "bbox_bottom":62,
+  "bbox_left":18,
+  "bbox_right":154,
+  "bbox_top":18,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"v1","%Name":"b2e096e1-55ac-4598-b81a-be1ae8391511","name":"b2e096e1-55ac-4598-b81a-be1ae8391511","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"v1","%Name":"47babf3a-3479-414c-ab43-608624a3ad66","name":"47babf3a-3479-414c-ab43-608624a3ad66","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
-  "height":512,
+  "height":80,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"f8dc0866-0440-4c1d-9614-77ddea1c4c9c","blendMode":0,"displayName":"default","isLocked":false,"name":"f8dc0866-0440-4c1d-9614-77ddea1c4c9c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"7513933a-404c-48a4-8c1a-7d06c7a6656a","blendMode":0,"displayName":"default","isLocked":false,"name":"7513933a-404c-48a4-8c1a-7d06c7a6656a","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Spr_arvores_e_plantas_tipo_1",
+  "name":"Spr_flores_e_mix",
   "nineSlice":null,
   "origin":0,
   "parent":{
@@ -33,7 +33,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"Spr_arvores_e_plantas_tipo_1",
+    "%Name":"Spr_flores_e_mix",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Spr_arvores_e_plantas_tipo_1",
+    "name":"Spr_flores_e_mix",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"b2e096e1-55ac-4598-b81a-be1ae8391511","path":"sprites/Spr_arvores_e_plantas_tipo_1/Spr_arvores_e_plantas_tipo_1.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"8b036185-5420-482b-94ce-7962a1e1ce79","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"47babf3a-3479-414c-ab43-608624a3ad66","path":"sprites/Spr_flores_e_mix/Spr_flores_e_mix.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"33af14c5-a98b-40f9-97fc-5a2fc136132d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":512,
+  "width":176,
 }

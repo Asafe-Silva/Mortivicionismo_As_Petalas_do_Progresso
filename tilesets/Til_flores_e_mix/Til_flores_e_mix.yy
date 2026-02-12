@@ -1,0 +1,42 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_flores_e_mix",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":11,
+    "SerialiseWidth":17,
+    "TileCompressedData":[
+      -106,0,13,12,0,13,0,14,0,15,0,17,18,0,19,20,-12,0,5,28,29,0,30,31,-4,0,7,23,0,24,0,25,0,16,-18,0,5,39,
+      0,40,0,41,-4,0,7,34,0,35,0,36,0,37,-6,0,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"Til_flores_e_mix",
+  "out_columns":7,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_flores_e_mix",
+    "path":"sprites/Spr_flores_e_mix/Spr_flores_e_mix.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":16,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":16,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":55,
+}

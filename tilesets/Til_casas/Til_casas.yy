@@ -1,0 +1,43 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_casas",
+  "autoTileSets":[],
+  "macroPageTiles":{
+    "SerialiseHeight":166,
+    "SerialiseWidth":10,
+    "TileCompressedData":[
+      -53,0,1,1,-19,0,1,17,-19,0,1,33,-19,0,1,49,-19,0,1,65,-19,0,1,81,-19,0,1,97,-19,0,1,113,-19,0,1,129,
+      -19,0,1,145,-19,0,1,161,-19,0,1,177,-19,0,1,193,-19,0,1,209,-19,0,1,225,-19,0,1,241,-19,0,1,257,-19,
+      0,1,273,-19,0,1,289,-19,0,1,305,-1226,0,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"Til_casas",
+  "out_columns":18,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_casa",
+    "path":"sprites/Spr_casa/Spr_casa.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":10.0,
+  "tileHeight":150,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":150,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":336,
+}

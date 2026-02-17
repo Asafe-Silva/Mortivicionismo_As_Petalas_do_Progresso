@@ -1,6 +1,6 @@
 
 // Configuration
-maxSlots = 12;
+maxSlots = 30;
 inventorySlots = array_create(maxSlots, undefined);
 
 /// @function InventoryAdd(_itemStruct)

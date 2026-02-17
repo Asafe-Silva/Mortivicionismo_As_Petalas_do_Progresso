@@ -8,12 +8,12 @@ var _mx = device_mouse_x_to_gui(0);
 var _my = device_mouse_y_to_gui(0);
 hovered_slot = -1;
 
-draw_set_font(Fnt_dialogo); // Use existing font if available, or default
+draw_set_font(Fnt_dialogo);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 // --- 1. Menu Lateral (Left) ---
-draw_set_alpha(0.5);
+draw_set_alpha(0.8); // Darker background
 draw_set_color(c_dark_overlay);
 draw_rectangle(0, 0, menu_width, gui_height, false);
 draw_set_alpha(1);
@@ -36,11 +36,11 @@ for (var r = 0; r < grid_rows; r++) {
         
         // Draw Slot Background
         draw_set_color(c_dark_overlay);
-        draw_set_alpha(0.5);
+        draw_set_alpha(0.8); // Darker
         draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, false);
         draw_set_color(c_white);
-        draw_set_alpha(1);
-        draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, true); // Border
+        draw_set_alpha(0.3);
+        draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, true); // Subtle Border
 
         // Mouse Hover Logic
         if (_mx >= _sx && _mx <= _sx + slot_size && _my >= _sy && _my <= _sy + slot_size) {
@@ -76,11 +76,11 @@ if (hovered_slot != -1 && _inv_manager != noone) {
 
 // --- 3. Painel de Visualização (Preview - Bottom Left) ---
 draw_set_color(c_dark_overlay);
-draw_set_alpha(0.5);
+draw_set_alpha(0.8);
 draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], false);
 draw_set_alpha(1);
 draw_set_color(c_white);
-draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], true);
+draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], true); // White border
 
 if (is_struct(_hover_item)) {
     var _spr = _hover_item.sprite;
@@ -94,11 +94,11 @@ if (is_struct(_hover_item)) {
 
 // --- 4. Painel de Status (Bottom Center) ---
 draw_set_color(c_dark_overlay);
-draw_set_alpha(0.5);
+draw_set_alpha(0.8);
 draw_rectangle(status_rect[0], status_rect[1], status_rect[2], status_rect[3], false);
 draw_set_alpha(1);
-draw_set_color(c_white);
-draw_rectangle(status_rect[0], status_rect[1], status_rect[2], status_rect[3], true);
+// draw_set_color(c_white);
+// draw_rectangle(status_rect[0], status_rect[1], status_rect[2], status_rect[3], true); // Optional border for status
 
 if (is_struct(_hover_item)) {
     var _tx = status_rect[0] + 20;
@@ -125,7 +125,7 @@ if (is_struct(_hover_item)) {
 
 // --- 5. Painel de Lore (Right) ---
 draw_set_color(c_dark_overlay);
-draw_set_alpha(0.5);
+draw_set_alpha(0.8);
 draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], false);
 draw_set_alpha(1);
 draw_set_color(c_white);
@@ -137,5 +137,6 @@ if (is_struct(_hover_item)) {
     var _w = (lore_rect[2] - lore_rect[0]) - 40;
     
     draw_set_color(c_white);
-    draw_text_ext(_tx, _ty, _hover_item.description, 30, _w);
+    // Use draw_text_ext for text wrapping
+    draw_text_ext(_tx, _ty, _hover_item.description, 35, _w);
 }

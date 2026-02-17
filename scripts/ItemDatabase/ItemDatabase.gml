@@ -112,5 +112,74 @@ function init_item_definitions() {
         false
     ));
 
+    // Combat Knife
+    _add_item(new Weapon(
+        "combat_knife",
+        "Faca de Combate",
+        "Uma lâmina de aço carbono, surrada pelo uso mas perfeitamente afiada. Inscrições na base sugerem que pertenceu a um oficial de alta patente.",
+        spr_missing, // Placeholder
+        0.5,
+        false,
+        15,
+        50,
+        0
+    ));
+
+    // Herbal Medicine
+    _add_item(new Consumable(
+        "herbal_medicine",
+        "Ervas Medicinais",
+        "Uma mistura caseira de ervas esmagadas e álcool forte. O cheiro é horrível, mas estanca sangramentos e clareia a mente.",
+        spr_missing, // Placeholder
+        0.2,
+        false,
+        25,
+        "Cura ferimentos leves."
+    ));
+
+    // Old Diary
+    _add_item(new Item(
+        "old_diary",
+        "Diário Velho",
+        "As páginas estão amareladas e quebradiças. A maioria do texto está ilegível devido à umidade, mas as datas finais mostram um declínio rápido na sanidade do autor.",
+        spr_missing, // Placeholder
+        "Lore",
+        0.3,
+        false
+    ));
+
+    // Torn Photo
+    _add_item(new Item(
+        "torn_photo",
+        "Foto Rasgada",
+        "Metade de uma fotografia em preto e branco. Mostra um grupo de soldados sorrindo em frente a um prédio que não existe mais. Alguém riscou os rostos com força.",
+        spr_missing, // Placeholder
+        "Lore",
+        0.01,
+        false
+    ));
+
+    // Basement Key
+    _add_item(new Item(
+        "basement_key",
+        "Chave do Porão",
+        "Uma chave pesada de ferro fundido. Está fria ao toque, inexplicavelmente mais fria que o ar ao redor.",
+        spr_missing, // Placeholder
+        "Key",
+        0.1,
+        false
+    ));
+
+    // Strange Amulet
+    _add_item(new Item(
+        "strange_amulet",
+        "Amuleto Estranho",
+        "Um pequeno pingente feito de um metal iridescente que parece vibrar levemente. Olhar para ele por muito tempo causa náuseas e visões periféricas.",
+        spr_missing, // Placeholder
+        "Artifact",
+        0.2,
+        true
+    ));
+
     show_debug_message("Item Database Initialized.");
 }

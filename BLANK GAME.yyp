@@ -71,6 +71,7 @@
     {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
     {"id":{"name":"oCollectable","path":"objects/oCollectable/oCollectable.yy",},},
     {"id":{"name":"oControl","path":"objects/oControl/oControl.yy",},},
+    {"id":{"name":"oDebug","path":"objects/oDebug/oDebug.yy",},},
     {"id":{"name":"oGameInit","path":"objects/oGameInit/oGameInit.yy",},},
     {"id":{"name":"oInventoryManager","path":"objects/oInventoryManager/oInventoryManager.yy",},},
     {"id":{"name":"oInventoryUI","path":"objects/oInventoryUI/oInventoryUI.yy",},},

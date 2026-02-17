@@ -19,24 +19,25 @@ menu_spacing = 30; // Scaled down
 menu_width = gui_width * 0.20;
 
 // Inventory Grid (Center Top)
-grid_cols = 6;
-grid_rows = 5;
-slot_size = 40; // Scaled down (was 90)
-slot_padding = 6; // Scaled down
-grid_start_x = menu_width + 20; 
-grid_start_y = 30; 
+grid_cols = 9;
+grid_rows = 7;
+slot_size = 40; 
+slot_padding = 6; 
+grid_start_x = menu_width + 10; // Slightly closer to menu
+grid_start_y = 20; // Higher up
 
-// Preview Panel (Bottom Left - Relative to Menu/Grid)
-var _preview_side = 120; // Scaled down (was 250)
+// Preview Panel (Bottom Left)
+var _preview_side = 120;
 preview_rect = [25, gui_height - _preview_side - 25, 25 + _preview_side, gui_height - 25];
 
-// Status Panel (Bottom Center - Below Grid)
-var _grid_width = (slot_size + slot_padding) * grid_cols;
-status_rect = [grid_start_x, grid_start_y + (slot_size + slot_padding) * grid_rows + 10, grid_start_x + _grid_width, gui_height - 25];
+// Lore Panel (Right Column - Fixed Width)
+var _lore_width = 220;
+lore_rect = [gui_width - _lore_width - 25, 25, gui_width - 25, gui_height - 25];
 
-// Lore Panel (Right Column - Full Height)
-var _lore_start_x = grid_start_x + _grid_width + 20;
-lore_rect = [_lore_start_x, 25, gui_width - 25, gui_height - 25];
+// Status Panel (Bottom Center - Wide and Short)
+// Spans from Grid Start to Lore Start
+var _status_height = 120;
+status_rect = [grid_start_x, gui_height - _status_height - 25, lore_rect[0] - 20, gui_height - 25];
 
 // State
 hovered_slot = -1;

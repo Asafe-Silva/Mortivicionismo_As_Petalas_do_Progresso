@@ -67,6 +67,7 @@
     {"id":{"name":"Obj_prota_catsene","path":"objects/Obj_prota_catsene/Obj_prota_catsene.yy",},},
     {"id":{"name":"Obj_Walther_P38","path":"objects/Obj_Walther_P38/Obj_Walther_P38.yy",},},
     {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
+    {"id":{"name":"oCollectable","path":"objects/oCollectable/oCollectable.yy",},},
     {"id":{"name":"oControl","path":"objects/oControl/oControl.yy",},},
     {"id":{"name":"oGameInit","path":"objects/oGameInit/oGameInit.yy",},},
     {"id":{"name":"oInventoryManager","path":"objects/oInventoryManager/oInventoryManager.yy",},},

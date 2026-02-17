@@ -51,3 +51,7 @@ InventoryHasItem = function(_itemId) {
 
 // Debug initialization message
 show_debug_message("Obj_InventoryManager initialized with " + string(maxSlots) + " slots.");
+
+// UI State
+menuActive = false;
+global.game_paused = false;

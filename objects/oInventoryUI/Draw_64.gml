@@ -1,4 +1,8 @@
 
+// --- Check if Menu is Active ---
+var _inv_manager = instance_find(oInventoryManager, 0);
+if (_inv_manager == noone || !_inv_manager.menuActive) exit;
+
 // --- Setup ---
 var _mx = device_mouse_x_to_gui(0);
 var _my = device_mouse_y_to_gui(0);
@@ -21,7 +25,7 @@ for (var i = 0; i < array_length(menu_items); i++) {
 }
 
 // --- 2. Grid de Itens (Center Top) ---
-var _inv_manager = instance_find(oInventoryManager, 0);
+// _inv_manager is already found above
 var _slots = (_inv_manager != noone) ? _inv_manager.inventorySlots : [];
 
 for (var r = 0; r < grid_rows; r++) {

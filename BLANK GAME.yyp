@@ -69,6 +69,7 @@
     {"id":{"name":"Object10","path":"objects/Object10/Object10.yy",},},
     {"id":{"name":"oControl","path":"objects/oControl/oControl.yy",},},
     {"id":{"name":"oGameInit","path":"objects/oGameInit/oGameInit.yy",},},
+    {"id":{"name":"oInventoryManager","path":"objects/oInventoryManager/oInventoryManager.yy",},},
     {"id":{"name":"oPlayerMilitar","path":"objects/oPlayerMilitar/oPlayerMilitar.yy",},},
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},

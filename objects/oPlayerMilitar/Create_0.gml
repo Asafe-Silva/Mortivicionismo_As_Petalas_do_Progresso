@@ -199,13 +199,12 @@ ProcessCombat = function() {
         if (mouse_check_button_pressed(mb_left) && global.walther_cooldown <= 0) {
             if (global.walther_ammo > 0) {
                 var _dir = point_direction(x, y, mouse_x, mouse_y);
-                var _bullet = instance_create_layer(x, y, "Instances", Obj_bala_walther_p38); // Assuming layer
-                // If Obj_bala_walther_p38 is not created via instance_create_layer due to GMS version, use instance_create_depth
-                 if (!instance_exists(_bullet)) _bullet = instance_create_depth(x, y, 0, Obj_bala_walther_p38);
+                var _bullet = instance_create_layer(x, y - 8, "Instances", Obj_bala_walther_p38); // Assuming layer
 
                 with (_bullet) {
-                    dir = _dir;
-                    speed = 12; // Should be bulletSpeed
+                    direction = _dir;
+                    image_angle = _dir;
+                    speed = 12;
                     life = 60;
                 }
                 
@@ -228,11 +227,11 @@ ProcessCombat = function() {
 
 /// @function RepeatReloadAction()
 RepeatReloadAction = function() {
-    for (var i = 0; i < 6; i++) {
-        var _cartridge = instance_create_depth(x + random_range(-8, 8), y + random_range(-8, 8), 0, Obj_cartucho_walther_p38);
-        with (_cartridge) {
-            hspeed = random_range(-2, 2);
-            vspeed = random_range(-2, 2);
-        }
-    }
+    //for (var i = 0; i < 6; i++) {
+    //    var _cartridge = instance_create_depth(x + random_range(-8, 8), y + random_range(-8, 8), 0, Obj_cartucho_walther_p38);
+    //    with (_cartridge) {
+    //        hspeed = random_range(-2, 2);
+    //        vspeed = random_range(-2, 2);
+    //    }
+    //}
 }

@@ -22,7 +22,7 @@ function Item(_id, _name, _description, _sprite, _type, _weight, _is_corrupted) 
     }
 }
 
-/// @function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range)
+/// @function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range, _ammo_capacity)
 /// @description Constructor for weapon items, inheriting from Item.
 /// @param {String} _id Unique identifier for the weapon.
 /// @param {String} _name Display name of the weapon.
@@ -32,9 +32,11 @@ function Item(_id, _name, _description, _sprite, _type, _weight, _is_corrupted) 
 /// @param {Bool} _is_corrupted Whether the weapon affects sanity.
 /// @param {Real} _damage Damage dealt by the weapon.
 /// @param {Real} _range Effective range of the weapon.
-function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range) : Item(_id, _name, _description, _sprite, "Weapon", _weight, _is_corrupted) constructor {
+/// @param {Real} _ammo_capacity Maximum ammo for the weapon.
+function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range, _ammo_capacity) : Item(_id, _name, _description, _sprite, "Weapon", _weight, _is_corrupted) constructor {
     damage = _damage;
     range = _range;
+    ammo_capacity = _ammo_capacity;
 }
 
 /// @function Consumable(_id, _name, _description, _sprite, _weight, _is_corrupted, _heal_value, _effect_description)
@@ -84,7 +86,8 @@ function init_item_definitions() {
         1.5, 
         false, 
         20, 
-        300
+        300,
+        8 // ammo_capacity
     ));
 
     // Corrupted Doll
@@ -96,6 +99,17 @@ function init_item_definitions() {
         "Lore", 
         0.5, 
         true
+    ));
+
+    // Pistol Ammo (Cartridge)
+    _add_item(new Item(
+        "pistol_ammo",
+        "Munição de Pistola",
+        "Cartuchos 9mm para a Walther P38.",
+        Spr_cartucho_walther_p38,
+        "Ammo",
+        0.05,
+        false
     ));
 
     show_debug_message("Item Database Initialized.");

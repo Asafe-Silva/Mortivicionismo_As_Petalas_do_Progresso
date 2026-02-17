@@ -1,16 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"oInventoryUI",
+  "%Name":"obj_gmlive",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":62,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"oInventoryUI",
+  "name":"obj_gmlive",
   "overriddenProperties":[],
   "parent":{
-    "name":"System",
-    "path":"folders/Objetos/System.yy",
+    "name":"GMLive",
+    "path":"folders/Extensions/GMLive.yy",
   },
   "parentObjectId":null,
   "persistent":true,

@@ -1,3 +1,4 @@
+live_auto_call
 
 // --- Check if Menu is Active ---
 var _inv_manager = instance_find(oInventoryManager, 0);
@@ -101,13 +102,13 @@ draw_set_alpha(1);
 // draw_rectangle(status_rect[0], status_rect[1], status_rect[2], status_rect[3], true); // Optional border for status
 
 if (is_struct(_hover_item)) {
-    var _tx = status_rect[0] + 20;
-    var _ty = status_rect[1] + 20;
+    var _tx = status_rect[0] + 10;
+    var _ty = status_rect[1] + 10;
     
     // Name
     draw_set_color(c_text_highlight);
     draw_text(_tx, _ty, _hover_item.name);
-    _ty += 40;
+    _ty += 20;
     
     // Stats
     draw_set_color(c_text_normal);
@@ -132,9 +133,9 @@ draw_set_color(c_white);
 draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], true);
 
 if (is_struct(_hover_item)) {
-    var _tx = lore_rect[0] + 20;
-    var _ty = lore_rect[1] + 20;
-    var _w = (lore_rect[2] - lore_rect[0]) - 40;
+    var _tx = lore_rect[0] + 10;
+    var _ty = lore_rect[1] + 10;
+    var _w = (lore_rect[2] - lore_rect[0]) - 20;
     
     draw_set_color(c_white);
     // Use draw_text_ext for text wrapping

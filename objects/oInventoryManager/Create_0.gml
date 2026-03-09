@@ -55,3 +55,15 @@ show_debug_message("Obj_InventoryManager initialized with " + string(maxSlots) +
 // UI State
 menuActive = false;
 global.game_paused = false;
+
+// Tabs System
+enum MENU_TABS {
+    RESUMO,
+    SANIDADE,
+    INVENTARIO,
+    DIALOGOS,
+    MORAL,
+    CONFIG
+}
+
+current_tab = MENU_TABS.INVENTARIO;

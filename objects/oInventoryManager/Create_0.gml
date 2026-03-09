@@ -67,3 +67,34 @@ enum MENU_TABS {
 }
 
 current_tab = MENU_TABS.INVENTARIO;
+
+// --- Traumas System ---
+function Trauma(_id, _name, _desc, _sprite, _type) constructor {
+    id = _id;
+    name = _name;
+    description = _desc;
+    sprite = _sprite;
+    type = _type; // "maior" or "menor"
+}
+
+traumas_maiores = [];
+traumas_menores = [];
+
+// Add debug/placeholder Trauma
+var _trm = new Trauma("trm_peixe", "Peixe Vivo fora d'água", "Você se sente como este MISERÁVEL peixe, sem AR...\nSE NÃO SE AFASTAR VAI SUFOCAR ATÉ A MORTE", -1, "maior");
+array_push(traumas_maiores, _trm);
+
+// --- Medals System ---
+function Medal(_id, _name, _desc, _sprite) constructor {
+    id = _id;
+    name = _name;
+    description = _desc;
+    sprite = _sprite;
+}
+
+// 7 columns * 3 rows = 21 slots
+medals_slots = array_create(21, undefined);
+
+// Add debug/placeholder Medal
+var _mdl = new Medal("mdl_test", "Honra ao Mérito", "Condecorado por bravura excecional em campo de batalha sob fogo inimigo.", -1);
+medals_slots[0] = _mdl;

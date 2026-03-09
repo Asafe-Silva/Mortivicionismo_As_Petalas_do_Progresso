@@ -65,7 +65,123 @@ switch (_inv_manager.current_tab) {
         break;
 
     case MENU_TABS.SANIDADE:
-        // TODO: Sanidade UI
+        // --- 1. Top Section (Status) ---
+        var _sanity = variable_global_exists("sanidade_atual") ? global.sanidade_atual : 100;
+        var _status_text = "ESTADO ATUAL: ";
+        
+        if (_sanity >= 80) _status_text += "ESTÁVEL";
+        else if (_sanity >= 50) _status_text += "ANSIOSA";
+        else if (_sanity >= 20) _status_text += "PERTURBADA";
+        else _status_text += "COLAPSO";
+        
+        draw_set_color(c_text_highlight);
+        draw_text(grid_start_x, 20, _status_text);
+        
+        // Right align sanity value
+        draw_set_halign(fa_right);
+        draw_text(lore_rect[0] - 20, 20, string(_sanity) + "/100");
+        draw_set_halign(fa_left); // reset
+        
+        // --- 2. Trauma Grids ---
+        var _maiores = (_inv_manager != noone) ? _inv_manager.traumas_maiores : [];
+        var _menores = (_inv_manager != noone) ? _inv_manager.traumas_menores : [];
+        
+        // Headers
+        draw_set_color(c_text_normal);
+        draw_text(trauma_grid_start_x, trauma_grid_start_y - 20, "TRAUMA MAIOR");
+        draw_text(trauma_grid_start_x + trauma_grid_spacing_x, trauma_grid_start_y - 20, "TRAUMA MENOR");
+        
+        // Draw Both Grids Loop
+        var _hover_trauma = undefined;
+        
+        for (var _g = 0; _g < 2; _g++) { // 0: Maior, 1: Menor
+            var _arr_ref = (_g == 0) ? _maiores : _menores;
+            var _grid_base_x = trauma_grid_start_x + (_g * trauma_grid_spacing_x);
+            
+            for (var r = 0; r < trauma_grid_rows; r++) {
+                for (var c = 0; c < trauma_grid_cols; c++) {
+                    var _idx = (r * trauma_grid_cols) + c;
+                    var _sx = _grid_base_x + (c * (slot_size + slot_padding));
+                    var _sy = trauma_grid_start_y + (r * (slot_size + slot_padding));
+                    
+                    // Box BG
+                    draw_set_color(c_dark_overlay);
+                    draw_set_alpha(0.8);
+                    draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, false);
+                    draw_set_color(c_white);
+                    draw_set_alpha(0.3);
+                    draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, true);
+                    
+                    // Hover
+                    if (_mx >= _sx && _mx <= _sx + slot_size && _my >= _sy && _my <= _sy + slot_size) {
+                        draw_set_alpha(0.2);
+                        draw_set_color(c_white);
+                        draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, false);
+                        draw_set_alpha(1);
+                        
+                        // Set hovered trauma data if slot isn't empty
+                        if (_idx < array_length(_arr_ref)) {
+                            _hover_trauma = _arr_ref[_idx];
+                        }
+                    }
+                    
+                    // Draw Sprite if exists
+                    if (_idx < array_length(_arr_ref)) {
+                        var _t = _arr_ref[_idx];
+                        if (sprite_exists(_t.sprite)) {
+                            var _sc = min(slot_size / sprite_get_width(_t.sprite), slot_size / sprite_get_height(_t.sprite)) * 0.8;
+                            draw_sprite_ext(_t.sprite, 0, _sx + slot_size/2, _sy + slot_size/2, _sc, _sc, 0, c_white, 1);
+                        } else {
+                            // Placeholder mark for text
+                            draw_set_alpha(1);
+                            draw_set_color(c_red);
+                             draw_text(_sx + 5, _sy + 5, "X"); // debugging no-sprite items
+                        }
+                    }
+                }
+            }
+        }
+        
+        // --- 3. Update Global Hover Item so lower panels draw correctly ---
+        // I will reuse _hover_item from below, since Sanity tab only uses side panels for Traumas.
+        // Easiest is to map _hover_trauma properties to be structurally compatible for drawing.
+        if (_hover_trauma != undefined) {
+             _hover_item = {
+                 sprite: _hover_trauma.sprite,
+                 name: _hover_trauma.name,
+                 type: "Trauma (" + _hover_trauma.type + ")",
+                 description: _hover_trauma.description
+             };
+        } else {
+             _hover_item = undefined;
+        }
+        
+        // --- 4. Draw Global Sanity Effects on Lore Panel ---
+        // Even if hovering or not, on the Sanity tab the right panel should show global effects
+        draw_set_color(c_dark_overlay);
+        draw_set_alpha(0.8);
+        draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], false);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], true);
+        
+        var _lx = lore_rect[0] + 10;
+        var _ly = lore_rect[1] + 10;
+        var _lw = (lore_rect[2] - lore_rect[0]) - 20;
+        
+        draw_set_color(c_text_highlight);
+        draw_text(_lx, _ly, "*Estado atual afeta:");
+        _ly += 25;
+        
+        draw_set_color(c_white);
+        var _fx_text = "";
+        if (_sanity >= 80) _fx_text = "Nenhum efeito penalizante.";
+        else if (_sanity >= 50) _fx_text = "-5% Concentração\n+10 de campo de visão";
+        else if (_sanity >= 20) _fx_text = "-15% Concentração\nVisão em túnel";
+        else _fx_text = "-50% Concentração\nRecebe 2x de dano!";
+        
+        draw_text_ext(_lx, _ly, _fx_text, 20, _lw);
+        
         break;
 
     case MENU_TABS.INVENTARIO:
@@ -191,7 +307,149 @@ switch (_inv_manager.current_tab) {
         break;
 
     case MENU_TABS.MORAL:
-        // TODO: Moral UI
+        // --- 1. Top Section (Alignment Text) ---
+        var _pol = variable_global_exists("moral_politica") ? global.moral_politica : 0;
+        var _eti = variable_global_exists("moral_etica") ? global.moral_etica : 0;
+        
+        draw_set_color(c_text_normal);
+        
+        // Politica
+        var _box_w = 400;
+        var _box_h = 30;
+        var _bx = grid_start_x;
+        var _by = 20;
+        
+        draw_rectangle(_bx, _by, _bx + _box_w, _by + _box_h, true);
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        
+         // Formatar: Militar [valor]/100/[valor] Revolucionario
+        var _vPol1 = (_pol < 0) ? abs(_pol) : 0;
+        var _vPol2 = (_pol > 0) ? _pol : 0;
+        var _str_pol = "Militar " + string(_vPol1) + "/100/" + string(_vPol2) + " Revolucionário";
+        draw_text(_bx + _box_w/2, _by + _box_h/2, _str_pol);
+        
+        // Etica
+        _by += 40;
+        draw_rectangle(_bx, _by, _bx + _box_w, _by + _box_h, true);
+        
+        // Formatar: Boa pessoa [valor]/100/[valor] Má pessoa
+        var _vEti1 = (_eti > 0) ? _eti : 0; // Boa pessoa = positivo
+        var _vEti2 = (_eti < 0) ? abs(_eti) : 0; // Ma pessoa = negativo
+        var _str_eti = "Boa pessoa " + string(_vEti1) + "/100/" + string(_vEti2) + " Má pessoa";
+        draw_text(_bx + _box_w/2, _by + _box_h/2, _str_eti);
+        
+        draw_set_halign(fa_left); // Reset
+        draw_set_valign(fa_top);  // Reset
+        
+        // --- 2. Medals Grid (Center) ---
+        var _medals = (_inv_manager != noone) ? _inv_manager.medals_slots : [];
+        var _hover_medal = undefined;
+        
+        for (var r = 0; r < medal_grid_rows; r++) {
+            for (var c = 0; c < medal_grid_cols; c++) {
+                var _idx = (r * medal_grid_cols) + c;
+                var _sx = medal_grid_start_x + (c * (slot_size + slot_padding));
+                var _sy = medal_grid_start_y + (r * (slot_size + slot_padding));
+                
+                // Box BG
+                draw_set_color(c_dark_overlay);
+                draw_set_alpha(0.8);
+                draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, false);
+                draw_set_color(c_white);
+                draw_set_alpha(0.3);
+                draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, true); // Subtle Border
+                
+                // Hover Check
+                if (_mx >= _sx && _mx <= _sx + slot_size && _my >= _sy && _my <= _sy + slot_size) {
+                    draw_set_alpha(0.2);
+                    draw_set_color(c_white);
+                    draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, false);
+                    draw_set_alpha(1);
+                    
+                    if (_idx < array_length(_medals) && is_struct(_medals[_idx])) {
+                        _hover_medal = _medals[_idx];
+                    }
+                }
+                
+                // Draw Medal Sprite
+                if (_idx < array_length(_medals) && is_struct(_medals[_idx])) {
+                    var _spr = _medals[_idx].sprite;
+                    if (sprite_exists(_spr)) {
+                        var _sc = min(slot_size / sprite_get_width(_spr), slot_size / sprite_get_height(_spr)) * 0.8;
+                        draw_sprite_ext(_spr, 0, _sx + slot_size/2, _sy + slot_size/2, _sc, _sc, 0, c_white, 1);
+                    } else {
+                        // Placeholder
+                        draw_set_alpha(1);
+                        draw_set_color(c_yellow);
+                        draw_text(_sx + 5, _sy + 5, "M"); // Placeholder mark
+                    }
+                }
+            }
+        }
+        
+        // --- 3. Panels (Bottom & Right) ---
+        
+        // Lore Panel (Right) - Static Explicative Text
+        draw_set_color(c_dark_overlay);
+        draw_set_alpha(0.8);
+        draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], false);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_rectangle(lore_rect[0], lore_rect[1], lore_rect[2], lore_rect[3], true);
+        
+        var _lx = lore_rect[0] + 10;
+        var _ly = lore_rect[1] + 10;
+        var _lw = (lore_rect[2] - lore_rect[0]) - 20;
+        draw_set_color(c_text_normal);
+        draw_text_ext(_lx, _ly, "• CADA UM DOS 21 espaços de medalha é PARA VC VER AS SUAS HONRAS MILITARES", 20, _lw);
+        
+        // Preview Panel (Bottom Left)
+        draw_set_color(c_dark_overlay);
+        draw_set_alpha(0.8);
+        draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], false);
+        draw_set_alpha(1);
+        draw_set_color(c_white);
+        draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], true);
+        
+        if (is_struct(_hover_medal)) {
+            var _spr = _hover_medal.sprite;
+            if (sprite_exists(_spr)) {
+                 var _box_w = preview_rect[2] - preview_rect[0];
+                 var _box_h = preview_rect[3] - preview_rect[1];
+                 var _scale = min(_box_w / sprite_get_width(_spr), _box_h / sprite_get_height(_spr)) * 0.8;
+                 draw_sprite_ext(_spr, 0, preview_rect[0] + _box_w/2, preview_rect[1] + _box_h/2, _scale, _scale, 0, c_white, 1);
+            } else {
+                draw_set_color(c_gray);
+                draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem da medalha.", 15, preview_rect[2] - preview_rect[0] - 10);
+            }
+        } else {
+            draw_set_color(c_gray);
+            draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem de MEDALHA, pois VC NÃO POSSUI", 15, preview_rect[2] - preview_rect[0] - 10);
+        }
+        
+        // Status Panel (Bottom Center)
+        draw_set_color(c_dark_overlay);
+        draw_set_alpha(0.8);
+        draw_rectangle(status_rect[0], status_rect[1], status_rect[2], status_rect[3], false);
+        draw_set_alpha(1);
+        
+        var _tx = status_rect[0] + 10;
+        var _ty = status_rect[1] + 10;
+        var _tw = status_rect[2] - status_rect[0] - 20;
+        
+        if (is_struct(_hover_medal)) {
+            draw_set_color(c_text_highlight);
+            draw_text(_tx, _ty, _hover_medal.name);
+            _ty += 20;
+            draw_set_color(c_text_normal);
+            draw_text_ext(_tx, _ty, _hover_medal.description, 20, _tw);
+        } else {
+            draw_set_color(c_gray);
+            draw_text(_tx, _ty, "ESPAÇO SEM MEDALHA");
+            _ty += 25;
+            draw_text_ext(_tx, _ty, "É AQUI ONDE SUAS MEDALHAS DE GUERRA SÃO GUARDADAS.", 20, _tw);
+        }
         break;
 
     case MENU_TABS.CONFIG:

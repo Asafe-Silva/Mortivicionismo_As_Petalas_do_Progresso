@@ -4,6 +4,12 @@ live_auto_call
 var _inv_manager = instance_find(oInventoryManager, 0);
 if (_inv_manager == noone || !_inv_manager.menuActive) exit;
 
+// --- Draw Background ---
+draw_set_alpha(0.50);
+draw_set_colour(c_dark_overlay);
+draw_rectangle(0, 0, display_get_gui_width(), display_get_gui_height(), false);
+draw_set_alpha(1.00);
+
 // --- Setup ---
 var _mx = device_mouse_x_to_gui(0);
 var _my = device_mouse_y_to_gui(0);
@@ -16,7 +22,7 @@ draw_set_valign(fa_top);
 // --- 1. Menu Lateral (Left) ---
 draw_set_alpha(0.8); // Darker background
 draw_set_color(c_dark_overlay);
-draw_rectangle(0, 0, menu_width, gui_height, false);
+draw_rectangle(0, 0, gui_width, gui_height, false);
 draw_set_alpha(1);
 
 var _mouse_click = device_mouse_check_button_pressed(0, mb_left);
@@ -180,7 +186,7 @@ switch (_inv_manager.current_tab) {
         else if (_sanity >= 20) _fx_text = "-15% Concentração\nVisão em túnel";
         else _fx_text = "-50% Concentração\nRecebe 2x de dano!";
         
-        draw_text_ext(_lx, _ly, _fx_text, 20, _lw);
+        draw_text_ext(_lx, _ly, _fx_text, 25, _lw);
         
         break;
 
@@ -314,10 +320,10 @@ switch (_inv_manager.current_tab) {
         draw_set_color(c_text_normal);
         
         // Politica
-        var _box_w = 400;
+        var _box_w = 480; // Widen box 
         var _box_h = 30;
         var _bx = grid_start_x;
-        var _by = 20;
+        var _by = 15; // Raised slightly
         
         draw_rectangle(_bx, _by, _bx + _box_w, _by + _box_h, true);
         draw_set_halign(fa_center);
@@ -327,6 +333,8 @@ switch (_inv_manager.current_tab) {
         var _vPol1 = (_pol < 0) ? abs(_pol) : 0;
         var _vPol2 = (_pol > 0) ? _pol : 0;
         var _str_pol = "Militar " + string(_vPol1) + "/100/" + string(_vPol2) + " Revolucionário";
+        
+        // Draw centered relative to the box width
         draw_text(_bx + _box_w/2, _by + _box_h/2, _str_pol);
         
         // Etica
@@ -390,6 +398,8 @@ switch (_inv_manager.current_tab) {
         
         // --- 3. Panels (Bottom & Right) ---
         
+        // --- 3. Panels (Bottom & Right) ---
+        
         // Lore Panel (Right) - Static Explicative Text
         draw_set_color(c_dark_overlay);
         draw_set_alpha(0.8);
@@ -402,7 +412,7 @@ switch (_inv_manager.current_tab) {
         var _ly = lore_rect[1] + 10;
         var _lw = (lore_rect[2] - lore_rect[0]) - 20;
         draw_set_color(c_text_normal);
-        draw_text_ext(_lx, _ly, "• CADA UM DOS 21 espaços de medalha é PARA VC VER AS SUAS HONRAS MILITARES", 20, _lw);
+        draw_text_ext(_lx, _ly, "• CADA UM DOS 21 espaços de medalha é PARA VC VER AS SUAS HONRAS MILITARES", 25, _lw); // Increased line separation
         
         // Preview Panel (Bottom Left)
         draw_set_color(c_dark_overlay);
@@ -421,11 +431,11 @@ switch (_inv_manager.current_tab) {
                  draw_sprite_ext(_spr, 0, preview_rect[0] + _box_w/2, preview_rect[1] + _box_h/2, _scale, _scale, 0, c_white, 1);
             } else {
                 draw_set_color(c_gray);
-                draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem da medalha.", 15, preview_rect[2] - preview_rect[0] - 10);
+                draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem da medalha.", 20, preview_rect[2] - preview_rect[0] - 10);
             }
         } else {
             draw_set_color(c_gray);
-            draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem de MEDALHA, pois VC NÃO POSSUI", 15, preview_rect[2] - preview_rect[0] - 10);
+            draw_text_ext(preview_rect[0] + 5, preview_rect[1] + 5, "Sem imagem de MEDALHA, pois VC NÃO POSSUI", 20, preview_rect[2] - preview_rect[0] - 10);
         }
         
         // Status Panel (Bottom Center)

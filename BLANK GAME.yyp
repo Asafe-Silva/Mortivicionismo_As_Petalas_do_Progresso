@@ -112,6 +112,7 @@
     {"id":{"name":"scr_item_add","path":"scripts/scr_item_add/scr_item_add.yy",},},
     {"id":{"name":"scr_item_remove","path":"scripts/scr_item_remove/scr_item_remove.yy",},},
     {"id":{"name":"scr_sanidade_change","path":"scripts/scr_sanidade_change/scr_sanidade_change.yy",},},
+    {"id":{"name":"scr_save_load","path":"scripts/scr_save_load/scr_save_load.yy",},},
     {"id":{"name":"scr_trauma_add","path":"scripts/scr_trauma_add/scr_trauma_add.yy",},},
     {"id":{"name":"scr_trauma_check_gatilhos","path":"scripts/scr_trauma_check_gatilhos/scr_trauma_check_gatilhos.yy",},},
     {"id":{"name":"scr_trauma_update","path":"scripts/scr_trauma_update/scr_trauma_update.yy",},},

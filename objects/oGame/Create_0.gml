@@ -1,7 +1,9 @@
 // --- System Configuration ---
 persistent = true;
 
-// Resolution logic
+// Initialize missing globals for Save/Load
+global.player_hp = 100;
+
 // Ensure MACROS are read or use defaults if script execution order is weird (it shouldn't be)
 var _w = 960; 
 var _h = 540;

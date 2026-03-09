@@ -27,7 +27,94 @@ camHeight = camera_get_view_height(camera);
 waltherCooldownTimer = 0;
 
 
+
+// --- State Machine ---
+enum PLAYER_STATE {
+    FREE,
+    ATTACK
+}
+state = PLAYER_STATE.FREE;
+
 // --- Methods ---
+
+/// @function StateFree()
+StateFree = function() {
+    ProcessInput();
+    ProcessMovement();
+    ProcessAnimation();
+    ProcessInteraction();
+    ProcessCombat(); // Keeps gun logic working for now
+    
+    // Check for Melee Attack (Space or Right Click?)
+    if (keyboard_check_pressed(vk_space)) {
+        state = PLAYER_STATE.ATTACK;
+        image_index = 0;
+        image_speed = 1;
+        // Logic to stop movement is handled by not calling ProcessMovement
+    }
+}
+
+/// @function StateAttack()
+StateAttack = function() {
+    // Stop movement
+    hSpeed = 0;
+    vSpeed = 0;
+    
+    // Create Hitbox on first frame (or specific frame)
+    if (floor(image_index) == 1) { 
+       if (!instance_exists(oHitbox)) { 
+           // Calculate offset based on last input direction (approximated from sprites if needed, but using saved direction is better)
+           // If we don't have a specific `facingVector`, we can derive it:
+           var _offX = 0;
+           var _offY = 0;
+           
+           if (lastAxisMoved == "x") {
+               _offX = facingDirection * 20;
+           } else {
+               // Determine up/down based on sprite or stored state
+               // Since we don't store "lastYDir", we can look at the sprite or input if still held
+               // But state machine stops movement, so input might be zero.
+               // Let's assume Down if unknown, or check current sprite.
+               if (sprite_index == Spr_prota_cima_militar) {
+                   _offY = -20;
+               } else {
+                   _offY = 20; // Default down
+               }
+           }
+           
+           var _hitbox = instance_create_layer(x + _offX, y + _offY, "Instances", oHitbox);
+           _hitbox.owner = id;
+       }
+    }
+
+    // End Attack
+    // For now, using a simple timer or animation end check
+    // If no specific attack sprite, we simulate with timer or just use a color blink
+    
+    // Placeholder animation check:
+    // if (image_index >= image_number - 1) {
+    //    state = PLAYER_STATE.FREE;
+    // }
+    
+    // Since we don't have a specific attack sprite yet, let's use a timer approach for prototype
+    if (alarm[0] <= 0) {
+        alarm[0] = 20; // 20 frames attack duration
+        // Visual debug
+        image_blend = c_red; 
+    }
+}
+
+/// @function ProcessState()
+ProcessState = function() {
+    switch (state) {
+        case PLAYER_STATE.FREE:
+            StateFree();
+            break;
+        case PLAYER_STATE.ATTACK:
+            StateAttack();
+            break;
+    }
+}
 
 /// @function ProcessInput()
 ProcessInput = function() {
@@ -95,11 +182,7 @@ ProcessMovement = function() {
 ProcessAnimation = function() {
     // Update facing direction
     if (inputDirection[0] != 0) {
-        facingDirection = -inputDirection[0]; // -1 for right input (check existing logic), 1 for left
-        // Note: original code: move_x == -1 (left) -> olhar = 1 ; move_x == 1 (right) -> olhar = -1
-        // So: inputDirection[0] = -1 (left) -> facing = 1. inputDirection[0] = 1 (right) -> facing = -1.
-        // Formula: facing = -inputDirection[0] matches.
-        
+        facingDirection = -inputDirection[0]; 
         lastAxisMoved = "x";
     } else if (inputDirection[1] != 0) {
         lastAxisMoved = "y";
@@ -125,8 +208,7 @@ ProcessAnimation = function() {
                 sprite_index = Spr_prota_baixo_militar;
                 image_speed = 1;
             }
-            // Inherit xscale from last horizontal move effectively
-             image_xscale = facingDirection; 
+            image_xscale = facingDirection; 
         }
     }
 }

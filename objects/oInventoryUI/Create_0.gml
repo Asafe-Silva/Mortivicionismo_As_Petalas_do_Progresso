@@ -44,7 +44,6 @@ config_idioma = "Português";
 vol_geral = 100;
 vol_fundo = 100;
 vol_musica = 100;
-tamanho_letra = 50;
 
 // Preview Panel (Bottom Left)
 var _preview_side = 120;

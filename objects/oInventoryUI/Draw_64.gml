@@ -465,21 +465,21 @@ switch (_inv_manager.current_tab) {
     case MENU_TABS.CONFIG:
         // --- 1. Main Area (Options List) ---
         var _opts_x = grid_start_x;
-        var _opts_y = 50;  // Start a bit higher
-        var _spacing = 42; // Tighter vertical spacing
-        var _txt_scale = 0.8; // Scale down the text
+        var _opts_y = 60;  // Restore initial height
+        var _spacing = 50; // Tighter vertical spacing
+        var _txt_scale = 0.65; // Scale down the text
         
         draw_set_color(c_text_normal);
         draw_set_halign(fa_left);
         draw_set_valign(fa_middle);
         
         var _hover_config = undefined; // To store hovered item name for Status Panel
-        var _hb_w = 400;
+        var _hb_w = 480;
         var _hb_h = 30;
-        var _btn_w = 30; // wider clickable area for arrows
+        var _btn_w = 40; // Clickable area for arrows
         
         // Push the values way to the right so they dont overlap the labels
-        var _ctrl_x = _opts_x + 230; 
+        var _ctrl_x = _opts_x + 280; 
         
         // --- 1. Idioma ---
         var _hy = _opts_y - _hb_h/2;
@@ -499,7 +499,7 @@ switch (_inv_manager.current_tab) {
         draw_set_color(c_text_normal);
         draw_text_transformed(_left_arr_x + 25, _opts_y, config_idioma, _txt_scale, _txt_scale, 0);
         
-        var _right_arr_x = _left_arr_x + 25 + (string_width(config_idioma) * _txt_scale) + 10;
+        var _right_arr_x = _left_arr_x + 25 + (string_width(config_idioma) * _txt_scale) + 15;
         if (_mx >= _right_arr_x && _mx <= _right_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
             draw_set_color(c_text_highlight);
             if (_mouse_click) config_idioma = (config_idioma == "Português") ? "English" : "Português";
@@ -530,7 +530,7 @@ switch (_inv_manager.current_tab) {
         draw_set_color(c_text_normal);
         draw_text_transformed(_left_arr_x + 25, _opts_y, string(vol_geral), _txt_scale, _txt_scale, 0);
         
-        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_geral)) * _txt_scale) + 10;
+        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_geral)) * _txt_scale) + 15;
         if (_mx >= _right_arr_x && _mx <= _right_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
             draw_set_color(c_text_highlight);
             if (_mouse_click) {
@@ -541,7 +541,7 @@ switch (_inv_manager.current_tab) {
         draw_text_transformed(_right_arr_x, _opts_y, ">", _txt_scale, _txt_scale, 0);
         
         draw_set_color(c_gray);
-        draw_text_transformed(_opts_x + 360, _opts_y, "Limite de altera de 0 a 100", _txt_scale - 0.1, _txt_scale - 0.1, 0);
+        draw_text_transformed(_opts_x + 400, _opts_y, "Limite de altera de 0 a 100", _txt_scale - 0.1, _txt_scale - 0.1, 0);
         
         _opts_y += _spacing;
         
@@ -567,7 +567,7 @@ switch (_inv_manager.current_tab) {
         draw_set_color(c_text_normal);
         draw_text_transformed(_left_arr_x + 25, _opts_y, string(vol_fundo), _txt_scale, _txt_scale, 0);
         
-        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_fundo)) * _txt_scale) + 10;
+        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_fundo)) * _txt_scale) + 15;
         if (_mx >= _right_arr_x && _mx <= _right_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
             draw_set_color(c_text_highlight);
             if (_mouse_click) {
@@ -601,7 +601,7 @@ switch (_inv_manager.current_tab) {
         draw_set_color(c_text_normal);
         draw_text_transformed(_left_arr_x + 25, _opts_y, string(vol_musica), _txt_scale, _txt_scale, 0);
         
-        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_musica)) * _txt_scale) + 10;
+        _right_arr_x = _left_arr_x + 25 + (string_width(string(vol_musica)) * _txt_scale) + 15;
         if (_mx >= _right_arr_x && _mx <= _right_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
             draw_set_color(c_text_highlight);
             if (_mouse_click) {
@@ -611,53 +611,19 @@ switch (_inv_manager.current_tab) {
         } else draw_set_color(c_text_normal);
         draw_text_transformed(_right_arr_x, _opts_y, ">", _txt_scale, _txt_scale, 0);
         
-        _opts_y += _spacing;
-        
-        // --- 5. Tamanho Letra ---
-        _hy = _opts_y - _hb_h/2;
-        if (_mx >= _opts_x && _mx <= _opts_x + _hb_w && _my >= _hy && _my <= _hy + _hb_h) {
-             draw_set_alpha(0.2); draw_rectangle(_opts_x, _hy, _opts_x + _hb_w, _hy + _hb_h, false); draw_set_alpha(1);
-             _hover_config = "tamanho_letra";
-        }
-        draw_set_color(c_text_normal);
-        draw_text_transformed(_opts_x, _opts_y, "TAMANHO DA LETRA:", _txt_scale, _txt_scale, 0);
-        
-        _left_arr_x = _ctrl_x;
-        if (_mx >= _left_arr_x && _mx <= _left_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
-            draw_set_color(c_text_highlight);
-            if (_mouse_click) tamanho_letra = max(10, tamanho_letra - 10);
-        } else draw_set_color(c_text_normal);
-        draw_text_transformed(_left_arr_x, _opts_y, "<", _txt_scale, _txt_scale, 0);
-        
-        draw_set_color(c_text_normal);
-        draw_text_transformed(_left_arr_x + 25, _opts_y, string(tamanho_letra), _txt_scale, _txt_scale, 0);
-        
-        _right_arr_x = _left_arr_x + 25 + (string_width(string(tamanho_letra)) * _txt_scale) + 10;
-        if (_mx >= _right_arr_x && _mx <= _right_arr_x + _btn_w && _my >= _hy && _my <= _hy + _hb_h) {
-            draw_set_color(c_text_highlight);
-            if (_mouse_click) tamanho_letra = min(100, tamanho_letra + 10);
-        } else draw_set_color(c_text_normal);
-        draw_text_transformed(_right_arr_x, _opts_y, ">", _txt_scale, _txt_scale, 0);
-        
-        _opts_y += _spacing;
-        
-        // Etc
-        draw_rectangle(_opts_x, _opts_y - 15, _opts_x + 350, _opts_y + 15, true);
-        draw_text_transformed(_opts_x + 10, _opts_y, "ETC... NÃO SEI MAIS OPÇÕES", _txt_scale, _txt_scale, 0);
-        
         // Reset alignment
         draw_set_valign(fa_top);
         
-        // --- 6. Action Buttons (Bottom Main Area) ---
-        var _btn_w2 = 150; // Smaller buttons so they fit without spilling to lore panel
+        // --- 5. Action Buttons (Bottom Main Area) ---
+        var _btn_w2 = 140; // Even smaller, no wrapping needed if we drop text size
         var _btn_h2 = 35;
         var _bx1 = grid_start_x;
-        var _by1 = status_rect[1] - _btn_h2 - 10; // Closer to status rect to avoid "ETC"
+        var _by1 = status_rect[1] - _btn_h2 - 20; // Re-established spacing to status rect
         
-        var _btns = ["SALVA\nALTERAÇÕES", "Salva jogo", "Sai do jogo"];
+        var _btns = ["SALVA ALTERAÇÕES", "Salva jogo", "Sai do jogo"];
         
         for (var b = 0; b < array_length(_btns); b++) {
-            var _cur_bx = _bx1 + (b * (_btn_w2 + 10)); // tighter spacing
+            var _cur_bx = _bx1 + (b * (_btn_w2 + 15)); // spacing of 15
             
             // Hover
             var _hovered_btn = (_mx >= _cur_bx && _mx <= _cur_bx + _btn_w2 && _my >= _by1 && _my <= _by1 + _btn_h2);
@@ -675,8 +641,8 @@ switch (_inv_manager.current_tab) {
             
             draw_set_halign(fa_center);
             draw_set_valign(fa_middle);
-            // Salva altera  es takes 2 lines
-            draw_text_transformed(_cur_bx + _btn_w2/2, _by1 + _btn_h2/2, _btns[b], _txt_scale, _txt_scale, 0);
+            // Multi-line text using ext_transformed to fit inside the button
+            draw_text_ext_transformed(_cur_bx + _btn_w2/2, _by1 + _btn_h2/2, _btns[b], 20, _btn_w2 / 0.65, 0.65, 0.65, 0);
             
             if (_hovered_btn && _mouse_click) {
                 if (b == 0) {
@@ -692,7 +658,7 @@ switch (_inv_manager.current_tab) {
         draw_set_halign(fa_left);
         draw_set_valign(fa_top);
         
-        // --- 7. Panels (Bottom & Right) ---
+        // --- 6. Panels (Bottom & Right) ---
         
         // Lore Panel (Right)
         draw_set_color(c_dark_overlay);
@@ -710,21 +676,6 @@ switch (_inv_manager.current_tab) {
         // Shrink the font size for lore using transformed to avoid bounds spilling 
         draw_text_ext_transformed(_lx, _ly, _lore_text, 25, _lw / 0.8, 0.8, 0.8, 0);
         
-        // Preview Panel (Bottom Left)
-        draw_set_color(c_dark_overlay);
-        draw_set_alpha(0.8);
-        draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], false);
-        draw_set_alpha(1);
-        draw_set_color(c_white);
-        draw_rectangle(preview_rect[0], preview_rect[1], preview_rect[2], preview_rect[3], true);
-        
-        draw_set_valign(fa_middle);
-        draw_set_halign(fa_center);
-        var _prev_w = preview_rect[2] - preview_rect[0] - 10;
-        draw_text_ext_transformed(preview_rect[0] + (preview_rect[2]-preview_rect[0])/2, preview_rect[1] + (preview_rect[3]-preview_rect[1])/2, "desenho teste NÃO VAI PARA MENU", 25, _prev_w / 0.6, 0.6, 0.6, 0);
-        draw_set_valign(fa_top);
-        draw_set_halign(fa_left);
-        
         // Status Panel (Bottom Center)
         draw_set_color(c_dark_overlay);
         draw_set_alpha(0.8);
@@ -733,33 +684,30 @@ switch (_inv_manager.current_tab) {
         
         var _tx = status_rect[0] + 10;
         var _ty = status_rect[1] + 10;
+        var _tw = status_rect[2] - status_rect[0] - 20;
         
         draw_set_color(c_text_highlight);
         
         if (_hover_config == "idioma") {
              draw_text(_tx, _ty, "IDIOMA");
              draw_set_color(c_text_normal);
-             draw_text(_tx, _ty + 30, "Você escolheu " + config_idioma + " (esta em negrito a sua escolha)");
+             draw_text_ext(_tx, _ty + 30, "Você escolheu " + config_idioma + ".", 25, _tw);
         } else if (_hover_config == "vol_geral") {
              draw_text(_tx, _ty, "VOLUME DO JOGO (GERAL)");
              draw_set_color(c_text_normal);
-             draw_text(_tx, _ty + 30, "Altera o volume de todos os sons do jogo globalmente.");
+             draw_text_ext(_tx, _ty + 30, "Altera o volume de todos os sons do jogo globalmente.", 25, _tw);
         } else if (_hover_config == "vol_fundo") {
              draw_text(_tx, _ty, "VOLUME DO FUNDO");
              draw_set_color(c_text_normal);
-             draw_text(_tx, _ty + 30, "Altera o volume dos efeitos sonoros de ambiente e background.");
+             draw_text_ext(_tx, _ty + 30, "Altera o volume dos efeitos sonoros de ambiente e background.", 25, _tw);
         } else if (_hover_config == "vol_musica") {
              draw_text(_tx, _ty, "VOLUME DA MÚSICA");
              draw_set_color(c_text_normal);
-             draw_text(_tx, _ty + 30, "Altera o volume das trilhas sonoras do jogo.");
-        } else if (_hover_config == "tamanho_letra") {
-             draw_text(_tx, _ty, "TAMANHO DA LETRA");
-             draw_set_color(c_text_normal);
-             draw_text(_tx, _ty + 30, "Altera o tamanho da fonte usada nos textos dos diálogos.");
+             draw_text_ext(_tx, _ty + 30, "Altera o volume das trilhas sonoras do jogo.", 25, _tw);
         } else {
              draw_text(_tx, _ty, "CONFIGURAÇÕES DO JOGO");
              draw_set_color(c_gray);
-             draw_text(_tx, _ty + 30, "Passe o mouse sobre as opções para ver informações.");
+             draw_text_ext(_tx, _ty + 30, "Passe o mouse sobre as opções para ver informações.", 25, _tw);
         }
         break;
 }

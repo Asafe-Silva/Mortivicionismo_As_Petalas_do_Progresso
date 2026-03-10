@@ -217,7 +217,7 @@ switch (_inv_manager.current_tab) {
                     draw_set_alpha(1);
                 }
         
-                // Draw Item Sprite
+                // Draw Item Sprite and Equipment Logic
                 if (_idx < array_length(_slots)) {
                     var _item = _slots[_idx];
                     if (is_struct(_item) && variable_struct_exists(_item, "sprite")) {
@@ -226,6 +226,40 @@ switch (_inv_manager.current_tab) {
                             // Center sprite in slot
                             var _scale = min(slot_size / sprite_get_width(_spr), slot_size / sprite_get_height(_spr)) * 0.8;
                             draw_sprite_ext(_spr, 0, _sx + slot_size/2, _sy + slot_size/2, _scale, _scale, 0, c_white, 1);
+                        }
+                        
+                        // --- Equipment Logic (Right Click) ---
+                        if (hovered_slot == _idx) {
+                            if (device_mouse_check_button_pressed(0, mb_right)) {
+                                if (variable_struct_exists(_item, "type") && _item.type == "Weapon") {
+                                    // Make sure global exists
+                                    if (!variable_global_exists("arma_equipada")) global.arma_equipada = undefined;
+                                    
+                                    // Equip or Unequip
+                                    if (global.arma_equipada == _item) {
+                                        global.arma_equipada = undefined; // Unequip
+                                    } else {
+                                        global.arma_equipada = _item; // Equip
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // --- Visual Feedback for Equipped Item ---
+                        if (variable_global_exists("arma_equipada") && global.arma_equipada == _item) {
+                            // Green Border
+                            draw_set_color(c_lime);
+                            draw_rectangle(_sx, _sy, _sx + slot_size, _sy + slot_size, true);
+                            
+                            // "E" Indicator
+                            draw_set_halign(fa_right);
+                            draw_set_valign(fa_top);
+                            if (variable_instance_exists(id, "Fnt_dialogo")) draw_set_font(Fnt_dialogo);
+                            draw_text_transformed(_sx + slot_size - 4, _sy + 4, "E", 0.8, 0.8, 0);
+                            
+                            // Reset draw states
+                            draw_set_color(c_white);
+                            draw_set_halign(fa_left);
                         }
                     }
                 }

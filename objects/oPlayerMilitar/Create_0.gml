@@ -84,7 +84,10 @@ StateAttack = function() {
            
            var _hitbox = instance_create_layer(x + _offX, y + _offY, "Instances", oHitbox);
            _hitbox.owner = id;
-       }
+            
+            // A barra de espaço é estritamente um ataque corpo-a-corpo.
+            _hitbox.damage = 5; 
+        }
     }
 
     // End Attack
@@ -266,8 +269,16 @@ ProcessCombat = function() {
         if (global.sanidade_atual <= 20) { /* Vision */ }
     }
 
-    // Walther P38 Logic
-    if (variable_global_exists("have_walther") && global.have_walther) {
+    // Firearms Logic (Check Equipped Weapon)
+    var _has_firearm = false;
+    if (variable_global_exists("arma_equipada") && global.arma_equipada != undefined) {
+        // Only allow shooting if the equipped weapon is a firearm (e.g. "pistol")
+        if (variable_struct_exists(global.arma_equipada, "id") && global.arma_equipada.id == "pistol") {
+            _has_firearm = true;
+        }
+    }
+
+    if (_has_firearm) {
         
         // Ensure globals exist
         if (!variable_global_exists("walther_ammo")) global.walther_ammo = 6;

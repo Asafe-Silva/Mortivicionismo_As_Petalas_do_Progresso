@@ -1,4 +1,12 @@
-/// @description Global Logic (Pause, Menus)
+/// @description Global Logic (Pause, Menus, HUD)
+
+// HUD Interpolation
+if (variable_global_exists("player_hp")) {
+    hp_lerp = lerp(hp_lerp, global.player_hp, 0.1);
+}
+if (variable_global_exists("sanidade_atual")) {
+    sanity_lerp = lerp(sanity_lerp, global.sanidade_atual, 0.1);
+}
 
 // Toggle Inventory / Pause
 if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(ord("P"))) {

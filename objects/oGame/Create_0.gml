@@ -3,6 +3,12 @@ persistent = true;
 
 // Initialize missing globals for Save/Load
 global.player_hp = 100;
+global.player_hp_max = 100; // Adding max hp
+if (!variable_global_exists("sanidade_atual")) global.sanidade_atual = 100;
+
+// Lerp variables for smooth HUD
+hp_lerp = global.player_hp;
+sanity_lerp = global.sanidade_atual;
 
 // Initialize Alignment / Moral globals
 global.moral_politica = 0; // -100 (Militar) -> +100 (Revolucionário)

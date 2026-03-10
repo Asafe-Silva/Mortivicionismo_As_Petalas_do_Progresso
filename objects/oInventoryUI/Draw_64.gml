@@ -540,9 +540,6 @@ switch (_inv_manager.current_tab) {
         } else draw_set_color(c_text_normal);
         draw_text_transformed(_right_arr_x, _opts_y, ">", _txt_scale, _txt_scale, 0);
         
-        draw_set_color(c_gray);
-        draw_text_transformed(_opts_x + 400, _opts_y, "Limite de altera de 0 a 100", _txt_scale - 0.1, _txt_scale - 0.1, 0);
-        
         _opts_y += _spacing;
         
         // --- 3. Vol Fundo ---

@@ -39,6 +39,13 @@ medal_grid_rows = 3;
 medal_grid_start_x = grid_start_x;
 medal_grid_start_y = 110; // Lower to leave room for the Alignment bounds text
 
+// Config Tab Variables
+config_idioma = "Português";
+vol_geral = 100;
+vol_fundo = 100;
+vol_musica = 100;
+tamanho_letra = 50;
+
 // Preview Panel (Bottom Left)
 var _preview_side = 120;
 preview_rect = [25, gui_height - _preview_side - 25, 25 + _preview_side, gui_height - 25];

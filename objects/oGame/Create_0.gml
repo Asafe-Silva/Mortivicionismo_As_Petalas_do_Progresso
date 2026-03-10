@@ -8,6 +8,10 @@ global.player_hp = 100;
 global.moral_politica = 0; // -100 (Militar) -> +100 (Revolucionário)
 global.moral_etica = 0;    // -100 (Má Pessoa) -> +100 (Boa Pessoa)
 
+// Prevent missing group crash
+if (!audio_group_is_loaded(audiogroup_bgm)) audio_group_load(audiogroup_bgm);
+if (!audio_group_is_loaded(audiogroup_sfx)) audio_group_load(audiogroup_sfx);
+
 // Ensure MACROS are read or use defaults if script execution order is weird (it shouldn't be)
 var _w = 960; 
 var _h = 540;

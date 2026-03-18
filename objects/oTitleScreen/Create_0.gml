@@ -1,7 +1,16 @@
 live_auto_call
 
-// Menu Setup
-menu_options = ["NOVO JOGO", "CONTINUAR", "CONFIGURAÇÕES", "CRÉDITOS"];
+// Check for existing saves to configure the primary action
+var _has_saves = false;
+for (var i = 1; i <= 3; i++) {
+    if (file_exists("savegame_slot" + string(i) + ".json")) {
+        _has_saves = true;
+        break;
+    }
+}
+
+var _primary_btn = _has_saves ? "CONTINUAR" : "NOVO JOGO";
+menu_options = [_primary_btn, "CONFIGURAÇÕES", "CRÉDITOS"];
 menu_selected = 0;
 
 // Layout

@@ -20,18 +20,14 @@ if (_down) {
 
 if (_enter) {
     switch(menu_selected) {
-        case 0: // NOVO JOGO
+        case 0: // NOVO JOGO ou CONTINUAR
             var _t = instance_create_depth(0, 0, -9999, oTransition);
-            _t.target_room = rmInit;
+            _t.target_room = rm_SaveSlots;
             break;
-        case 1: // CONTINUAR
-            var _t = instance_create_depth(0, 0, -9999, oTransition);
-            _t.target_room = rm_SaveSlots; 
-            break;
-        case 2: // CONFIGURAÇÕES
+        case 1: // CONFIGURAÇÕES
             show_debug_message("CONFIGURAÇÕES selecionado (A fazer)");
             break;
-        case 3: // CRÉDITOS
+        case 2: // CRÉDITOS
             show_debug_message("CRÉDITOS selecionado (A fazer)");
             break;
     }

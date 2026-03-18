@@ -26,7 +26,7 @@ if (_enter) {
             break;
         case 1: // CONTINUAR
             var _t = instance_create_depth(0, 0, -9999, oTransition);
-            _t.target_room = rmInit; 
+            _t.target_room = rm_SaveSlots; 
             break;
         case 2: // CONFIGURAÇÕES
             show_debug_message("CONFIGURAÇÕES selecionado (A fazer)");

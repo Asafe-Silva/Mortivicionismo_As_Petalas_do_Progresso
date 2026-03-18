@@ -1,7 +1,9 @@
-/// @function SaveGame()
-/// @description Saves the game state to a JSON file.
-function SaveGame() {
+/// @function SaveGame(slot_id, save_name)
+/// @description Saves the game state to a JSON file based on slot index.
+function SaveGame(_slot_id = 1, _save_name = "Save") {
+    var _filename = "savegame_slot" + string(_slot_id) + ".json";
     var _saveData = {
+        save_name: _save_name,
         room_name: room_get_name(room),
         player_x: 0,
         player_y: 0,
@@ -31,25 +33,27 @@ function SaveGame() {
     var _jsonString = json_stringify(_saveData);
     
     // Save to File
-    var _file = file_text_open_write("savegame.json");
+    var _file = file_text_open_write(_filename);
     if (_file != -1) {
         file_text_write_string(_file, _jsonString);
         file_text_close(_file);
-        show_debug_message("Game Saved to savegame.json");
+        show_debug_message("Game Saved to " + _filename);
     } else {
         show_debug_message("Failed to open save file for writing.");
     }
 }
 
-/// @function LoadGame()
+/// @function LoadGame(slot_id)
 /// @description Loads the game state from a JSON file.
-function LoadGame() {
-    if (!file_exists("savegame.json")) {
+function LoadGame(_slot_id = 1) {
+    var _filename = "savegame_slot" + string(_slot_id) + ".json";
+    
+    if (!file_exists(_filename)) {
         show_debug_message("No save file found.");
         return;
     }
 
-    var _file = file_text_open_read("savegame.json");
+    var _file = file_text_open_read(_filename);
     var _jsonString = "";
     
     if (_file != -1) {
@@ -117,4 +121,27 @@ function LoadGame() {
     } catch(_error) {
         show_debug_message("Error parsing save file: " + string(_error));
     }
+}
+
+/// @function GetSaveMetadata(slot_id)
+/// @description Retrieves save details without applying state (for UI menus).
+function GetSaveMetadata(_slot_id) {
+    var _filename = "savegame_slot" + string(_slot_id) + ".json";
+    if (!file_exists(_filename)) return undefined;
+    
+    var _file = file_text_open_read(_filename);
+    var _jsonString = "";
+    if (_file != -1) {
+        while (!file_text_eof(_file)) {
+            _jsonString += file_text_read_string(_file);
+            file_text_readln(_file);
+        }
+        file_text_close(_file);
+        try {
+            return json_parse(_jsonString);
+        } catch(_e) {
+            return undefined;
+        }
+    }
+    return undefined;
 }

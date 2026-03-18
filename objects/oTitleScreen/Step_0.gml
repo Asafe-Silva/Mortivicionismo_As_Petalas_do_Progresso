@@ -1,0 +1,37 @@
+live_auto_call
+
+// Input
+var _up = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
+var _down = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+var _enter = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space);
+
+if (_up) {
+    menu_selected--;
+    if (menu_selected < 0) menu_selected = array_length(menu_options) - 1;
+}
+
+if (_down) {
+    menu_selected++;
+    if (menu_selected >= array_length(menu_options)) menu_selected = 0;
+}
+
+if (_enter) {
+    switch(menu_selected) {
+        case 0: // NOVO JOGO
+            room_goto(rmInit);
+            break;
+        case 1: // CONTINUAR
+            room_goto(rmInit); 
+            break;
+        case 2: // CONFIGURAÇÕES
+            show_debug_message("CONFIGURAÇÕES selecionado (A fazer)");
+            break;
+        case 3: // CRÉDITOS
+            show_debug_message("CRÉDITOS selecionado (A fazer)");
+            break;
+    }
+}
+
+// Animation
+time += current_time / 1000;
+cursor_offset = sin(time * 5) * 5;

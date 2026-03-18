@@ -96,6 +96,8 @@
     {"id":{"name":"oInventoryManager","path":"objects/oInventoryManager/oInventoryManager.yy",},},
     {"id":{"name":"oInventoryUI","path":"objects/oInventoryUI/oInventoryUI.yy",},},
     {"id":{"name":"oPlayerMilitar","path":"objects/oPlayerMilitar/oPlayerMilitar.yy",},},
+    {"id":{"name":"oTitleScreen","path":"objects/oTitleScreen/oTitleScreen.yy",},},
+    {"id":{"name":"rm_TitleScreen","path":"rooms/rm_TitleScreen/rm_TitleScreen.yy",},},
     {"id":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"id":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"id":{"name":"Roo_area_de_treinamento","path":"rooms/Roo_area_de_treinamento/Roo_area_de_treinamento.yy",},},
@@ -157,6 +159,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
+    {"roomId":{"name":"rm_TitleScreen","path":"rooms/rm_TitleScreen/rm_TitleScreen.yy",},},
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"roomId":{"name":"local_de_teste","path":"rooms/local_de_teste/local_de_teste.yy",},},
     {"roomId":{"name":"Roo_area_de_treinamento","path":"rooms/Roo_area_de_treinamento/Roo_area_de_treinamento.yy",},},

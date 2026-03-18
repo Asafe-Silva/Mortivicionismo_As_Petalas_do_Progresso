@@ -94,8 +94,11 @@ switch (_inv_manager.current_tab) {
         
         // Headers
         draw_set_color(c_text_normal);
-        draw_text(trauma_grid_start_x, trauma_grid_start_y - 20, "TRAUMA MAIOR");
-        draw_text(trauma_grid_start_x + trauma_grid_spacing_x, trauma_grid_start_y - 20, "TRAUMA MENOR");
+        draw_set_halign(fa_center);
+        var _w1 = trauma_grid_cols * (slot_size + slot_padding) - slot_padding;
+        draw_text_transformed(trauma_grid_start_x + _w1/2, trauma_grid_start_y - 35, "TRAUMA MAIOR", 0.8, 0.8, 0);
+        draw_text_transformed(trauma_grid_start_x + trauma_grid_spacing_x + _w1/2, trauma_grid_start_y - 35, "TRAUMA MENOR", 0.8, 0.8, 0);
+        draw_set_halign(fa_left); // reset
         
         // Draw Both Grids Loop
         var _hover_trauma = undefined;
@@ -176,8 +179,8 @@ switch (_inv_manager.current_tab) {
         var _lw = (lore_rect[2] - lore_rect[0]) - 20;
         
         draw_set_color(c_text_highlight);
-        draw_text(_lx, _ly, "*Estado atual afeta:");
-        _ly += 25;
+        draw_text_ext_transformed(_lx, _ly, "*Estado atual afeta:", 35, _lw / 0.8, 0.8, 0.8, 0);
+        _ly += 40; // Spacing for the header line before printing effects
         
         draw_set_color(c_white);
         var _fx_text = "";
@@ -186,7 +189,7 @@ switch (_inv_manager.current_tab) {
         else if (_sanity >= 20) _fx_text = "-15% Concentração\nVisão em túnel";
         else _fx_text = "-50% Concentração\nRecebe 2x de dano!";
         
-        draw_text_ext(_lx, _ly, _fx_text, 25, _lw);
+        draw_text_ext_transformed(_lx, _ly, _fx_text, 35, _lw / 0.8, 0.8, 0.8, 0);
         
         break;
 

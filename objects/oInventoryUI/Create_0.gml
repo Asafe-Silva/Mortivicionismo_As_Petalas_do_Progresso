@@ -30,7 +30,7 @@ grid_start_y = 20; // Higher up
 trauma_grid_cols = 4;
 trauma_grid_rows = 5;
 trauma_grid_start_x = menu_width + 10;
-trauma_grid_start_y = 60; // Lower to leave room for text
+trauma_grid_start_y = 100; // Lower to leave room for text
 trauma_grid_spacing_x = 220; // Space between Major and Minor grids
 
 // Medal Grid (Moral Tab)

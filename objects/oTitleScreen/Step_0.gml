@@ -1,5 +1,8 @@
 live_auto_call
 
+// Input lock during transitions
+if (instance_exists(oTransition)) exit;
+
 // Input
 var _up = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
 var _down = keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
@@ -18,10 +21,12 @@ if (_down) {
 if (_enter) {
     switch(menu_selected) {
         case 0: // NOVO JOGO
-            room_goto(rmInit);
+            var _t = instance_create_depth(0, 0, -9999, oTransition);
+            _t.target_room = rmInit;
             break;
         case 1: // CONTINUAR
-            room_goto(rmInit); 
+            var _t = instance_create_depth(0, 0, -9999, oTransition);
+            _t.target_room = rmInit; 
             break;
         case 2: // CONFIGURAÇÕES
             show_debug_message("CONFIGURAÇÕES selecionado (A fazer)");
@@ -33,5 +38,5 @@ if (_enter) {
 }
 
 // Animation
-time += current_time / 1000;
-cursor_offset = sin(time * 5) * 5;
+// Fixed shaking cursor: removed exponential time increment logic, just using current_time smoothly
+cursor_offset = sin(current_time / 150) * 5;

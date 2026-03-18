@@ -37,10 +37,3 @@ for (var i = 0; i < array_length(menu_options); i++) {
     
     draw_text(_start_x, _opt_y, "  " + menu_options[i]); // spaces to simulate the bullet indentation from sketch
 }
-
-// Lore / Art Placeholder text on right side
-var _right_text_x = gui_w - 350;
-var _right_text_y = gui_h - 200;
-draw_set_color(c_gray);
-draw_text_ext_transformed(_right_text_x, _right_text_y, "*Atrás esta uma arte\n             do jogo", 30, 800, 1.5, 1.5, 15); // Title slightly rotated upwards like sketch (- angle in GM is CCW usually, actually + is CCW. 15 is upward slope)
-

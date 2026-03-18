@@ -47,7 +47,9 @@ if (_enter) {
     
     if (slot_data[selected_slot] == undefined) {
         // Empty slot - Start new game and save it immediately to populate slot metadata
-        SaveGame(_slot_id, "Novo Jogo " + string(_slot_id));
+        global.current_save_slot = _slot_id;
+        global.current_save_name = "Novo Jogo " + string(_slot_id);
+        SaveGame(global.current_save_slot, global.current_save_name);
         var _t = instance_create_depth(0, 0, -9999, oTransition);
         _t.target_room = rmInit;
         
@@ -62,6 +64,8 @@ if (_enter) {
                 async_rename_dialog = get_string_async("Renomear Save:", slot_data[selected_slot].save_name);
                 break;
             case 1: // ENTRAR
+                global.current_save_slot = _slot_id;
+                global.current_save_name = slot_data[selected_slot].save_name;
                 var _t = instance_create_depth(0, 0, -9999, oTransition);
                 // First load the game state data into globals
                 LoadGame(_slot_id);

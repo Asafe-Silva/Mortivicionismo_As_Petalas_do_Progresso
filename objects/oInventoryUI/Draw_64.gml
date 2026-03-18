@@ -654,7 +654,7 @@ switch (_inv_manager.current_tab) {
         var _bx1 = grid_start_x;
         var _by1 = status_rect[1] - _btn_h2 - 20; // Re-established spacing to status rect
         
-        var _btns = ["SALVA ALTERAÇÕES", "Salva jogo", "Sai do jogo"];
+        var _btns = ["SALVA ALTERAÇÕES", "Salvar Jogo", "Tela de Título"];
         
         for (var b = 0; b < array_length(_btns); b++) {
             var _cur_bx = _bx1 + (b * (_btn_w2 + 15)); // spacing of 15
@@ -681,10 +681,20 @@ switch (_inv_manager.current_tab) {
             if (_hovered_btn && _mouse_click) {
                 if (b == 0) {
                     show_debug_message("Settings saved (placeholder)");
-                } else if (b == 1) {
-                    show_debug_message("Game saved (placeholder)");
-                } else if (b == 2) {
-                    game_end();
+                } else if (b == 1) { // Salvar Jogo
+                    if (variable_global_exists("current_save_slot") && variable_global_exists("current_save_name")) {
+                        SaveGame(global.current_save_slot, global.current_save_name);
+                    } else {
+                        // Fallback if not started via save menu
+                        SaveGame(1, "Save");
+                    }
+                } else if (b == 2) { // Tela de Título
+                    if (_inv_manager != noone) {
+                        _inv_manager.menuActive = false;
+                    }
+                    global.game_paused = false;
+                    var _t = instance_create_depth(0, 0, -9999, oTransition);
+                    _t.target_room = rm_TitleScreen;
                 }
             }
         }

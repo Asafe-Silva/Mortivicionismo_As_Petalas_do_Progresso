@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"Sprite33",
+  "%Name":"Spr_pescador_Antonio_corendo",
   "bboxMode":0,
   "bbox_bottom":31,
   "bbox_left":8,
@@ -24,7 +24,7 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"3d998e50-6fa6-4eaf-adba-3d0af5e76bbe","blendMode":0,"displayName":"default","isLocked":false,"name":"3d998e50-6fa6-4eaf-adba-3d0af5e76bbe","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Sprite33",
+  "name":"Spr_pescador_Antonio_corendo",
   "nineSlice":null,
   "origin":7,
   "parent":{
@@ -36,7 +36,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"Sprite33",
+    "%Name":"Spr_pescador_Antonio_corendo",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -60,9 +60,9 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Sprite33",
+    "name":"Spr_pescador_Antonio_corendo",
     "playback":1,
-    "playbackSpeed":30.0,
+    "playbackSpeed":7.0,
     "playbackSpeedType":0,
     "resourceType":"GMSequence",
     "resourceVersion":"2.0",
@@ -72,16 +72,16 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5be8471e-b137-488c-abdf-0f418d71d9de","path":"sprites/Sprite33/Sprite33.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"5be8471e-b137-488c-abdf-0f418d71d9de","path":"sprites/Spr_pescador_Antonio_corendo/Spr_pescador_Antonio_corendo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"0288543b-8c12-4447-9f6a-f0e57b8338ec","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c92077a5-888e-4cf2-a3b3-8866db0b38f6","path":"sprites/Sprite33/Sprite33.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"c92077a5-888e-4cf2-a3b3-8866db0b38f6","path":"sprites/Spr_pescador_Antonio_corendo/Spr_pescador_Antonio_corendo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"71c83d75-d01a-4f40-a283-4c46a0a790b3","IsCreationKey":false,"Key":1.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d0d1c7ef-f2a7-4568-80c9-a20186047f96","path":"sprites/Sprite33/Sprite33.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"d0d1c7ef-f2a7-4568-80c9-a20186047f96","path":"sprites/Spr_pescador_Antonio_corendo/Spr_pescador_Antonio_corendo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"5d600669-8b0b-4ee5-99ae-5d650263ebd0","IsCreationKey":false,"Key":2.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"035939b5-1ac8-46b7-b542-b78349b9c2be","path":"sprites/Sprite33/Sprite33.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"035939b5-1ac8-46b7-b542-b78349b9c2be","path":"sprites/Spr_pescador_Antonio_corendo/Spr_pescador_Antonio_corendo.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"e345e9ed-5034-4ea2-94c6-d20ea05e1ffe","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

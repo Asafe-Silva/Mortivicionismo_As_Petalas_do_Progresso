@@ -116,6 +116,7 @@
     {"id":{"name":"scr_escolha_resultado","path":"scripts/scr_escolha_resultado/scr_escolha_resultado.yy",},},
     {"id":{"name":"scr_get_npc_estado","path":"scripts/scr_get_npc_estado/scr_get_npc_estado.yy",},},
     {"id":{"name":"scr_inc_npc_estado","path":"scripts/scr_inc_npc_estado/scr_inc_npc_estado.yy",},},
+    {"id":{"name":"scr_init_globals","path":"scripts/scr_init_globals/scr_init_globals.yy",},},
     {"id":{"name":"scr_item_add","path":"scripts/scr_item_add/scr_item_add.yy",},},
     {"id":{"name":"scr_item_remove","path":"scripts/scr_item_remove/scr_item_remove.yy",},},
     {"id":{"name":"scr_sanidade_change","path":"scripts/scr_sanidade_change/scr_sanidade_change.yy",},},

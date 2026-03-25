@@ -2,7 +2,11 @@ live_auto_call
 
 // --- Check if Menu is Active ---
 var _inv_manager = instance_find(oInventoryManager, 0);
-if (_inv_manager == noone || !_inv_manager.menuActive) exit;
+if (_inv_manager == noone) {
+    // Optional: show_debug_message("Inventory UI: Manager not found");
+    exit;
+}
+if (!_inv_manager.menuActive) exit;
 
 // --- Draw Background ---
 draw_set_alpha(0.50);

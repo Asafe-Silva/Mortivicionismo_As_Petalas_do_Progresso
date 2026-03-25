@@ -1,4 +1,8 @@
 // --- System Configuration ---
+if (instance_number(oGame) > 1) {
+    instance_destroy();
+    exit;
+}
 persistent = true;
 
 // Initialize missing globals for Save/Load

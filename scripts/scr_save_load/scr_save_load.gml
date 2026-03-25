@@ -46,6 +46,7 @@ function SaveGame(_slot_id = 1, _save_name = "Save") {
 /// @function LoadGame(slot_id)
 /// @description Loads the game state from a JSON file.
 function LoadGame(_slot_id = 1) {
+    InitGlobals();
     var _filename = "savegame_slot" + string(_slot_id) + ".json";
     
     if (!file_exists(_filename)) {

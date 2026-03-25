@@ -121,6 +121,9 @@ ProcessState = function() {
 
 /// @function ProcessInput()
 ProcessInput = function() {
+    // Safety check for globals
+    if (!variable_global_exists("dialogo")) global.dialogo = false;
+
     // Return early if dialogue is open
     if (global.dialogo) {
         inputDirection = [0, 0];

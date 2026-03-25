@@ -46,7 +46,7 @@ for (var i = 0; i < 3; i++) {
         // Empty Slot
         draw_set_halign(fa_center);
         draw_set_valign(fa_middle);
-        draw_text(_sx + _slot_w/2, _sy + _slot_h/2, "SLOT VAZIO\n[ENTER PARA NOVO]");
+        draw_text_transformed(_sx + _slot_w/2, _sy + _slot_h/2, "SLOT VAZIO\n[ENTER PARA NOVO]", 0.65, 0.65, 0);
     } else {
         // Has Data
         var _sData = slot_data[i];

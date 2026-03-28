@@ -78,22 +78,19 @@ function LoadGame(_slot_id = 1) {
         
         // Restore Inventory
         if (instance_exists(oInventoryManager) && variable_struct_exists(_loadData, "inventory")) {
-            // Reconstruct the array of structs
-            oInventoryManager.inventorySlots = _loadData.inventory;
+            var _loadedInv = _loadData.inventory;
             
-            // Re-instantiate Item structs if needed, although json_parse creates generic structs.
-            // If methods are needed on items, we must map them. For now simple structs might suffice.
-            // Usually we'd iterate and recreate specific constructors: 
-            /*
-            for (var i = 0; i < array_length(_loadData.inventory); i++) {
-                var _itemData = _loadData.inventory[i];
-                if (_itemData != -1) {
-                    // Find in database by name/id and reconstruct to get functions back
+            // Reconstruct the array of structs safely to avoid shrinking the array
+            if (is_array(_loadedInv) && array_length(_loadedInv) > 0) {
+                // Ensure array size remains as maxSlots
+                oInventoryManager.inventorySlots = array_create(oInventoryManager.maxSlots, undefined);
+                
+                var _len = min(array_length(_loadedInv), oInventoryManager.maxSlots);
+                for (var i = 0; i < _len; i++) {
+                    oInventoryManager.inventorySlots[i] = _loadedInv[i];
                 }
             }
-            */
-            // Let's assume generic structs work for current inventory logic (drawing/checking), 
-            // otherwise we'll refine this in the verification step.
+            // If the array is empty (size 0), we just leave the currently initialized maxSlots array alone.
         }
 
         // Room Transition / Position Fix

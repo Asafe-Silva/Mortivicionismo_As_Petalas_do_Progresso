@@ -20,5 +20,11 @@ reload_timer = 0;
 OnCollect = function() {
     global.have_walther = true;
     global.walther_ammo = global.walther_max_ammo;
-    show_debug_message("Walther P38 unlock via OnCollect");
+    
+    // Auto-equip when collected
+    if (variable_global_exists("item_database")) {
+        global.arma_equipada = global.item_database[$ itemId];
+    }
+    
+    show_debug_message("Walther P38 unlock via OnCollect and Auto-equipped");
 }

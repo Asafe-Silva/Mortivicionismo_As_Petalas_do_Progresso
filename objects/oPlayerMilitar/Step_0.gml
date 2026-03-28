@@ -4,6 +4,13 @@ if (variable_global_exists("game_paused") && global.game_paused) {
     exit; // Stop processing movement/combat
 }
 
+// Coordinate loading fix
+if (variable_global_exists("is_loading_game") && global.is_loading_game) {
+    x = global.load_target_x;
+    y = global.load_target_y;
+    global.is_loading_game = false;
+}
+
 // Execute State Machine
 ProcessState();
 

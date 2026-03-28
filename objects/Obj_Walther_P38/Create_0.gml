@@ -1,6 +1,12 @@
 // Obj_Walther_P38 - Create
 event_inherited(); // Inherit basic properties (itemId, pickupRange)
 
+// Se já tivermos coletado, a arma não deve spawnar na room!
+if (variable_global_exists("have_walther") && global.have_walther) {
+    instance_destroy();
+    exit;
+}
+
 itemId = "pistol";
 pickupRange = 25; // Slightly larger range for weapon
 

@@ -287,9 +287,15 @@ ProcessCombat = function() {
         if (!variable_global_exists("walther_ammo")) global.walther_ammo = 6;
         if (!variable_global_exists("walther_max_ammo")) global.walther_max_ammo = 6;
         if (!variable_global_exists("walther_cooldown")) global.walther_cooldown = 0;
+        if (!variable_global_exists("walther_reloading")) global.walther_reloading = 0;
 
-        // Cooldown
+        // Cooldowns
         if (global.walther_cooldown > 0) global.walther_cooldown--;
+        
+        if (global.walther_reloading > 0) {
+            global.walther_reloading--;
+            return; // Can't shoot or do anything weapon-related while reloading
+        }
 
         // Shooting
         if (mouse_check_button_pressed(mb_left) && global.walther_cooldown <= 0) {
@@ -308,15 +314,13 @@ ProcessCombat = function() {
                 global.walther_cooldown = 12;
             } else {
                 // Auto-Reload (Eject cartridges)
-                RepeatReloadAction();
-                global.walther_ammo = global.walther_max_ammo;
+                AttemptReload();
             }
         }
 
         // Manual Reload
         if (keyboard_check_pressed(ord("R"))) {
-             RepeatReloadAction();
-             global.walther_ammo = global.walther_max_ammo;
+             AttemptReload();
         }
     }
 }
@@ -330,4 +334,36 @@ RepeatReloadAction = function() {
     //        vspeed = random_range(-2, 2);
     //    }
     //}
+}
+
+/// @function AttemptReload()
+AttemptReload = function() {
+    if (global.walther_ammo >= global.walther_max_ammo) return; // Cartucho já cheio
+
+    var _invManager = instance_find(oInventoryManager, 0);
+    if (_invManager != noone) {
+        var _ammo_slot = -1;
+        // Búsca a munição no inventário
+        for (var i = 0; i < _invManager.maxSlots; i++) {
+            var _item = _invManager.inventorySlots[i];
+            if (_item != undefined && _item.id == "pistol_ammo") {
+                _ammo_slot = i;
+                break;
+            }
+        }
+        
+        // Achou recurso, carrega e destrói do inventário
+        if (_ammo_slot != -1) {
+            _invManager.InventoryRemove(_ammo_slot);
+            global.walther_ammo = global.walther_max_ammo;
+            global.walther_reloading = 60; // 1 second reload
+            RepeatReloadAction();
+            show_debug_message("Recarregando Walther...");
+        } else {
+            // Trigger UI warning
+            global.msg_text = "SEM MUNIÇÃO!";
+            global.msg_timer = 120; // 2 seconds
+            show_debug_message("Sem munição de pistola no inventário!");
+        }
+    }
 }

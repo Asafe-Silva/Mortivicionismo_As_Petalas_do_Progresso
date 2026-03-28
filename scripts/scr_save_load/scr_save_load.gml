@@ -21,6 +21,7 @@ function SaveGame(_slot_id = 1, _save_name = "Save") {
     // Get Globals
     if (variable_global_exists("sanidade_atual")) _saveData.sanidade_atual = global.sanidade_atual;
     if (variable_global_exists("player_hp")) _saveData.player_hp = global.player_hp;
+    if (variable_global_exists("have_walther")) _saveData.have_walther = global.have_walther;
 
     // Get Inventory
     if (instance_exists(oInventoryManager)) {
@@ -75,6 +76,7 @@ function LoadGame(_slot_id = 1) {
         // Restore Globals
         if (variable_struct_exists(_loadData, "sanidade_atual")) global.sanidade_atual = _loadData.sanidade_atual;
         if (variable_struct_exists(_loadData, "player_hp")) global.player_hp = _loadData.player_hp;
+        if (variable_struct_exists(_loadData, "have_walther")) global.have_walther = _loadData.have_walther;
         
         // Restore Inventory
         if (instance_exists(oInventoryManager) && variable_struct_exists(_loadData, "inventory")) {

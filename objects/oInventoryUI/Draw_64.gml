@@ -697,6 +697,7 @@ switch (_inv_manager.current_tab) {
                         _inv_manager.menuActive = false;
                     }
                     global.game_paused = false;
+                    ResetGameSession();
                     var _t = instance_create_depth(0, 0, -9999, oTransition);
                     _t.target_room = rm_TitleScreen;
                 }

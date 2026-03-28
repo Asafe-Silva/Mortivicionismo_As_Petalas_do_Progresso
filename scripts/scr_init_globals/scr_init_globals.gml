@@ -51,3 +51,26 @@ function InitGlobals() {
         instance_create_depth(0, 0, 0, oControl);
     }
 }
+
+/// @function ResetGameSession()
+/// @description Resets all gameplay-related global variables to their default values.
+/// Useful for starting a new game or returning to the title screen.
+function ResetGameSession() {
+    InitGlobals(); // Ensure they are at least initialized
+    
+    // Reset stats
+    global.sanidade_atual = 100;
+    global.player_hp = 100;
+    global.dialogo = false;
+    global.game_paused = false;
+    
+    // Clear data structures
+    if (variable_global_exists("inv")) ds_list_clear(global.inv);
+    if (variable_global_exists("traumas")) ds_map_clear(global.traumas);
+    
+    // Reset weapon
+    global.have_walther = false;
+    global.walther_ammo = global.walther_max_ammo;
+    
+    show_debug_message("Game Session Reset to Defaults.");
+}

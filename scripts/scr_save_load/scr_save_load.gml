@@ -112,7 +112,12 @@ function LoadGame(_slot_id = 1) {
                     global.load_target_x = _loadData.player_x;
                     global.load_target_y = _loadData.player_y;
                     global.is_loading_game = true; // flag to apply position in Room Start
-                    room_goto(_targetRoom);
+                    
+                    if (instance_exists(oTransition)) {
+                        oTransition.target_room = _targetRoom;
+                    } else {
+                        room_goto(_targetRoom);
+                    }
                 }
             }
         }

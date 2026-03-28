@@ -11,6 +11,7 @@ var _enter = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space
 var _back = keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace);
 
 if (_back) {
+    ResetGameSession();
     var _t = instance_create_depth(0, 0, -9999, oTransition);
     _t.target_room = rm_TitleScreen;
     exit;
@@ -50,6 +51,7 @@ if (_enter) {
         global.current_save_slot = _slot_id;
         global.current_save_name = "Novo Jogo " + string(_slot_id);
         SaveGame(global.current_save_slot, global.current_save_name);
+        ResetGameSession();
         var _t = instance_create_depth(0, 0, -9999, oTransition);
         _t.target_room = rmInit;
         

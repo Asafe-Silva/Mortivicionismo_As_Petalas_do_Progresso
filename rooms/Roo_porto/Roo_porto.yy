@@ -8,8 +8,23 @@
   "instanceCreationOrder":[],
   "isDnd":false,
   "layers":[
-    {"$GMRInstanceLayer":"","%Name":"Instances","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-    {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
+    {"$GMRTileLayer":"","%Name":"Tiles_barco_de_madeira_pequeno","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_barco_de_madeira_pequeno","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":44,"SerialiseWidth":57,"TileCompressedData":[
+          -946,-2147483648,-2,0,-10,-2147483648,2,21,22,-41,-2147483648,4,0,-2147483648,0,0,-10,-2147483648,2,
+          21,22,-41,-2147483648,4,0,-2147483648,0,0,-10,-2147483648,2,21,22,-43,-2147483648,-2,0,-10,-2147483648,
+          2,21,22,-55,-2147483648,2,21,22,-55,-2147483648,2,21,22,-55,-2147483648,2,21,22,-55,-2147483648,2,21,
+          22,-55,-2147483648,2,21,27,-55,-2147483648,2,21,22,-56,-2147483648,-2,0,-977,-2147483648,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"Til_barco_madeira_pequeno","path":"tilesets/Til_barco_madeira_pequeno/Til_barco_madeira_pequeno.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"$GMRTileLayer":"","%Name":"Tiles_3","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_3","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":44,"SerialiseWidth":57,"TileCompressedData":[-1350,-2147483648,-4,0,-1154,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"Til_flores_e_mix","path":"tilesets/Til_flores_e_mix/Til_flores_e_mix.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"$GMRTileLayer":"","%Name":"Tiles_2","depth":200,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_2","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":22,"SerialiseWidth":29,"TileCompressedData":[
+          -19,11,1,12,-9,-2147483648,-19,11,2,64,3,-8,-2147483648,-20,11,1,12,-8,-2147483648,-20,11,1,12,-8,-2147483648,
+          -20,11,1,12,-8,-2147483648,-20,11,2,64,3,-7,-2147483648,-21,11,1,12,-7,-2147483648,-21,11,2,64,3,-6,
+          -2147483648,-22,11,1,12,-6,-2147483648,-22,11,1,12,-6,-2147483648,-22,11,1,12,-6,-2147483648,-22,11,
+          1,12,-6,-2147483648,-22,11,1,12,-6,-2147483648,-21,11,2,46,21,-6,-2147483648,-21,11,1,12,-7,-2147483648,
+          -21,11,1,12,-7,-2147483648,-21,11,1,12,-7,-2147483648,-20,11,2,46,21,-7,-2147483648,-20,11,1,12,-8,-2147483648,
+          -19,11,2,46,21,-8,-2147483648,-19,11,1,12,-9,-2147483648,-19,11,1,12,-9,-2147483648,
+        ],"TileDataFormat":1,},"tilesetId":{"name":"Til_piso_pedra_polida","path":"tilesets/Til_piso_pedra_polida/Til_piso_pedra_polida.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
+    {"$GMRInstanceLayer":"","%Name":"Instances","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
+    {"$GMRBackgroundLayer":"","%Name":"Backgrounds_1","animationFPS":15.0,"animationSpeedType":0,"colour":4293242180,"depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Backgrounds_1","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
   "name":"Roo_porto",
   "parent":{

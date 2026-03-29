@@ -1,0 +1,43 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_piso_pedra_polida",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"pedra polida","closed_edge":false,"name":"pedra polida","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+        11,66,64,52,46,0,42,23,48,44,0,32,34,14,5,16,57,70,61,15,2,59,60,7,12,62,71,17,20,69,68,25,13,29,1,6,
+        3,8,21,26,19,24,4,28,22,30,31,
+      ],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":0,
+    "SerialiseWidth":0,
+    "TileSerialiseData":[],
+  },
+  "name":"Til_piso_pedra_polida",
+  "out_columns":9,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_piso_pedra_polida",
+    "path":"sprites/Spr_piso_pedra_polida/Spr_piso_pedra_polida.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":32,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":32,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":81,
+}

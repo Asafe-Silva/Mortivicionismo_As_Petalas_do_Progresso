@@ -1,0 +1,12 @@
+Neutro:
+	-Soldado, procurou nos atrasar? Isto é sério, não basta andar nas tuas pequenas "aventuras".  O plano é o seguinte: atrás das tropas e mate todo pescador, incluindo o líder. Sem piedade. Está dispensada.
+
+Positiva:
+	-Soldado, ainda bem que chegou. Isto, infelizmente, é mais sério, mais doque alguma vez se encontrou, o plano é o seguinte: segue entre as tropas e mate todo pescador, eles são parte de uma resistência perigosa. Estamos a contar com o soldado mate o líder deles, lhe ordeno que volte em segurança.
+
+Negativa:
+		-Soldada 372, você acha que pode ficar no seu mundinho de fadas? Se a soldada deseja continua a merda do seu parque de diversão, irei ter o prazer de a deserdar. 
+	O seu plano é o seguinte: segue entre as tropas e mate todo pescador, eles são parte de uma resistência perigosa. Estamos infelizmente a contar com a senhorita, mate o líder deles, não volte sem a foto da cabeça, é uma ordem.
+	
+	----
+	

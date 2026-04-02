@@ -53,15 +53,15 @@
     {"$GMFolder":"","%Name":"imagem grande","folderPath":"folders/Sprites/traumas/maiores/imagem grande.yy","name":"imagem grande","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"imagem pequena","folderPath":"folders/Sprites/traumas/maiores/imagem pequena.yy","name":"imagem pequena","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"menores","folderPath":"folders/Sprites/traumas/menores.yy","name":"menores","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"imagem pequena","folderPath":"folders/Sprites/traumas/menores/imagem pequena.yy","name":"imagem pequena","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"imagem grande","folderPath":"folders/Sprites/traumas/menores/imagem grande.yy","name":"imagem grande","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"imagem pequena","folderPath":"folders/Sprites/traumas/menores/imagem pequena.yy","name":"imagem pequena","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.14.3.217",
+    "IDEVersion":"2024.14.4.222",
   },
   "name":"BLANK GAME",
   "resources":[

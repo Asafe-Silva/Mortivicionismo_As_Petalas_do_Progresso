@@ -97,6 +97,7 @@
     {"id":{"name":"scr_trauma_update","path":"scripts/scr_trauma_update/scr_trauma_update.yy",},},
     {"id":{"name":"Script1","path":"scripts/Script1/Script1.yy",},},
     {"id":{"name":"Sound2","path":"sounds/Sound2/Sound2.yy",},},
+    {"id":{"name":"Spr_","path":"sprites/Spr_/Spr_.yy",},},
     {"id":{"name":"Spr_0_caixa_de_municao","path":"sprites/Spr_0_caixa_de_municao/Spr_0_caixa_de_municao.yy",},},
     {"id":{"name":"Spr_arvores_e_plantas_tipo_1","path":"sprites/Spr_arvores_e_plantas_tipo_1/Spr_arvores_e_plantas_tipo_1.yy",},},
     {"id":{"name":"Spr_bala_walther_p38","path":"sprites/Spr_bala_walther_p38/Spr_bala_walther_p38.yy",},},

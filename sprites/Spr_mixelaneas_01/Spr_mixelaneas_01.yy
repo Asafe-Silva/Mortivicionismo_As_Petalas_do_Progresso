@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"tiles",
-    "path":"folders/Sprites/tiles.yy",
+    "name":"casas, telhados, portas, e imoveis",
+    "path":"folders/Sprites/tiles/casas, telhados, portas, e imoveis.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

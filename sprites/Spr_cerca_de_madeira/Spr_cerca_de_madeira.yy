@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"tiles",
-    "path":"folders/Sprites/tiles.yy",
+    "name":"cercas, paredes e obistaculos",
+    "path":"folders/Sprites/tiles/cercas, paredes e obistaculos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

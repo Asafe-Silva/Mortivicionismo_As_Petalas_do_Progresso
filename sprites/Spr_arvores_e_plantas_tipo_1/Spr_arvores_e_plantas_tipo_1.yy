@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"tiles",
-    "path":"folders/Sprites/tiles.yy",
+    "name":"flores, florestas e naturesa",
+    "path":"folders/Sprites/tiles/flores, florestas e naturesa.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

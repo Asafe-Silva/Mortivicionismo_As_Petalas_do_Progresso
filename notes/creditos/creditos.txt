@@ -1,5 +1,6 @@
 Autor principal / Responsável pelo projeto:
 	Asafe Fagundes Bragança e Silva – idealização do jogo, programação principal, game design, integração de recursos, teste principal, storyboard principal, mixagem.
+
 Colaboradores / Apoio:
 	Luis Patrocinio – auxílio na implementação de código.
 	Rafaela Saraiva Pereira – criação de falas, design de NPCs e traduções.

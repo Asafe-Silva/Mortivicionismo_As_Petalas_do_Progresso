@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"movimetos",
-    "path":"folders/Sprites/NPCs/camilly/roupa medica/movimetos.yy",
+    "name":"roupa medica",
+    "path":"folders/Sprites/NPCs/camilly/roupa medica.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

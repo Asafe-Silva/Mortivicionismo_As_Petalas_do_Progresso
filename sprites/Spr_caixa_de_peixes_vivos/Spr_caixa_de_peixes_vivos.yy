@@ -1,6 +1,6 @@
 {
   "$GMSprite":"v2",
-  "%Name":"Spr_0_caixa_de_municao",
+  "%Name":"Spr_caixa_de_peixes_vivos",
   "bboxMode":0,
   "bbox_bottom":17,
   "bbox_left":0,
@@ -21,19 +21,19 @@
   "layers":[
     {"$GMImageLayer":"","%Name":"743760da-978f-4dba-94b8-6f2d4ea1a713","blendMode":0,"displayName":"default","isLocked":false,"name":"743760da-978f-4dba-94b8-6f2d4ea1a713","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Spr_0_caixa_de_municao",
+  "name":"Spr_caixa_de_peixes_vivos",
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"catucho ou munisao",
-    "path":"folders/Sprites/armas/armas de fogo/catucho ou munisao.yy",
+    "name":"caixas",
+    "path":"folders/Sprites/armas/armas de fogo/catucho ou munisao/caixas.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"Spr_0_caixa_de_municao",
+    "%Name":"Spr_caixa_de_peixes_vivos",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Spr_0_caixa_de_municao",
+    "name":"Spr_caixa_de_peixes_vivos",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,7 +69,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"59f15e29-6831-47c1-888a-c2974a162128","path":"sprites/Spr_0_caixa_de_municao/Spr_0_caixa_de_municao.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"59f15e29-6831-47c1-888a-c2974a162128","path":"sprites/Spr_caixa_de_peixes_vivos/Spr_caixa_de_peixes_vivos.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"2059484a-34ca-43bd-9c8e-6857a0e1248d","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],

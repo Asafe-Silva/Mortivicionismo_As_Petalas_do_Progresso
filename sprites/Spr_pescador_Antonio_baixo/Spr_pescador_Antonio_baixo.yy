@@ -28,8 +28,8 @@
   "nineSlice":null,
   "origin":7,
   "parent":{
-    "name":"Antonio",
-    "path":"folders/Sprites/NPCs/Inimigo/Pescador/Antonio.yy",
+    "name":"movimentos",
+    "path":"folders/Sprites/NPCs/Inimigo/Pescador/Antonio/movimentos.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

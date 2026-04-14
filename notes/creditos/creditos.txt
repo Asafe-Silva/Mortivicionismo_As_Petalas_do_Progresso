@@ -8,6 +8,9 @@ Colaboradores / Apoio:
 	André Lincoln, Bruno Fernandes, João Caseiro – testes de jogo.
 	Eduardo Pegorar – storyboard auxiliar.
 	
+Capa do jogo:
+	@apohe_art - Desenhou a v01 da capa do jogo
+	
 recurços pegos na internet:
 	schwarnhild - o tiles do piso
 	Kenney - sons finos e alguns tiles

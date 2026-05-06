@@ -1,6 +1,4 @@
-// Step: movimenta projétil, detecta colisão com colisor e decrementa vida
-x += lengthdir_x(speed, dir);
-y += lengthdir_y(speed, dir);
+// Step: verifica vida e colisão
 life -= 1;
 if (life <= 0) instance_destroy();
 

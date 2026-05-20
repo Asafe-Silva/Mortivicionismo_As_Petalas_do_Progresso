@@ -198,7 +198,7 @@
     {"id":{"name":"Spr_pescador_Antonio_parado_cima","path":"sprites/Spr_pescador_Antonio_parado_cima/Spr_pescador_Antonio_parado_cima.yy",},},
     {"id":{"name":"Spr_pescador_Antonio_parado","path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",},},
     {"id":{"name":"Spr_pescador_boss_ataque_colisor","path":"sprites/Spr_pescador_boss_ataque_colisor/Spr_pescador_boss_ataque_colisor.yy",},},
-    {"id":{"name":"Spr_pescador_boss_ataque_frente","path":"sprites/Spr_pescador_boss_ataque_frente/Spr_pescador_boss_ataque_frente.yy",},},
+    {"id":{"name":"Spr_pescador_boss_ataque_invocador","path":"sprites/Spr_pescador_boss_ataque_invocador/Spr_pescador_boss_ataque_invocador.yy",},},
     {"id":{"name":"Spr_pescador_boss_parado_1","path":"sprites/Spr_pescador_boss_parado_1/Spr_pescador_boss_parado_1.yy",},},
     {"id":{"name":"Spr_pescador_boss_parado","path":"sprites/Spr_pescador_boss_parado/Spr_pescador_boss_parado.yy",},},
     {"id":{"name":"Spr_piso_grama","path":"sprites/Spr_piso_grama/Spr_piso_grama.yy",},},

@@ -1,0 +1,49 @@
+{
+  "$GMTileSet":"v1",
+  "%Name":"Til_parede_pedra_lisa",
+  "autoTileSets":[
+    {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":true,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[
+        0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+      ],},
+  ],
+  "macroPageTiles":{
+    "SerialiseHeight":11,
+    "SerialiseWidth":14,
+    "TileCompressedData":[
+      -4,0,10,66,67,68,89,90,91,92,69,70,71,-4,0,3,82,99,100,-4,0,3,101,102,85,-4,0,3,114,131,132,-4,0,3,133,
+      134,117,-4,0,3,146,163,164,-4,0,3,165,166,167,-4,0,3,178,99,100,-4,0,3,101,102,213,-4,0,3,210,131,132,
+      -4,0,3,133,134,245,-4,0,3,242,163,164,-4,0,3,165,166,167,-4,0,10,194,396,397,396,397,396,397,396,397,
+      199,-4,0,10,226,428,429,428,429,428,429,428,429,231,-4,0,10,258,460,461,460,461,460,461,460,461,263,
+      -4,0,10,290,492,493,492,493,492,493,492,493,295,
+    ],
+    "TileDataFormat":1,
+  },
+  "name":"Til_parede_pedra_lisa",
+  "out_columns":32,
+  "out_tilehborder":2,
+  "out_tilevborder":2,
+  "parent":{
+    "name":"Conjuntos de tiles",
+    "path":"folders/Conjuntos de tiles.yy",
+  },
+  "resourceType":"GMTileSet",
+  "resourceVersion":"2.0",
+  "spriteId":{
+    "name":"Spr_parede_de_pedra_lisa",
+    "path":"sprites/Spr_parede_de_pedra_lisa/Spr_parede_de_pedra_lisa.yy",
+  },
+  "spriteNoExport":false,
+  "textureGroupId":{
+    "name":"Default",
+    "path":"texturegroups/Default",
+  },
+  "tileAnimationFrames":[],
+  "tileAnimationSpeed":15.0,
+  "tileHeight":16,
+  "tilehsep":0,
+  "tilevsep":0,
+  "tileWidth":16,
+  "tilexoff":0,
+  "tileyoff":0,
+  "tile_count":1024,
+}

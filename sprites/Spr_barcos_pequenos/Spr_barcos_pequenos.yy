@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"pesca, coisa de oescador e mixelaneas relacionadas",
-    "path":"folders/Sprites/tiles/pesca, coisa de oescador e mixelaneas relacionadas.yy",
+    "name":"pesca e mixelaneas relacionadas",
+    "path":"folders/Sprites/tiles/pesca e mixelaneas relacionadas.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

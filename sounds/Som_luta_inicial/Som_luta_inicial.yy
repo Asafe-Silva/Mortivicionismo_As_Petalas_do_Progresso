@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"Sound3",
+  "%Name":"Som_luta_inicial",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -10,9 +10,9 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":3.8138776,
+  "duration":275.30884,
   "exportDir":"",
-  "name":"Sound3",
+  "name":"Som_luta_inicial",
   "parent":{
     "name":"Sons",
     "path":"folders/Sons.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"Sound3.mp3",
+  "soundFile":"Som_luta_inicial.mp3",
   "volume":1.0,
 }

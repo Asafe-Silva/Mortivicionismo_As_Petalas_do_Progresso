@@ -8,9 +8,9 @@ if (variable_global_exists("have_walther") && global.have_walther) {
 }
 
 itemId = "pistol";
-pickupRange = 25; // Slightly larger range for weapon
+pickupRange = 25; // Alcance ligeiramente maior para a arma.
 
-// Weapon specific logic
+// Lógica específica de arma
 max_ammo = 6;
 if (!variable_global_exists("walther_max_ammo")) global.walther_max_ammo = max_ammo;
 if (!variable_global_exists("walther_ammo")) global.walther_ammo = max_ammo;
@@ -32,5 +32,5 @@ OnCollect = function() {
         global.arma_equipada = global.item_database[$ itemId];
     }
     
-    show_debug_message("Walther P38 unlock via OnCollect and Auto-equipped");
+    show_debug_message("Desbloqueio da Walther P38 via OnCollect e Auto equipado");
 }

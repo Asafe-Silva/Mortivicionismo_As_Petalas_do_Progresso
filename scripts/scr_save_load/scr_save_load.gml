@@ -1,5 +1,5 @@
 /// @function SaveGame(slot_id, save_name)
-/// @description Saves the game state to a JSON file based on slot index.
+/// @description Salva o estado do jogo em um arquivo JSON baseado no índice do slot.
 function SaveGame(_slot_id = 1, _save_name = "Save") {
     var _filename = "savegame_slot" + string(_slot_id) + ".json";
     var _saveData = {
@@ -12,46 +12,46 @@ function SaveGame(_slot_id = 1, _save_name = "Save") {
         inventory: []
     };
 
-    // Get Player Position if exists
+    // Obtém a posição do jogador se existir
     if (instance_exists(oPlayerMilitar)) {
         _saveData.player_x = oPlayerMilitar.x;
         _saveData.player_y = oPlayerMilitar.y;
     }
 
-    // Get Globals
+    // Obtém variáveis globais
     if (variable_global_exists("sanidade_atual")) _saveData.sanidade_atual = global.sanidade_atual;
     if (variable_global_exists("player_hp")) _saveData.player_hp = global.player_hp;
     if (variable_global_exists("have_walther")) _saveData.have_walther = global.have_walther;
 
-    // Get Inventory
+    // Obtém inventário
     if (instance_exists(oInventoryManager)) {
         // Deep copy might be needed depending on how structs work, 
         // but json_stringify handles nested structs automatically.
         _saveData.inventory = oInventoryManager.inventorySlots;
     }
 
-    // Convert to JSON
+    // Converte para JSON
     var _jsonString = json_stringify(_saveData);
     
-    // Save to File
+    // Salva em arquivo
     var _file = file_text_open_write(_filename);
     if (_file != -1) {
         file_text_write_string(_file, _jsonString);
         file_text_close(_file);
-        show_debug_message("Game Saved to " + _filename);
+        show_debug_message("Jogo salvo em " + _filename);
     } else {
-        show_debug_message("Failed to open save file for writing.");
+        show_debug_message("Falha ao abrir arquivo de salvamento para escrita.");
     }
 }
 
 /// @function LoadGame(slot_id)
-/// @description Loads the game state from a JSON file.
+/// @description Carrega o estado do jogo a partir de um arquivo JSON.
 function LoadGame(_slot_id = 1) {
     InitGlobals();
     var _filename = "savegame_slot" + string(_slot_id) + ".json";
     
     if (!file_exists(_filename)) {
-        show_debug_message("No save file found.");
+        show_debug_message("Nenhum arquivo de salvamento encontrado.");
         return;
     }
 
@@ -65,7 +65,7 @@ function LoadGame(_slot_id = 1) {
         }
         file_text_close(_file);
     } else {
-        show_debug_message("Failed to read save file.");
+        show_debug_message("Falha ao ler arquivo de salvamento.");
         return;
     }
 
@@ -73,12 +73,12 @@ function LoadGame(_slot_id = 1) {
     try {
         var _loadData = json_parse(_jsonString);
         
-        // Restore Globals
+        // Restaura variáveis globais
         if (variable_struct_exists(_loadData, "sanidade_atual")) global.sanidade_atual = _loadData.sanidade_atual;
         if (variable_struct_exists(_loadData, "player_hp")) global.player_hp = _loadData.player_hp;
         if (variable_struct_exists(_loadData, "have_walther")) global.have_walther = _loadData.have_walther;
         
-        // Restore Inventory
+        // Restaura inventário
         if (instance_exists(oInventoryManager) && variable_struct_exists(_loadData, "inventory")) {
             var _loadedInv = _loadData.inventory;
             
@@ -95,19 +95,19 @@ function LoadGame(_slot_id = 1) {
             // If the array is empty (size 0), we just leave the currently initialized maxSlots array alone.
         }
 
-        // Room Transition / Position Fix
+        // Transição de sala / Ajuste de posição
         if (variable_struct_exists(_loadData, "room_name")) {
             var _targetRoom = asset_get_index(_loadData.room_name);
             
             if (_targetRoom != -1) {
-                // If same room, just move
+                    // Se for a mesma sala, apenas move
                 if (room == _targetRoom) {
                     if (instance_exists(oPlayerMilitar)) {
                         oPlayerMilitar.x = _loadData.player_x;
                         oPlayerMilitar.y = _loadData.player_y;
                     }
                 } else {
-                    // Different room - setup globals for transition
+                    // Sala diferente - prepara variáveis globais para transição
                     global.load_target_x = _loadData.player_x;
                     global.load_target_y = _loadData.player_y;
                     global.is_loading_game = true; // flag to apply position in Room Start
@@ -121,15 +121,15 @@ function LoadGame(_slot_id = 1) {
             }
         }
         
-        show_debug_message("Game Loaded successfully.");
+        show_debug_message("Jogo carregado com sucesso.");
 
     } catch(_error) {
-        show_debug_message("Error parsing save file: " + string(_error));
+        show_debug_message("Erro ao analisar arquivo de salvamento: " + string(_error));
     }
 }
 
 /// @function GetSaveMetadata(slot_id)
-/// @description Retrieves save details without applying state (for UI menus).
+/// @description Recupera detalhes do salvamento sem aplicar o estado (para menus de UI).
 function GetSaveMetadata(_slot_id) {
     var _filename = "savegame_slot" + string(_slot_id) + ".json";
     if (!file_exists(_filename)) return undefined;

@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_prota_falando",
-    "path":"sprites/Spr_prota_falando/Spr_prota_falando.yy",
+    "name":"Spr_pescador_Antonio_parado",
+    "path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",
   },
   "spriteMaskId":null,
   "visible":true,

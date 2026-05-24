@@ -1,7 +1,7 @@
 
-// --- Internal State ---
+// --- Estado Interno ---
 
-// Movement
+// Movimento
 moveSpeed = 2;
 hSpeed = 0;
 vSpeed = 0;
@@ -9,11 +9,11 @@ velocity = [0, 0]; // x, y
 inputDirection = [0, 0]; // x, y
 isMoving = false;
 
-// Interaction
+// Interação
 facingDirection = 1; // 1 = right, -1 = left . Maps to image_xscale
 lastAxisMoved = "y"; // "x" or "y"
 
-// Camera
+// Câmera
 camZoom = 1;
 camTargetZoom = 1;
 camSpeed = 0.05;
@@ -22,18 +22,19 @@ camera = view_camera[0];
 camWidth = camera_get_view_width(camera);
 camHeight = camera_get_view_height(camera);
 
-// Combat (Walther P38) state - local tracking for simplicity
-// ideally this should be in a Weapon struct/object, but keeping as is for now with better naming
+// Estado de Combate (Walther P38) - controle local por simplicidade
+// idealmente isso deveria estar em uma struct `Weapon`, mas está implementado inline por enquanto
 waltherCooldownTimer = 0;
 
-// Health / Damage handling (sync with globals)
+// Vida / Tratamento de dano (sincronizado com variáveis globais)
+// `global.player_hp` armazena a vida do jogador; função `TakeDamage` reduz essa vida
 if (!variable_global_exists("player_hp")) global.player_hp = 100;
 TakeDamage = function(_amount) {
     if (variable_global_exists("player_hp")) {
         global.player_hp = max(0, global.player_hp - _amount);
-        show_debug_message("Player took " + string(_amount) + " damage. HP: " + string(global.player_hp));
+        show_debug_message("Jogador recebeu " + string(_amount) + " de dano. HP: " + string(global.player_hp));
         if (global.player_hp <= 0) {
-            // basic death handling: destroy instance (expand later)
+            // Tratamento básico de morte: destruir a instância (pode ser expandido depois)
             instance_destroy();
         }
     }
@@ -41,7 +42,7 @@ TakeDamage = function(_amount) {
 
 
 
-// --- State Machine ---
+// --- Máquina de Estados ---
 enum PLAYER_STATE {
     FREE,
     ATTACK
@@ -51,6 +52,7 @@ state = PLAYER_STATE.FREE;
 // --- Methods ---
 
 /// @function StateFree()
+/// @descricao Estado padrão do jogador: processa entrada, movimento, animação, interação e combate.
 StateFree = function() {
     ProcessInput();
     ProcessMovement();
@@ -58,7 +60,7 @@ StateFree = function() {
     ProcessInteraction();
     ProcessCombat(); // Keeps gun logic working for now
     
-    // Check for Melee Attack (Space or Right Click?)
+    // Verifica ataque corpo-a-corpo (Barra de espaço)
     if (keyboard_check_pressed(vk_space)) {
         state = PLAYER_STATE.ATTACK;
         image_index = 0;
@@ -68,6 +70,7 @@ StateFree = function() {
 }
 
 /// @function StateAttack()
+/// @descricao Estado de ataque corpo-a-corpo: cria um `oHitbox` no frame correto e aplica dano.
 StateAttack = function() {
     // Stop movement
     hSpeed = 0;
@@ -76,18 +79,16 @@ StateAttack = function() {
     // Create Hitbox on first frame (or specific frame)
     if (floor(image_index) == 1) { 
        if (!instance_exists(oHitbox)) { 
-           // Calculate offset based on last input direction (approximated from sprites if needed, but using saved direction is better)
-           // If we don't have a specific `facingVector`, we can derive it:
+           // Calcula deslocamento do hitbox baseado na última direção de movimento.
+           // Se não tivermos um vetor de facing específico, inferimos pelo `lastAxisMoved`.
            var _offX = 0;
            var _offY = 0;
            
            if (lastAxisMoved == "x") {
                _offX = facingDirection * 20;
            } else {
-               // Determine up/down based on sprite or stored state
-               // Since we don't store "lastYDir", we can look at the sprite or input if still held
-               // But state machine stops movement, so input might be zero.
-               // Let's assume Down if unknown, or check current sprite.
+               // Determina cima/baixo baseado no sprite ou estado armazenado.
+               // Como `lastYDir` não é armazenado, usamos o sprite atual como heurística.
                if (sprite_index == Spr_prota_cima_militar) {
                    _offY = -20;
                } else {
@@ -103,16 +104,12 @@ StateAttack = function() {
         }
     }
 
-    // End Attack
-    // For now, using a simple timer or animation end check
-    // If no specific attack sprite, we simulate with timer or just use a color blink
+    // Fim do ataque
+    // Por enquanto usamos um temporizador como fallback caso não haja sprite de animação específico.
     
-    // Placeholder animation check:
-    // if (image_index >= image_number - 1) {
-    //    state = PLAYER_STATE.FREE;
-    // }
+    // Checagem de animação (exemplo): quando a animação terminar, voltar ao estado FREE.
     
-    // Since we don't have a specific attack sprite yet, let's use a timer approach for prototype
+    // Como não temos sprite de ataque detalhado ainda, usamos `alarm[0]` como duração do ataque.
     if (alarm[0] <= 0) {
         alarm[0] = 20; // 20 frames attack duration
         // Visual debug
@@ -133,11 +130,12 @@ ProcessState = function() {
 }
 
 /// @function ProcessInput()
+/// @descricao Lê entrada do teclado (WASD / setas) e atualiza `inputDirection`.
 ProcessInput = function() {
-    // Safety check for globals
+    // Verificação de segurança para variáveis globais
     if (!variable_global_exists("dialogo")) global.dialogo = false;
 
-    // Return early if dialogue is open
+    // Retorna cedo se um diálogo estiver aberto (desativa movimento)
     if (global.dialogo) {
         inputDirection = [0, 0];
         isMoving = false;
@@ -156,8 +154,9 @@ ProcessInput = function() {
 }
 
 /// @function ProcessMovement()
+/// @descricao Aplica movimentação com verificação de colisões em X e Y, e reduz velocidade por peso do inventário.
 ProcessMovement = function() {
-    // 1. Calculate Speed based on Weight
+    // 1. Calcula velocidade baseada no peso (inventário)
     var _weightCurrent = variable_global_exists("inv_peso_atual") ? global.inv_peso_atual : 0;
     var _weightMax = variable_global_exists("inv_peso_max") ? global.inv_peso_max : 40;
     
@@ -176,7 +175,7 @@ ProcessMovement = function() {
     hSpeed = inputDirection[0] * moveSpeed;
     vSpeed = inputDirection[1] * moveSpeed;
 
-    // 3. Horizontal Collision
+    // 3. Colisão horizontal: tenta aproximar até colidir e zera velocidade.
     if (place_meeting(x + hSpeed, y, Obj_colisor)) {
         var _step = sign(hSpeed);
         while (!place_meeting(x + _step, y, Obj_colisor)) {
@@ -186,7 +185,7 @@ ProcessMovement = function() {
     }
     x += hSpeed;
 
-    // 4. Vertical Collision
+    // 4. Colisão vertical: igual ao horizontal.
     if (place_meeting(x, y + vSpeed, Obj_colisor)) {
         var _step = sign(vSpeed);
         while (!place_meeting(x, y + _step, Obj_colisor)) {
@@ -198,8 +197,9 @@ ProcessMovement = function() {
 }
 
 /// @function ProcessAnimation()
+/// @descricao Atualiza sprite e escala horizontal (`image_xscale`) com base na direção de movimento.
 ProcessAnimation = function() {
-    // Update facing direction
+    // Atualiza direção de facing com base no input horizontal
     if (inputDirection[0] != 0) {
         facingDirection = -inputDirection[0]; 
         lastAxisMoved = "x";
@@ -207,7 +207,7 @@ ProcessAnimation = function() {
         lastAxisMoved = "y";
     }
 
-    // Update sprites
+    // Troca sprites conforme movimento/parado e eixo principal do movimento
     if (!isMoving) {
         sprite_index = Spr_prota_parado_militar;
         image_speed = 0;

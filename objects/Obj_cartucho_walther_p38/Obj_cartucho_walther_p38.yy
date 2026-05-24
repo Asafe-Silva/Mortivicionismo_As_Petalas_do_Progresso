@@ -9,8 +9,8 @@
   "name":"Obj_cartucho_walther_p38",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"armas",
+    "path":"folders/Objetos/armas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -1,13 +1,13 @@
 
 /// @function Item(_id, _name, _description, _sprite, _type, _weight, _is_corrupted)
-/// @description Base constructor for all items.
-/// @param {String} _id Unique identifier for the item.
-/// @param {String} _name Display name of the item.
-/// @param {String} _description Flavour text for the item.
-/// @param {Asset.GMSprite} _sprite Sprite asset for the item.
-/// @param {String} _type Item type (e.g., "Weapon", "Consumable", "Key").
-/// @param {Real} _weight Weight of the item.
-/// @param {Bool} _is_corrupted Whether the item affects sanity.
+/// @descricao Construtor base para todos os itens.
+/// @param {String} _id Identificador único do item.
+/// @param {String} _name Nome exibido do item.
+/// @param {String} _description Texto descritivo do item.
+/// @param {Asset.GMSprite} _sprite Sprite do item.
+/// @param {String} _type Tipo do item (ex.: "Weapon", "Consumable", "Key").
+/// @param {Real} _weight Peso do item.
+/// @param {Bool} _is_corrupted Indica se o item afeta a sanidade.
 function Item(_id, _name, _description, _sprite, _type, _weight, _is_corrupted) constructor {
     id = _id;
     name = _name;
@@ -23,16 +23,16 @@ function Item(_id, _name, _description, _sprite, _type, _weight, _is_corrupted) 
 }
 
 /// @function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range, _ammo_capacity)
-/// @description Constructor for weapon items, inheriting from Item.
-/// @param {String} _id Unique identifier for the weapon.
-/// @param {String} _name Display name of the weapon.
-/// @param {String} _description Flavour text for the weapon.
-/// @param {Asset.GMSprite} _sprite Sprite asset for the weapon.
-/// @param {Real} _weight Weight of the weapon.
-/// @param {Bool} _is_corrupted Whether the weapon affects sanity.
-/// @param {Real} _damage Damage dealt by the weapon.
-/// @param {Real} _range Effective range of the weapon.
-/// @param {Real} _ammo_capacity Maximum ammo for the weapon.
+/// @descricao Construtor para armas, herda de `Item`.
+/// @param {String} _id Identificador único da arma.
+/// @param {String} _name Nome exibido da arma.
+/// @param {String} _description Texto descritivo da arma.
+/// @param {Asset.GMSprite} _sprite Sprite da arma.
+/// @param {Real} _weight Peso da arma.
+/// @param {Bool} _is_corrupted Indica se a arma afeta a sanidade.
+/// @param {Real} _damage Dano causado pela arma.
+/// @param {Real} _range Alcance efetivo da arma.
+/// @param {Real} _ammo_capacity Capacidade máxima de munição.
 function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _damage, _range, _ammo_capacity) : Item(_id, _name, _description, _sprite, "Weapon", _weight, _is_corrupted) constructor {
     damage = _damage;
     range = _range;
@@ -40,26 +40,26 @@ function Weapon(_id, _name, _description, _sprite, _weight, _is_corrupted, _dama
 }
 
 /// @function Consumable(_id, _name, _description, _sprite, _weight, _is_corrupted, _heal_value, _effect_description)
-/// @description Constructor for consumable items, inheriting from Item.
-/// @param {String} _id Unique identifier for the consumable.
-/// @param {String} _name Display name of the consumable.
-/// @param {String} _description Flavour text for the consumable.
-/// @param {Asset.GMSprite} _sprite Sprite asset for the consumable.
-/// @param {Real} _weight Weight of the consumable.
-/// @param {Bool} _is_corrupted Whether the consumable affects sanity.
-/// @param {Real} _heal_value Amount of health restored.
-/// @param {String} _effect_description specific effect.
+/// @descricao Construtor para consumíveis, herda de `Item`.
+/// @param {String} _id Identificador único do consumível.
+/// @param {String} _name Nome exibido do consumível.
+/// @param {String} _description Texto descritivo do consumível.
+/// @param {Asset.GMSprite} _sprite Sprite do consumível.
+/// @param {Real} _weight Peso do consumível.
+/// @param {Bool} _is_corrupted Indica se o consumível afeta a sanidade.
+/// @param {Real} _heal_value Quantidade de vida restaurada.
+/// @param {String} _effect_description Descrição do efeito.
 function Consumable(_id, _name, _description, _sprite, _weight, _is_corrupted, _heal_value, _effect_description) : Item(_id, _name, _description, _sprite, "Consumable", _weight, _is_corrupted) constructor {
     heal_value = _heal_value;
     effect_description = _effect_description;
 }
 
 /// @function init_item_definitions()
-/// @description Initializes the global item database with example items.
+/// @descricao Inicializa o banco de dados global de itens com exemplos.
 function init_item_definitions() {
     global.item_database = {};
 
-    // Helper function to add items to the database
+    // Função auxiliar para adicionar itens ao banco
     var _add_item = function(_item) {
         global.item_database[$ _item.id] = _item;
     }
@@ -181,5 +181,5 @@ function init_item_definitions() {
         true
     ));
 
-    show_debug_message("Item Database Initialized.");
+    show_debug_message("Banco de itens inicializado.");
 }

@@ -1,9 +1,9 @@
 /// @function InitGlobals()
-/// @description Initializes all global variables required for the game structure.
-/// This can be called multiple times safely, as it uses variable_global_exists.
+/// @descricao Inicializa todas as variáveis globais necessárias para a estrutura do jogo.
+/// Pode ser chamada múltiplas vezes com segurança (usa variable_global_exists).
 function InitGlobals() {
     if (!variable_global_exists("game_initialized") || !global.game_initialized) {
-        // 1. Dialogue System
+        // 1. Sistema de Diálogo
         if (!variable_global_exists("dialogo")) global.dialogo = false;
         if (!variable_global_exists("dialogo_lock")) global.dialogo_lock = false;
 
@@ -12,49 +12,49 @@ function InitGlobals() {
         if (!variable_global_exists("inv_peso_atual")) global.inv_peso_atual = 0;
         if (!variable_global_exists("inv_peso_max")) global.inv_peso_max = 40;
 
-        // 3. Sanity (Trauma) System
+        // 3. Sistema de Sanidade (Traumas)
         if (!variable_global_exists("sanidade_atual")) global.sanidade_atual = 100;
         if (!variable_global_exists("sanidade_max")) global.sanidade_max = 100;
         if (!variable_global_exists("low_sanity")) global.low_sanity = false;
 
-        // Function to safely modify Sanity
+        // Função para modificar sanidade de forma segura
         global.ModifySanity = function(_amount) {
             global.sanidade_atual = clamp(global.sanidade_atual + _amount, 0, global.sanidade_max);
             
             // Low Sanity Flag (< 20%)
             global.low_sanity = (global.sanidade_atual <= (global.sanidade_max * 0.2));
             
-            show_debug_message("Sanity: " + string(global.sanidade_atual) + "/" + string(global.sanidade_max));
+            show_debug_message("Sanidade: " + string(global.sanidade_atual) + "/" + string(global.sanidade_max));
         }
 
         // 4. Traumas Map
         if (!variable_global_exists("traumas")) global.traumas = ds_map_create();
 
-        // 5. Weapon State (Walther P38)
+        // 5. Estado da Arma (Walther P38)
         if (!variable_global_exists("have_walther")) global.have_walther = false;
         if (!variable_global_exists("walther_max_ammo")) global.walther_max_ammo = 6;
         if (!variable_global_exists("walther_ammo")) global.walther_ammo = global.walther_max_ammo;
         if (!variable_global_exists("walther_cooldown")) global.walther_cooldown = 0;
         
-        // 6. Gameplay State
+        // 6. Estado geral do jogo
         if (!variable_global_exists("game_paused")) global.game_paused = false;
         if (!variable_global_exists("player_hp")) global.player_hp = 100;
         if (!variable_global_exists("is_loading_game")) global.is_loading_game = false;
 
         global.game_initialized = true;
-        show_debug_message("Globals Initialized.");
+        show_debug_message("Variáveis globais inicializadas.");
     }
     
-    // 7. Ensure system objects exist (Critical for loading from title screen)
+    // 7. Garante que objetos de sistema existam (crítico para carregar a partir do menu)
     if (!instance_exists(oControl)) {
-        show_debug_message("System oControl missing. Creating...");
+        show_debug_message("Objeto de controle do sistema ausente. Criando...");
         instance_create_depth(0, 0, 0, oControl);
     }
 }
 
 /// @function ResetGameSession()
-/// @description Resets all gameplay-related global variables to their default values.
-/// Useful for starting a new game or returning to the title screen.
+/// @descricao Restaura todas as variáveis de jogo para seus valores padrão.
+/// Útil para iniciar um novo jogo ou voltar ao menu título.
 function ResetGameSession() {
     InitGlobals(); // Ensure they are at least initialized
     
@@ -72,5 +72,5 @@ function ResetGameSession() {
     global.have_walther = false;
     global.walther_ammo = global.walther_max_ammo;
     
-    show_debug_message("Game Session Reset to Defaults.");
+    show_debug_message("Sessão de jogo reiniciada para valores padrão.");
 }

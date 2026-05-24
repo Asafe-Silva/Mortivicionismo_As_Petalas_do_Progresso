@@ -1,44 +1,44 @@
 
-// Configuration
+// Configuração do inventário
 maxSlots = 63;
 inventorySlots = array_create(maxSlots, undefined);
 
 /// @function InventoryAdd(_itemStruct)
-/// @description Adds an item to the first available slot.
-/// @param {Struct} _itemStruct The item to add.
-/// @returns {Bool} True if added, false if inventory is full.
+/// @descricao Adiciona um item no primeiro slot disponível.
+/// @param {Struct} _itemStruct Estrutura do item a ser adicionada.
+/// @returns {Bool} Retorna true se adicionado, false se o inventário estiver cheio.
 InventoryAdd = function(_itemStruct) {
     if (!is_struct(_itemStruct)) {
-        show_debug_message("InventoryAdd Error: Invalid item struct.");
+        show_debug_message("InventoryAdd Error: struct de item inválida.");
         return false;
     }
 
     for (var i = 0; i < maxSlots; i++) {
         if (inventorySlots[i] == undefined) {
             inventorySlots[i] = _itemStruct;
-            show_debug_message("Item Added: " + _itemStruct.name + " at slot " + string(i));
+            show_debug_message("Item adicionado: " + _itemStruct.name + " no slot " + string(i));
             return true;
         }
     }
     
-    show_debug_message("Inventory Full! Could not add " + _itemStruct.name);
+    show_debug_message("Inventário cheio! Não foi possível adicionar " + _itemStruct.name);
     return false;
 }
 
 /// @function InventoryRemove(_index)
-/// @description Removes the item at the specified index.
-/// @param {Real} _index The slot index to remove.
+/// @descricao Remove o item no índice especificado.
+/// @param {Real} _index Índice do slot a remover.
 InventoryRemove = function(_index) {
     if (_index >= 0 && _index < maxSlots) {
         inventorySlots[_index] = undefined;
-        show_debug_message("Item removed at slot " + string(_index));
+        show_debug_message("Item removido no slot " + string(_index));
     }
 }
 
 /// @function InventoryHasItem(_itemId)
-/// @description Checks if the inventory contains an item with the given ID.
-/// @param {String} _itemId The unique ID of the item to check.
-/// @returns {Bool} True if found, false otherwise.
+/// @descricao Verifica se o inventário contém um item com o ID fornecido.
+/// @param {String} _itemId ID único do item a procurar.
+/// @returns {Bool} True se encontrado, false caso contrário.
 InventoryHasItem = function(_itemId) {
     for (var i = 0; i < maxSlots; i++) {
         var _item = inventorySlots[i];
@@ -49,8 +49,8 @@ InventoryHasItem = function(_itemId) {
     return false;
 }
 
-// Debug initialization message
-show_debug_message("Obj_InventoryManager initialized with " + string(maxSlots) + " slots.");
+// Mensagem de debug de inicialização
+show_debug_message("Obj_InventoryManager inicializado com " + string(maxSlots) + " slots.");
 
 // UI State
 menuActive = false;
@@ -68,7 +68,7 @@ enum MENU_TABS {
 
 current_tab = MENU_TABS.INVENTARIO;
 
-// --- Traumas System ---
+// --- Sistema de Traumas ---
 function Trauma(_id, _name, _desc, _sprite, _type) constructor {
     id = _id;
     name = _name;
@@ -80,11 +80,11 @@ function Trauma(_id, _name, _desc, _sprite, _type) constructor {
 traumas_maiores = [];
 traumas_menores = [];
 
-// Add debug/placeholder Trauma
-var _trm = new Trauma("trm_peixe", "Peixe Vivo fora d'água", "Você se sente como este MISERÁVEL peixe, sem AR...\nSE NÃO SE AFASTAR VAI SUFOCAR ATÉ A MORTE", -1, "maior");
+// Trauma de exemplo (placeholder)
+var _trm = new Trauma("trm_peixe", "Peixe Vivo fora d'água", "Você se sente como este peixe miserável, sem ar...\nSe não se afastar, pode sufocar.", -1, "maior");
 array_push(traumas_maiores, _trm);
 
-// --- Medals System ---
+// --- Sistema de Medalhas ---
 function Medal(_id, _name, _desc, _sprite) constructor {
     id = _id;
     name = _name;
@@ -95,6 +95,6 @@ function Medal(_id, _name, _desc, _sprite) constructor {
 // 7 columns * 3 rows = 21 slots
 medals_slots = array_create(21, undefined);
 
-// Add debug/placeholder Medal
-var _mdl = new Medal("mdl_test", "Honra ao Mérito", "Condecorado por bravura excecional em campo de batalha sob fogo inimigo.", -1);
+// Medalha de exemplo (placeholder)
+var _mdl = new Medal("mdl_test", "Honra ao Mérito", "Condecorado por bravura excepcional em campo de batalha sob fogo inimigo.", -1);
 medals_slots[0] = _mdl;

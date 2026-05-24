@@ -9,7 +9,7 @@ if (_player != noone) {
         var _dx = lengthdir_x(_speed, _dir);
         var _dy = lengthdir_y(_speed, _dir);
 
-        // movimento com colisão simples (x then y)
+        // movimento com colisão simples (X então Y)
         if (!place_meeting(x + _dx, y, Obj_colisor)) {
             x += _dx;
         } else {
@@ -32,7 +32,7 @@ if (_player != noone) {
     }
 }
 
-// pickup fish from nearest box (only enemies should pick)
+// pegar peixe da caixa mais próxima (apenas inimigos devem pegar)
 if (pick_cooldown > 0) pick_cooldown -= 1;
 if (throw_cooldown > 0) throw_cooldown -= 1;
 
@@ -43,16 +43,16 @@ if (_box != noone) {
         // pick one fish (infinite box)
         fish_count += 1;
         pick_cooldown = 30;
-        // play pick animation in reverse if available
+        // reproduz a animação de pegar em reverso (se existir)
         if (image_number > 1) {
             image_index = image_number - 1;
             image_speed = -1;
         }
-        show_debug_message("Enemy picked a fish; now has: " + string(fish_count));
+        show_debug_message("Inimigo pegou um peixe; agora tem: " + string(fish_count));
     }
 }
 
-// throw fish at player if has fish
+// arremessa peixe no jogador se possuir peixes
 if (fish_count > 0 && _player != noone && point_distance(x, y, _player.x, _player.y) <= attack_range && throw_cooldown <= 0) {
     // create projectile with arc: initial speed and gravity handled in projectile Step
     var _dirt = point_direction(x, y, _player.x, _player.y);
@@ -73,7 +73,7 @@ if (fish_count > 0 && _player != noone && point_distance(x, y, _player.x, _playe
     }
 }
 
-// vida baixa => destroy
+// Se a vida acabar, destrói a instância
 if (variable_local_exists("hp") && hp <= 0) {
     instance_destroy();
 }

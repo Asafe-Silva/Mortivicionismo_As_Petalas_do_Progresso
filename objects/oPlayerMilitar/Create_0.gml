@@ -26,6 +26,19 @@ camHeight = camera_get_view_height(camera);
 // ideally this should be in a Weapon struct/object, but keeping as is for now with better naming
 waltherCooldownTimer = 0;
 
+// Health / Damage handling (sync with globals)
+if (!variable_global_exists("player_hp")) global.player_hp = 100;
+TakeDamage = function(_amount) {
+    if (variable_global_exists("player_hp")) {
+        global.player_hp = max(0, global.player_hp - _amount);
+        show_debug_message("Player took " + string(_amount) + " damage. HP: " + string(global.player_hp));
+        if (global.player_hp <= 0) {
+            // basic death handling: destroy instance (expand later)
+            instance_destroy();
+        }
+    }
+}
+
 
 
 // --- State Machine ---
@@ -305,7 +318,17 @@ ProcessCombat = function() {
 
                 with (_bullet) {
                     direction = _dir;
+                    sprite_index = Spr_bala_walther_p38;
                     image_angle = _dir;
+                    // Ensure sprite not mirrored from parent
+                    image_xscale = 1;
+                    image_yscale = 1;
+                    // Set damage from equipped weapon if available
+                    if (variable_global_exists("arma_equipada") && variable_struct_exists(global.arma_equipada, "damage")) {
+                        damage = global.arma_equipada.damage;
+                    } else {
+                        damage = 12;
+                    }
                     speed = 12;
                     life = 60;
                 }

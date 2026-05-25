@@ -6,10 +6,13 @@
   "name":"Obj_pescador_boss",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"NPC",
+    "path":"folders/Objetos/NPC.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_par_inimigos",
+    "path":"objects/Obj_par_inimigos/Obj_par_inimigos.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

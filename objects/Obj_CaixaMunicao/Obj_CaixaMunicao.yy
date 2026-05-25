@@ -1,20 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"Object10",
+  "%Name":"Obj_CaixaMunicao",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Object10",
+  "name":"Obj_CaixaMunicao",
   "overriddenProperties":[],
   "parent":{
-    "name":"NPC",
-    "path":"folders/Objetos/NPC.yy",
+    "name":"Objetos",
+    "path":"folders/Objetos.yy",
   },
-  "parentObjectId":{
-    "name":"Obj_par_npcs",
-    "path":"objects/Obj_par_npcs/Obj_par_npcs.yy",
-  },
+  "parentObjectId":null,
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -33,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Spr_Joao_Caseiro",
-    "path":"sprites/Spr_Joao_Caseiro/Spr_Joao_Caseiro.yy",
+    "name":"Spr_caixa_de_municao",
+    "path":"sprites/Spr_caixa_de_municao/Spr_caixa_de_municao.yy",
   },
   "spriteMaskId":null,
   "visible":true,

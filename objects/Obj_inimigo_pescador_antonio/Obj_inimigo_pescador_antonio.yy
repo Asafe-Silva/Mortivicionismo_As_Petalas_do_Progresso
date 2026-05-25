@@ -1,18 +1,21 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_prota_catsene",
+  "%Name":"Obj_inimigo_pescador_antonio",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"Obj_prota_catsene",
+  "name":"Obj_inimigo_pescador_antonio",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"NPC",
+    "path":"folders/Objetos/NPC.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Obj_par_inimigos",
+    "path":"objects/Obj_par_inimigos/Obj_par_inimigos.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,7 +32,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
+  "solid":true,
   "spriteId":{
     "name":"Spr_pescador_Antonio_parado",
     "path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",

@@ -175,25 +175,49 @@ ProcessMovement = function() {
     hSpeed = inputDirection[0] * moveSpeed;
     vSpeed = inputDirection[1] * moveSpeed;
 
-    // 3. Colisão horizontal: tenta aproximar até colidir e zera velocidade.
-    if (place_meeting(x + hSpeed, y, Obj_colisor)) {
-        var _step = sign(hSpeed);
-        while (!place_meeting(x + _step, y, Obj_colisor)) {
-            x += _step;
-        }
-        hSpeed = 0;
-    }
-    x += hSpeed;
+   // =========================
+	// COLISÃO HORIZONTAL
+	// =========================
 
-    // 4. Colisão vertical: igual ao horizontal.
-    if (place_meeting(x, y + vSpeed, Obj_colisor)) {
-        var _step = sign(vSpeed);
-        while (!place_meeting(x, y + _step, Obj_colisor)) {
-            y += _step;
-        }
-        vSpeed = 0;
-    }
-    y += vSpeed;
+	if (
+	    place_meeting(x + hSpeed, y, Obj_colisor)
+	    || place_meeting(x + hSpeed, y, Obj_par_inimigos)
+	)
+	{
+	    while (
+	        !place_meeting(x + sign(hSpeed), y, Obj_colisor)
+	        && !place_meeting(x + sign(hSpeed), y, Obj_par_inimigos)
+	    )
+	    {
+	        x += sign(hSpeed);
+	    }
+
+	    hSpeed = 0;
+	}
+
+	x += hSpeed;
+
+	// =========================
+	// COLISÃO VERTICAL
+	// =========================
+
+	if (
+	    place_meeting(x, y + vSpeed, Obj_colisor)
+	    || place_meeting(x, y + vSpeed, Obj_par_inimigos)
+	)
+	{
+	    while (
+	        !place_meeting(x, y + sign(vSpeed), Obj_colisor)
+	        && !place_meeting(x, y + sign(vSpeed), Obj_par_inimigos)
+	    )
+	    {
+	        y += sign(vSpeed);
+	    }
+
+	    vSpeed = 0;
+	}
+
+	y += vSpeed;
 }
 
 /// @function ProcessAnimation()

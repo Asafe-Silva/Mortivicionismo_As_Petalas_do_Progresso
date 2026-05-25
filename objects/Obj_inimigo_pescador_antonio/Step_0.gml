@@ -1,12 +1,11 @@
-
 // =========================
 // PLAYER TARGET
 // =========================
 
 var player = instance_nearest(x, y, oPlayerMilitar);
 
-var vx = 0;
-var vy = 0;
+var move_x = 0;
+var move_y = 0;
 
 if (player != noone)
 {
@@ -16,107 +15,132 @@ if (player != noone)
     {
         var dir = point_direction(x, y, player.x, player.y);
 
-        x += lengthdir_x(1.5, dir);
-        y += lengthdir_y(1.5, dir);
-
-        vx = player.x - x;
-        vy = player.y - y;
+        move_x = lengthdir_x(1.5, dir);
+        move_y = lengthdir_y(1.5, dir);
     }
 }
 
 
 
 // =========================
-// SEPARAÇÃO (INIMIGOS)
-// =========================
-
-var _other = instance_place(x, y, Obj_par_inimigos);
-
-if (_other != noone && _other != id)
-{
-    var dir2 = point_direction(_other.x, _other.y, x, y);
-
-    x += lengthdir_x(1, dir2);
-    y += lengthdir_y(1, dir2);
-}
-
-
-
-// =========================
-// SEPARAÇÃO (PLAYER)
-// =========================
-
-var _player = instance_place(x, y, oPlayerMilitar);
-
-if (_player != noone)
-{
-    var dir3 = point_direction(_player.x, _player.y, x, y);
-
-    x += lengthdir_x(2, dir3);
-    y += lengthdir_y(2, dir3);
-
-    // dano opcional já existente no seu sistema pai
-}
-
-
-
-// =========================
-// FLIP HORIZONTAL
-// =========================
-
-if (vx > 0)
-    image_xscale = -1;
-else if (vx < 0)
-    image_xscale = 1;
-
-
-
-// =========================
-// SPRITE SYSTEM
+// IA
 // =========================
 
 if (player != noone)
 {
-    var dx = player.x - x;
-    var dy = player.y - y;
+    var dist = point_distance(x, y, player.x, player.y);
 
-    var abs_dx = abs(dx);
-    var abs_dy = abs(dy);
+    if (dist < vision_range)
+    {
+        move_x = sign(player.x - x);
+        move_y = sign(player.y - y);
+    }
+}
 
-    // horizontal (corrida)
-    if (abs_dx > abs_dy)
+
+
+// =========================
+// COLISÃO HORIZONTAL
+// =========================
+
+if (place_meeting(x + move_x * move_speed, y, Obj_colisor)
+|| place_meeting(x + move_x * move_speed, y, oPlayerMilitar)
+|| place_meeting(x + move_x * move_speed, y, Obj_par_inimigos))
+{
+    while (!place_meeting(x + sign(move_x), y, Obj_colisor)
+    && !place_meeting(x + sign(move_x), y, oPlayerMilitar)
+    && !place_meeting(x + sign(move_x), y, Obj_par_inimigos))
+    {
+        x += sign(move_x);
+    }
+
+    move_x = 0;
+}
+
+x += move_x * move_speed;
+
+
+
+// =========================
+// COLISÃO VERTICAL
+// =========================
+
+if (place_meeting(x, y + move_y * move_speed, Obj_colisor)
+|| place_meeting(x, y + move_y * move_speed, oPlayerMilitar)
+|| place_meeting(x, y + move_y * move_speed, Obj_par_inimigos))
+{
+    while (!place_meeting(x, y + sign(move_y), Obj_colisor)
+    && !place_meeting(x, y + sign(move_y), oPlayerMilitar)
+    && !place_meeting(x, y + sign(move_y), Obj_par_inimigos))
+    {
+        y += sign(move_y);
+    }
+
+    move_y = 0;
+}
+
+y += move_y * move_speed;
+
+
+
+// =========================
+// FLIP
+// =========================
+
+if (move_x > 0)
+{
+    image_xscale = -1;
+}
+
+if (move_x < 0)
+{
+    image_xscale = 1;
+}
+
+
+
+// =========================
+// SPRITES
+// =========================
+
+if (move_x == 0 && move_y == 0)
+{
+    sprite_index = Spr_pescador_Antonio_parado;
+}
+else
+{
+    // horizontal
+    if (abs(move_x) > abs(move_y))
     {
         sprite_index = Spr_pescador_Antonio_corendo;
     }
     else
     {
-        // vertical
-        if (dy < 0)
+        // cima
+        if (move_y < 0)
         {
-            if (abs_dx > 20)
+            if (move_x != 0)
+            {
                 sprite_index = Spr_pescador_Antonio_cima_lateral;
+            }
             else
+            {
                 sprite_index = Spr_pescador_Antonio_cima;
+            }
         }
-        else
+
+        // baixo
+        if (move_y > 0)
         {
-            if (abs_dx > 20)
+            if (move_x != 0)
+            {
                 sprite_index = Spr_pescador_Antonio_baixo_lateral;
+            }
             else
+            {
                 sprite_index = Spr_pescador_Antonio_baixo;
+            }
         }
     }
 }
-else
-{
-    sprite_index = Spr_pescador_Antonio_parado;
-}
-
-
-
-// =========================
-// DEBUG (OPCIONAL)
-// =========================
-
-// draw_self(); fica no Draw Event
 

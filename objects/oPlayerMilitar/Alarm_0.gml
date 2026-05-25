@@ -1,3 +1,3 @@
-/// @description End Attack State
+/// @descrição Estado final do ataque
 state = PLAYER_STATE.FREE;
-image_blend = c_white; // Reset debug color
+image_blend = c_white; // Redefinir cor de depuração

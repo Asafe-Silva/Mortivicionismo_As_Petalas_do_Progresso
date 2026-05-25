@@ -9,8 +9,8 @@
   "name":"Obj_InimigoTeste",
   "overriddenProperties":[],
   "parent":{
-    "name":"NPC",
-    "path":"folders/Objetos/NPC.yy",
+    "name":"inimigo",
+    "path":"folders/Objetos/NPC/inimigo.yy",
   },
   "parentObjectId":{
     "name":"Obj_par_inimigos",

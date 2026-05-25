@@ -1,5 +1,5 @@
 /// @description 
-// Simple debug toggle - kept for legacy support if needed, but cleaned up
+// Alternância de depuração simples - mantida para suporte a versões anteriores, se necessário, mas simplificada.
 // Debug Info
 if (keyboard_check(vk_tab)) {
     draw_set_color(c_white);

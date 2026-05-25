@@ -9,8 +9,8 @@
   "name":"Obj_CaixaMunicao",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"caixas",
+    "path":"folders/Objetos/armas/caixas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

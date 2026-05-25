@@ -7,11 +7,12 @@ Colaboradores / Apoio:
 	Natalia Fontoura - storyboard auxiliar e Dubladora.
 	André Lincoln, Bruno Fernandes, João Caseiro – testes de jogo.
 	Eduardo Pegorar – storyboard auxiliar.
-	
+	James Ninetynine Magnolia e brennizuki - sound-design e musico 
+
 Capa do jogo:
 	@apohe_art - Desenhou a v01 da capa do jogo
 	
-recurços pegos na internet:
+recursos na internet:
 	schwarnhild - o tiles do piso
 	Kenney - sons finos e alguns tiles
 	Starmixu & Utaskuas - tiles, plantas e animações relacionadas 

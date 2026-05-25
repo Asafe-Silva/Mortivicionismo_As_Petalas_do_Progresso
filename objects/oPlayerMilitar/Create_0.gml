@@ -18,7 +18,7 @@ camZoom = 1;
 camTargetZoom = 1;
 camSpeed = 0.05;
 camera = view_camera[0];
-// Cache camera dimensions (update if resolution changes dynamically)
+// Armazenar em cache as dimensões da câmera (atualizar se a resolução mudar dinamicamente)
 camWidth = camera_get_view_width(camera);
 camHeight = camera_get_view_height(camera);
 

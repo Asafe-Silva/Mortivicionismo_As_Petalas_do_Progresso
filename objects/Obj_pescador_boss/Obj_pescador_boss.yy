@@ -1,13 +1,16 @@
 {
   "$GMObject":"",
   "%Name":"Obj_pescador_boss",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"Obj_pescador_boss",
   "overriddenProperties":[],
   "parent":{
-    "name":"NPC",
-    "path":"folders/Objetos/NPC.yy",
+    "name":"inimigo",
+    "path":"folders/Objetos/NPC/inimigo.yy",
   },
   "parentObjectId":{
     "name":"Obj_par_inimigos",

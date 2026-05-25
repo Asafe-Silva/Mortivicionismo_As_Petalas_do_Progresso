@@ -1,8 +1,8 @@
 // Herdar variáveis
 event_inherited();
 
-hp = 50;
-max_hp = 50;
+hp = 300;
+max_hp = 300;
 // Peixe / combate
 fish_count = 0; // número de peixes que o inimigo possui
 pick_cooldown = 0; // quadros até que possa escolher novamente

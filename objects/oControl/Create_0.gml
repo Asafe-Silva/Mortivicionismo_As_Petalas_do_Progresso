@@ -18,3 +18,6 @@ if (!instance_exists(oInventoryUI)) {
 }
 
 init_item_definitions();
+
+global.game_message = ""; 
+global.game_message_timer = 0;

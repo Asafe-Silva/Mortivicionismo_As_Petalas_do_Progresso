@@ -1,16 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"Obj_par_inimigos",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"Obj_peixe_arremessavel",
+  "eventList":[],
   "managed":true,
-  "name":"Obj_par_inimigos",
+  "name":"Obj_peixe_arremessavel",
   "overriddenProperties":[],
   "parent":{
-    "name":"inimigo",
-    "path":"folders/Objetos/NPC/inimigo.yy",
+    "name":"armas",
+    "path":"folders/Objetos/armas.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Spr_peixe_jogaveu_azul",
+    "path":"sprites/Spr_peixe_jogaveu_azul/Spr_peixe_jogaveu_azul.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

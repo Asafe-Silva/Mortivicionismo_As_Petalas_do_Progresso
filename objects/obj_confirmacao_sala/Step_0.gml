@@ -22,7 +22,19 @@ if (mostrar_pergunta)
         {
             if (my >= sim_y1 && my <= sim_y2)
             {
-                room_goto(Roo_porto);
+
+                // ROOM DE TESTE
+                if (room == local_de_teste)
+                {
+                    room_goto(Roo_porto);
+                }
+
+                // ROOM PORTO
+                else if (room == Roo_porto)
+                {
+                    room_goto(Roo_fase_boss);
+                }
+
             }
         }
 

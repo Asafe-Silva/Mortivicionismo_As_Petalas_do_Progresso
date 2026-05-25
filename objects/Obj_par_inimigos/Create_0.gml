@@ -2,6 +2,9 @@
 hp = 100;
 max_hp = 100;
 
+attack_cooldown = 0;
+attack_speed = 60;
+
 /// @função receber dano(_amount)
 TakeDamage = function(_amount) {
     hp -= _amount;

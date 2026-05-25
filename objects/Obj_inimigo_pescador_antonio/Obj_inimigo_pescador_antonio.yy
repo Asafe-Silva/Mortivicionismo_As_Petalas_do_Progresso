@@ -33,7 +33,7 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":true,
+  "solid":false,
   "spriteId":{
     "name":"Spr_pescador_Antonio_parado",
     "path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",

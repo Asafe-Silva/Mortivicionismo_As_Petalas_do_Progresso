@@ -1,11 +1,11 @@
 
 // Properties
-itemId = ""; // To be set by child objects
+itemId = ""; // A ser definido por objetos filhos
 pickupRange = 20;
 amount = 1;
 
 /// @function OnCollect()
-/// @description Virtual method called when item is collected. Override in children.
+/// @dDescrição: Método virtual chamado quando um item é coletado. Pode ser sobrescrito nos métodos filhos.
 OnCollect = function() {
-    // Default: do nothing
+    // Padrão: não fazer nada
 }

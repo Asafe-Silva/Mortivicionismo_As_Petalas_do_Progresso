@@ -42,8 +42,8 @@
     {"name":"inst_78836DA8","path":"rooms/Roo_porto/Roo_porto.yy",},
     {"name":"inst_380A4D08","path":"rooms/Roo_porto/Roo_porto.yy",},
     {"name":"inst_3A277DA6","path":"rooms/Roo_porto/Roo_porto.yy",},
-    {"name":"inst_2EB3D816","path":"rooms/Roo_porto/Roo_porto.yy",},
     {"name":"inst_16412438","path":"rooms/Roo_porto/Roo_porto.yy",},
+    {"name":"inst_148E2ADC","path":"rooms/Roo_porto/Roo_porto.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -92,8 +92,8 @@
       ],"layers":[],"name":"inimigos","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"caixa_de_municao","depth":400,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"$GMRInstance":"v4","%Name":"inst_3A277DA6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3A277DA6","objectId":{"name":"Obj_CaixaMunicao","path":"objects/Obj_CaixaMunicao/Obj_CaixaMunicao.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":522.0,"y":432.0,},
-        {"$GMRInstance":"v4","%Name":"inst_2EB3D816","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2EB3D816","objectId":{"name":"Obj_inimigo_pescador_antonio","path":"objects/Obj_inimigo_pescador_antonio/Obj_inimigo_pescador_antonio.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":427.0,},
         {"$GMRInstance":"v4","%Name":"inst_16412438","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_16412438","objectId":{"name":"Obj_Walther_P38","path":"objects/Obj_Walther_P38/Obj_Walther_P38.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":131.0,"y":131.0,},
+        {"$GMRInstance":"v4","%Name":"inst_148E2ADC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":true,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_148E2ADC","objectId":{"name":"obj_confirmacao_sala","path":"objects/obj_confirmacao_sala/obj_confirmacao_sala.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.3662901,"scaleY":1.21875,"x":748.0,"y":300.0,},
       ],"layers":[],"name":"caixa_de_municao","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"telhado","depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"telhado","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":44,"SerialiseWidth":57,"TileCompressedData":[
           -960,-2147483648,1,664,-6,666,2,665,0,-47,-2147483648,2,0,571,-6,573,1,572,-49,-2147483648,1,571,-6,

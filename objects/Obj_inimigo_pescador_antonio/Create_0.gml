@@ -1,5 +1,6 @@
 // Herdar variáveis
 event_inherited();
+image_xscale = 1;
 
 hp = 70;
 max_hp = 70;

@@ -233,6 +233,7 @@
     {"id":{"name":"Spr_trauma_peixe_afogando_pequeno","path":"sprites/Spr_trauma_peixe_afogando_pequeno/Spr_trauma_peixe_afogando_pequeno.yy",},},
     {"id":{"name":"Spr_v01_capa","path":"sprites/Spr_v01_capa/Spr_v01_capa.yy",},},
     {"id":{"name":"Spr_walther_p38","path":"sprites/Spr_walther_p38/Spr_walther_p38.yy",},},
+    {"id":{"name":"Sprite64","path":"sprites/Sprite64/Sprite64.yy",},},
     {"id":{"name":"Til_arvores_e_plantas_tipo_1","path":"tilesets/Til_arvores_e_plantas_tipo_1/Til_arvores_e_plantas_tipo_1.yy",},},
     {"id":{"name":"Til_barco_madeira_pequeno","path":"tilesets/Til_barco_madeira_pequeno/Til_barco_madeira_pequeno.yy",},},
     {"id":{"name":"Til_casas","path":"tilesets/Til_casas/Til_casas.yy",},},

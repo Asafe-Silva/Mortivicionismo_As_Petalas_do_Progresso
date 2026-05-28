@@ -1,6 +1,6 @@
 live_auto_call
 
-// Check for existing saves to configure the primary action
+// Verifique se existem salvamentos existentes para configurar a ação principal.
 var _has_saves = false;
 for (var i = 1; i <= 3; i++) {
     if (file_exists("savegame_slot" + string(i) + ".json")) {

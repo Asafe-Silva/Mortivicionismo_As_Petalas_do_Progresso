@@ -1,6 +1,6 @@
 live_auto_call
 
-// Input lock during transitions
+// Bloqueio de entrada durante as transições
 if (instance_exists(oTransition)) exit;
 
 // Input

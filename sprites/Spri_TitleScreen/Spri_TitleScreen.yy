@@ -1,10 +1,10 @@
 {
   "$GMSprite":"v2",
-  "%Name":"Sprite64",
+  "%Name":"Spri_TitleScreen",
   "bboxMode":0,
-  "bbox_bottom":1067,
+  "bbox_bottom":719,
   "bbox_left":0,
-  "bbox_right":1921,
+  "bbox_right":1279,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,24 +16,24 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":1068,
+  "height":720,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"ba8ec61b-c49c-4392-83da-04716039ce6c","blendMode":0,"displayName":"default","isLocked":false,"name":"ba8ec61b-c49c-4392-83da-04716039ce6c","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
-  "name":"Sprite64",
+  "name":"Spri_TitleScreen",
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Cenas",
-    "path":"folders/Cenas.yy",
+    "name":"Capa do jogo",
+    "path":"folders/Sprites/Capa do jogo.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"v1",
-    "%Name":"Sprite64",
+    "%Name":"Spri_TitleScreen",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -57,7 +57,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"Sprite64",
+    "name":"Spri_TitleScreen",
     "playback":1,
     "playbackSpeed":30.0,
     "playbackSpeedType":0,
@@ -69,7 +69,7 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"517b97af-5cdd-47ab-8b72-1590f584331b","path":"sprites/Sprite64/Sprite64.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"517b97af-5cdd-47ab-8b72-1590f584331b","path":"sprites/Spri_TitleScreen/Spri_TitleScreen.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"f4493f8e-5d4d-4630-8a58-c9505f172ed5","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":1922,
+  "width":1280,
 }

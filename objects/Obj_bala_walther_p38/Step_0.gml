@@ -15,8 +15,7 @@ if (life <= 0)
 // COLISÃO COM PAREDE
 // =========================
 
-if (place_meeting(x, y, Obj_colisor))
-{
+if (place_meeting(x, y, Obj_colisor)){
     instance_destroy();
 }
 
@@ -28,12 +27,10 @@ if (place_meeting(x, y, Obj_colisor))
 
 var inimigo = instance_place(x, y, Obj_par_inimigos);
 
-if (inimigo != noone)
-{
+if (inimigo != noone){
     inimigo.hp -= 20;
 
-    if (inimigo.hp <= 0)
-    {
+    if (inimigo.hp <= 0){
         instance_destroy(inimigo);
     }
 

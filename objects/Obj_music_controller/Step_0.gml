@@ -17,6 +17,26 @@ if room == rm_TitleScreen
 
 
 // =========================
+// CREDITS ROOM (música do início, mais baixa e lenta)
+// =========================
+
+if room == Roo_creditos
+{
+    if musica_atual != Som_luta_inicial
+    {
+        audio_stop_all();
+
+        var _id = audio_play_sound(Som_luta_inicial, 1, true);
+        // diminuir volume e pitch (lentidão leve)
+        audio_sound_gain(_id, 0.45, 0);
+
+        musica_atual = Som_luta_inicial;
+    }
+}
+
+
+
+// =========================
 // GAMEPLAY NORMAL
 // =========================
 

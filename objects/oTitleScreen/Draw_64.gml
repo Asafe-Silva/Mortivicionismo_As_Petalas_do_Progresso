@@ -1,8 +1,16 @@
 live_auto_call
 
-// Draw Background
-draw_set_color(c_black);
-draw_rectangle(0, 0, gui_w, gui_h, false);
+// Draw Background image scaled to room size (fallback to black)
+if (sprite_exists(Spri_TitleScreen)) {
+    var _sw = sprite_get_width(Spri_TitleScreen);
+    var _sh = sprite_get_height(Spri_TitleScreen);
+    var _sx = room_width / _sw;
+    var _sy = room_height / _sh;
+    draw_sprite_ext(Spri_TitleScreen, 0, 0, 0, _sx, _sy, 0, c_white, 1);
+} else {
+    draw_set_color(c_black);
+    draw_rectangle(0, 0, gui_w, gui_h, false);
+}
 
 // Title Text
 draw_set_halign(fa_left);

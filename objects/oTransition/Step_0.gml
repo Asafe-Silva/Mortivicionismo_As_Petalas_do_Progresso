@@ -1,4 +1,4 @@
-
+live_auto_call
 
 if (state == 1) { // Fade Out (screen gets dark)
     alpha += fade_speed;

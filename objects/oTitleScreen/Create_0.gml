@@ -1,4 +1,4 @@
-
+live_auto_call
 
 // Verifique se existem salvamentos existentes para configurar a ação principal.
 var _has_saves = false;

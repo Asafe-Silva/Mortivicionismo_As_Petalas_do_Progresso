@@ -1,4 +1,4 @@
-
+live_auto_call
 
 if (alpha > 0) {
     draw_set_alpha(alpha);

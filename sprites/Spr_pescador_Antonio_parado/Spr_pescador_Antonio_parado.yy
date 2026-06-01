@@ -1,11 +1,11 @@
 {
   "$GMSprite":"v2",
   "%Name":"Spr_pescador_Antonio_parado",
-  "bboxMode":2,
+  "bboxMode":0,
   "bbox_bottom":31,
   "bbox_left":8,
   "bbox_right":25,
-  "bbox_top":16,
+  "bbox_top":1,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,

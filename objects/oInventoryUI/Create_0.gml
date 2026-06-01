@@ -1,4 +1,4 @@
- 
+live_auto_call 
 
 // Layout Constants (Scaled for 960x540)
 // Using Macros RES_W and RES_H

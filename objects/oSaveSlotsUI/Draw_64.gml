@@ -1,4 +1,4 @@
-
+live_auto_call
 
 draw_set_color(c_black);
 draw_rectangle(0, 0, RES_W, RES_H, false);

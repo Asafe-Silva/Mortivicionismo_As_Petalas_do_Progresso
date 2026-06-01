@@ -1,4 +1,4 @@
-
+live_auto_call
 
 // Draw Background
 draw_set_color(c_black);

@@ -1,4 +1,4 @@
-
+live_auto_call
 
 if (instance_exists(oTransition)) exit;
 if (async_rename_dialog != -1) exit;

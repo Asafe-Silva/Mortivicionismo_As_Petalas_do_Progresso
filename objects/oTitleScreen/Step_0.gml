@@ -1,4 +1,4 @@
-live_auto_call
+
 
 // Bloqueio de entrada durante as transições
 if (instance_exists(oTransition)) exit;

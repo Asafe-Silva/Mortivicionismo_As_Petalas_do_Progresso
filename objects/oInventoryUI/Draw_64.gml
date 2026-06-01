@@ -1,4 +1,4 @@
-live_auto_call
+
 
 // --- Check if Menu is Active ---
 var _inv_manager = instance_find(oInventoryManager, 0);

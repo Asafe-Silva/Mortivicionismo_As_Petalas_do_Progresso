@@ -38,6 +38,9 @@
     "name":"Spr_pescador_Antonio_parado",
     "path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"Spr_pescador_Antonio_parado",
+    "path":"sprites/Spr_pescador_Antonio_parado/Spr_pescador_Antonio_parado.yy",
+  },
   "visible":true,
 }

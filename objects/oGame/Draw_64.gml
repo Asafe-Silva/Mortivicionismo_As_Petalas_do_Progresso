@@ -1,5 +1,5 @@
 /// @description Draw HUD (HP, Sanity)
-live_auto_call
+
 
 // Hide HUD if inventory is open
 if (instance_exists(oInventoryManager) && oInventoryManager.menuActive) {

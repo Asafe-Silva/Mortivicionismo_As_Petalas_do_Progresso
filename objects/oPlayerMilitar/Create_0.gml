@@ -35,7 +35,9 @@ TakeDamage = function(_amount) {
         show_debug_message("Jogador recebeu " + string(_amount) + " de dano. HP: " + string(global.player_hp));
         if (global.player_hp <= 0) {
             // Tratamento básico de morte: destruir a instância (pode ser expandido depois)
-            instance_destroy();
+            
+			//instance_destroy();
+			
         }
     }
 }

@@ -1,4 +1,4 @@
-live_auto_call
+
 
 var _id = ds_map_find_value(async_load, "id");
 if (_id == async_rename_dialog) {
